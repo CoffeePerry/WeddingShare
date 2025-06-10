@@ -104,7 +104,7 @@
     <value>Aggiungi</value>
   </data>
   <data name="Approve" xml:space="preserve">
-    <value>Approvo</value>
+    <value>Approva</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Approvazione</value>
@@ -167,7 +167,7 @@
     <value>Limite</value>
   </data>
   <data name="Audit_List_Failed" xml:space="preserve">
-    <value>Non è riuscito a ottenere la lista di audit</value>
+    <value>Impossibile ottenere la lista di audit</value>
   </data>
   <data name="Audit_LoggedOut" xml:space="preserve">
     <value>Ho cercato</value>
@@ -197,13 +197,13 @@
     <value>Impostazioni aggiornate per galleria</value>
   </data>
   <data name="Audit_UnfrozeUser" xml:space="preserve">
-    <value>Utente non congelato</value>
+    <value>Utente sbloccato</value>
   </data>
   <data name="Audit_UpdatedGallery" xml:space="preserve">
     <value>Galleria aggiornata</value>
   </data>
   <data name="Audit_UpdatedUser" xml:space="preserve">
-    <value>Aggiornato utente</value>
+    <value>Utente aggiornato</value>
   </data>
   <data name="Audit_UserLoggedIn" xml:space="preserve">
     <value>Utente registrato</value>
@@ -212,13 +212,13 @@
     <value>Ho pulito tutte le gallerie</value>
   </data>
   <data name="Audit_WipedGallery" xml:space="preserve">
-    <value>Galleria Wi-Fi</value>
+    <value>Galleria pulita</value>
   </data>
   <data name="Available_Galleries" xml:space="preserve">
     <value>Gallerie disponibili</value>
   </data>
   <data name="Check_Account_State_Failed" xml:space="preserve">
-    <value>Non controlla lo stato del conto</value>
+    <value>Impossibile verificare lo stato dell'account</value>
   </data>
   <data name="Clean" xml:space="preserve">
     <value>Pulire</value>
@@ -236,7 +236,7 @@
     <value>Contattare un amministratore del sito per fornire l'accesso</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Creare</value>
+    <value>Crea</value>
   </data>
   <data name="Currently_No_Access" xml:space="preserve">
     <value>Attualmente non hai accesso</value>
@@ -245,7 +245,7 @@
     <value>Risorse personalizzate</value>
   </data>
   <data name="Custom_Resources_Failed" xml:space="preserve">
-    <value>Non riuscito a ottenere risorse personalizzate</value>
+    <value>Impossibile ottenere risorse personalizzate</value>
   </data>
   <data name="Custom_Resources_Upload_Help" xml:space="preserve">
     <value>Selezionare un file di immagine da caricare</value>
@@ -254,10 +254,10 @@
     <value>Carica risorse personalizzate</value>
   </data>
   <data name="CustomResource_Delete_Failed" xml:space="preserve">
-    <value>Non riuscita a eliminare risorse personalizzate</value>
+    <value>Impossibile eliminare risorse personalizzate</value>
   </data>
   <data name="CustomResource_Upload_Failed" xml:space="preserve">
-    <value>Non caricare risorse personalizzate</value>
+    <value>Impossibile caricare risorse personalizzate</value>
   </data>
   <data name="Danger_Zone" xml:space="preserve">
     <value>Zona di pericolo</value>
@@ -278,7 +278,7 @@
     <value>Non sei autorizzato a scaricare questa galleria</value>
   </data>
   <data name="Drag_And_Drop" xml:space="preserve">
-    <value>Dragaggio</value>
+    <value>Trascina e Rilascia</value>
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>File duplicato rilevato</value>
@@ -287,58 +287,58 @@
     <value>Esportazione</value>
   </data>
   <data name="Failed_Add_Gallery" xml:space="preserve">
-    <value>Non è riuscito a creare galleria</value>
+    <value>Impossibile creare la galleria</value>
   </data>
   <data name="Failed_Add_User" xml:space="preserve">
-    <value>Non riuscita a creare utente</value>
+    <value>Impossibile creare l'utente</value>
   </data>
   <data name="Failed_Delete_Gallery" xml:space="preserve">
-    <value>Non è riuscito a cancellare la galleria</value>
+    <value>Impossibile cancellare la galleria</value>
   </data>
   <data name="Failed_Delete_User" xml:space="preserve">
-    <value>Non riuscito a eliminare l'utente</value>
+    <value>Impossibile eliminare l'utente</value>
   </data>
   <data name="Failed_Download_Gallery" xml:space="preserve">
-    <value>Non ha scaricato la galleria</value>
+    <value>Impossibile scaricare la galleria</value>
   </data>
   <data name="Failed_Download_Gallery_Invalid_Key" xml:space="preserve">
-    <value>Non ha scaricato la galleria. La chiave segreta era invalida</value>
+    <value>Impossibile scaricare la galleria. La chiave segreta era invalida</value>
   </data>
   <data name="Failed_Edit_Gallery" xml:space="preserve">
-    <value>Non è riuscito ad aggiornare la galleria</value>
+    <value>Impossibile aggiornare la galleria</value>
   </data>
   <data name="Failed_Edit_User" xml:space="preserve">
-    <value>Non aggiornato l'utente</value>
+    <value>Impossibile aggiornare l'utente</value>
   </data>
   <data name="Failed_Export" xml:space="preserve">
-    <value>Non esportare dati</value>
+    <value>Impossibile esportare i dati</value>
   </data>
   <data name="Failed_Finding_File" xml:space="preserve">
-    <value>Non trovato il file</value>
+    <value>Impossibile trovare il file</value>
   </data>
   <data name="Failed_Import" xml:space="preserve">
-    <value>Non importare dati</value>
+    <value>Impossibile importare i dati</value>
   </data>
   <data name="Failed_Reviewing_Media" xml:space="preserve">
-    <value>Non recensire il prodotto</value>
+    <value>Impossibile rivedere l'elemento</value>
   </data>
   <data name="Failed_Update_Setting" xml:space="preserve">
-    <value>Non è possibile aggiornare le impostazioni</value>
+    <value>Impossibile aggiornare le impostazioni</value>
   </data>
   <data name="Failed_Wipe_Galleries" xml:space="preserve">
-    <value>Non ha cancellato le gallerie</value>
+    <value>Impossibile cancellare le gallerie</value>
   </data>
   <data name="Failed_Wipe_Gallery" xml:space="preserve">
-    <value>Non ha cancellato la galleria</value>
+    <value>Impossibile svuotare la galleria</value>
   </data>
   <data name="FFMPEG_Download_Failed" xml:space="preserve">
-    <value>Non scaricato FFMPEG sul percorso</value>
+    <value>Impossibile scaricare FFMPEG nel percorso</value>
   </data>
   <data name="FFMPEG_Downloading" xml:space="preserve">
     <value>Tentato di generare miniatura video, ma FFMPEG non ha ancora completato il download. Se si tratta di una nuova installazione si prega di attendere che il download per completare e mancare miniature sarà generato dallo scanner di sfondo</value>
   </data>
   <data name="File_Upload_Failed" xml:space="preserve">
-    <value>Non caricare file</value>
+    <value>Impossibile caricare il file</value>
   </data>
   <data name="Filename_Already_Exists" xml:space="preserve">
     <value>Un file con lo stesso nome esiste già</value>
@@ -377,7 +377,7 @@
     <value>Il numero massimo consentito di gallerie è stato raggiunto</value>
   </data>
   <data name="Gallery_List_Failed" xml:space="preserve">
-    <value>Non riuscito a ottenere la lista della galleria</value>
+    <value>Impossibile ottenere la lista della galleria</value>
   </data>
   <data name="Gallery_Name" xml:space="preserve">
     <value>Nome della galleria</value>
@@ -404,10 +404,10 @@
     <value>Si è verificato un errore caricare la homepage</value>
   </data>
   <data name="Identity_Session_Error" xml:space="preserve">
-    <value>Non impostare sessione di identità utente - Nome</value>
+    <value>Impossibile impostare la sessione di identità utente - Nome</value>
   </data>
   <data name="Image_Upload_Failed" xml:space="preserve">
-    <value>Non caricare immagini</value>
+    <value>Impossibile caricare le immagini</value>
   </data>
   <data name="Import" xml:space="preserve">
     <value>Importazioni</value>
@@ -437,7 +437,7 @@
     <value>Accedi</value>
   </data>
   <data name="Login_Failed" xml:space="preserve">
-    <value>Non loggato all'utente</value>
+    <value>Impossibile effettuare l'accesso</value>
   </data>
   <data name="Login_Password_Help" xml:space="preserve">
     <value>Inserisci la password dell'account.</value>
@@ -464,7 +464,7 @@
     <value>Membri</value>
   </data>
   <data name="MultiFactor_Token_Set_Failed" xml:space="preserve">
-    <value>Non impostare 2FA</value>
+    <value>Impossibile impostare 2FA</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nome</value>
@@ -473,7 +473,7 @@
     <value>Il nome della galleria non può essere vuoto</value>
   </data>
   <data name="New_Items_Pending_Review" xml:space="preserve">
-    <value>Nuovi articoli in attesa recensione</value>
+    <value>Nuovi elementi in attesa revisione</value>
   </data>
   <data name="No_Custom_Resources" xml:space="preserve">
     <value>Nessuna risorsa personalizzata caricata</value>
@@ -488,7 +488,7 @@
     <value>Nessuna galleria creata ancora</value>
   </data>
   <data name="No_Pending_Uploads" xml:space="preserve">
-    <value>Nessuna recensione in sospeso</value>
+    <value>Nessuna revisione in sospeso</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Finanziamenti</value>
@@ -497,10 +497,10 @@
     <value>Caricamento in corso</value>
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
-    <value>Non riuscito a ottenere caricamenti in sospeso</value>
+    <value>Impossibile ottenere i caricamenti in sospeso</value>
   </data>
   <data name="Reject" xml:space="preserve">
-    <value>Rifiuti</value>
+    <value>Rifiuta</value>
   </data>
   <data name="Release_Version" xml:space="preserve">
     <value>Versione di rilascio</value>
@@ -512,22 +512,22 @@
     <value>Risorse</value>
   </data>
   <data name="Review" xml:space="preserve">
-    <value>Recensione</value>
+    <value>Revisione</value>
   </data>
   <data name="Save_QR" xml:space="preserve">
     <value>Salvare il QR</value>
   </data>
   <data name="Save_To_Custom_Resources_Failed" xml:space="preserve">
-    <value>Non riuscito a salvare la risorsa personalizzata</value>
+    <value>Impossibile salvare la risorsa personalizzata</value>
   </data>
   <data name="Save_To_Gallery_Failed" xml:space="preserve">
-    <value>Non riuscito a salvare l'immagine alla galleria</value>
+    <value>Impossibile salvare l'immagine alla galleria</value>
   </data>
   <data name="Scan_To_Share" xml:space="preserve">
     <value>Scansiona il codice QR con il telefono per condividere le tue immagini</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>Impostazioni impostazioni</value>
+    <value>Impostazioni</value>
   </data>
   <data name="Settings_Account" xml:space="preserve">
     <value>Account</value>
@@ -572,13 +572,13 @@
     <value>Registrazione non riuscita</value>
   </data>
   <data name="Settings_Alerts_Pending_Review_Help" xml:space="preserve">
-    <value>Dovrebbe essere inviato avvisi se un nuovo articolo è in attesa di revisione</value>
+    <value>Dovrebbe essere inviato avvisi se un nuovo elemento è in attesa di revisione</value>
   </data>
   <data name="Settings_Alerts_Pending_Review_Label" xml:space="preserve">
-    <value>Recensione di prestito</value>
+    <value>Revisione di prestito</value>
   </data>
   <data name="Settings_BackgroundServices" xml:space="preserve">
-    <value>Servizi di sfondo</value>
+    <value>Servizi in Background</value>
   </data>
   <data name="Settings_BackgroundServices_Cleanup_Help" xml:space="preserve">
     <value>Pulisce i file temporanei</value>
@@ -626,13 +626,13 @@
     <value>Selezione galleria Tipo</value>
   </data>
   <data name="Settings_Basic_GallerySelectorHideDefault_Help" xml:space="preserve">
-    <value>Se l'opzione di galleria predefinita è visibile</value>
+    <value>Se l'opzione della galleria predefinita è visibile</value>
   </data>
   <data name="Settings_Basic_GallerySelectorHideDefault_Label" xml:space="preserve">
     <value>Mostra la galleria di default</value>
   </data>
   <data name="Settings_Basic_GuestGalleryCreation_Help" xml:space="preserve">
-    <value>Gli ospiti dovrebbero poter creare nuove gallerie</value>
+    <value>Gli ospiti dovrebbero poter Crea nuove gallerie</value>
   </data>
   <data name="Settings_Basic_GuestGalleryCreation_Label" xml:space="preserve">
     <value>Galleria degli ospiti Creazione</value>
@@ -662,7 +662,7 @@
     <value>Logo</value>
   </data>
   <data name="Settings_Basic_MaxGalleryCount_Help" xml:space="preserve">
-    <value>Quante gallerie sono gli utenti autorizzati a creare</value>
+    <value>Quante gallerie sono gli utenti autorizzati a Crea</value>
   </data>
   <data name="Settings_Basic_MaxGalleryCount_Label" xml:space="preserve">
     <value>Max Gallery Conte</value>
@@ -686,7 +686,7 @@
     <value>Titolo</value>
   </data>
   <data name="Settings_Failed" xml:space="preserve">
-    <value>Non riuscito a ottenere le impostazioni</value>
+    <value>Impossibile ottenere le impostazioni</value>
   </data>
   <data name="Settings_Gallery" xml:space="preserve">
     <value>Predefiniti della galleria</value>
@@ -722,7 +722,7 @@
     <value>Vista predefinita</value>
   </data>
   <data name="Settings_Gallery_Download_Help" xml:space="preserve">
-    <value>Gli ospiti dovrebbero essere autorizzati a scaricare articoli</value>
+    <value>Gli ospiti dovrebbero essere autorizzati a scaricare elementi</value>
   </data>
   <data name="Settings_Gallery_Download_Label" xml:space="preserve">
     <value>Consentire di scaricare</value>
@@ -740,10 +740,10 @@
     <value>Mins di ricambio</value>
   </data>
   <data name="Settings_Gallery_ItemsPerPage_Help" xml:space="preserve">
-    <value>Il numero massimo di articoli da mostrare per pagina</value>
+    <value>Il numero massimo di elementi da mostrare per pagina</value>
   </data>
   <data name="Settings_Gallery_ItemsPerPage_Label" xml:space="preserve">
-    <value>Articoli per pagina</value>
+    <value>Elementi per pagina</value>
   </data>
   <data name="Settings_Gallery_MaxFileSizeMb_Help" xml:space="preserve">
     <value>Qual è il più grande in MB un file caricato può essere</value>
@@ -788,16 +788,16 @@
     <value>Includere la cultura in QR</value>
   </data>
   <data name="Settings_Gallery_Quote_Help" xml:space="preserve">
-    <value>Un preventivo da visualizzare in cima alla galleria</value>
+    <value>Un quote da visualizzare in cima alla galleria</value>
   </data>
   <data name="Settings_Gallery_Quote_Label" xml:space="preserve">
     <value>Quote</value>
   </data>
   <data name="Settings_Gallery_RequireReview_Help" xml:space="preserve">
-    <value>Fare articoli devono essere esaminati prima che appaiono sul sito</value>
+    <value>Fare elementi devono essere esaminati prima che appaiono sul sito</value>
   </data>
   <data name="Settings_Gallery_RequireReview_Label" xml:space="preserve">
-    <value>Recensione richiesta</value>
+    <value>Revisione richiesta</value>
   </data>
   <data name="Settings_Gallery_RetainRejectedItems_Help" xml:space="preserve">
     <value>Dovrebbero essere archiviati oggetti rifiutati per un uso successivo</value>
@@ -809,7 +809,7 @@
     <value>Se il contatore di revisione deve essere mostrato</value>
   </data>
   <data name="Settings_Gallery_ReviewCounter_Label" xml:space="preserve">
-    <value>Recensione Contatore</value>
+    <value>Revisione Contatore</value>
   </data>
   <data name="Settings_Gallery_SecretKey_Help" xml:space="preserve">
     <value>Una password per sbloccare la galleria</value>
@@ -818,7 +818,7 @@
     <value>Chiave segreta</value>
   </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
-    <value>Gli ospiti dovrebbero essere autorizzati a caricare articoli</value>
+    <value>Gli ospiti dovrebbero essere autorizzati a caricare elementi</value>
   </data>
   <data name="Settings_Gallery_Upload_Label" xml:space="preserve">
     <value>Consentire Caricamenti</value>
@@ -1040,7 +1040,7 @@
     <value>Attualmente non ci sono sponsor. Perché non diventi il primo!</value>
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
-    <value>Non caricare la lista degli sponsor</value>
+    <value>Impossibile caricare la lista degli sponsor</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Supporti</value>
@@ -1055,7 +1055,7 @@
     <value>Azione di revisione sconosciuta</value>
   </data>
   <data name="Update" xml:space="preserve">
-    <value>Aggiornamento</value>
+    <value>Aggiorna</value>
   </data>
   <data name="Upload_Media" xml:space="preserve">
     <value>Caricamento Media</value>
@@ -1082,7 +1082,7 @@
     <value>Utenti</value>
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
-    <value>Non riuscito a ottenere l'elenco degli utenti</value>
+    <value>Impossibile ottenere l'elenco degli utenti</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Vista</value>
