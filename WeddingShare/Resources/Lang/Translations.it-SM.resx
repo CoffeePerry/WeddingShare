@@ -335,7 +335,7 @@
     <value>Impossibile scaricare FFMPEG nel percorso</value>
   </data>
   <data name="FFMPEG_Downloading" xml:space="preserve">
-    <value>Tentato di generare miniatura video, ma FFMPEG non ha ancora completato il download. Se si tratta di una nuova installazione si prega di attendere che il download per completare e mancare miniature sarà generato dallo scanner di sfondo</value>
+    <value>Tentativo di generare miniature video, ma FFMPEG non ha ancora completato il download. Se si tratta di una nuova installazione, attendere il completamento del download; le miniature mancanti verranno generate dallo scanner in background</value>
   </data>
   <data name="File_Upload_Failed" xml:space="preserve">
     <value>Impossibile caricare il file</value>
