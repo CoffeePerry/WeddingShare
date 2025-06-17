@@ -2,12 +2,25 @@
 {
     public class BackgroundServices
     {
-        public class Schedules
+        public class DirectoryScanner
         {
-            public const string DirectoryScanner = "BackgroundServices:Schedules:Directory_Scanner";
-            public const string EmailReport = "BackgroundServices:Schedules:Email_Report";
-            public const string Cleanup = "BackgroundServices:Schedules:Cleanup";
-            public const string DemoSystemReset = "BackgroundServices:Schedules:Demo_System_Reset";
+            public const string BaseKey = "BackgroundServices:Directory_Scanner:";
+            public const string Enabled = "BackgroundServices:Directory_Scanner:Enabled";
+            public const string Schedule = "BackgroundServices:Directory_Scanner:Schedule";
+        }
+
+        public class EmailReport
+        {
+            public const string BaseKey = "BackgroundServices:Email_Report:";
+            public const string Enabled = "BackgroundServices:Email_Report:Enabled";
+            public const string Schedule = "BackgroundServices:Email_Report:Schedule";
+        }
+
+        public class Cleanup
+        {
+            public const string BaseKey = "BackgroundServices:Cleanup:";
+            public const string Enabled = "BackgroundServices:Cleanup:Enabled";
+            public const string Schedule = "BackgroundServices:Cleanup:Schedule";
         }
     }
 }

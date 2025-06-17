@@ -50,11 +50,11 @@ namespace WeddingShare.Helpers.Dbup
                 }
 
                 var isDemoMode = config.GetOrDefault(Settings.IsDemoMode, false);
-                var username = !isDemoMode ? config.GetOrDefault(Settings.Account.Owner.Username, "admin").ToLower() : "demo";
+                var username = !isDemoMode ? config.GetOrDefault(Settings.Account.Admin.Username, config.GetOrDefault(Settings.Account.Owner.Username, "admin")).ToLower() : "demo";
                 var ownerAccount = new UserModel() 
                 {
                     Username = username,
-                    Password = encryption.Encrypt(!isDemoMode ? config.GetOrDefault(Settings.Account.Owner.Password, "admin") : "demo", username)
+                    Password = encryption.Encrypt(!isDemoMode ? config.GetOrDefault(Settings.Account.Admin.Password, config.GetOrDefault(Settings.Account.Owner.Password, "admin")) : "demo", username)
                 };
                 await database.InitOwnerAccount(ownerAccount);
 

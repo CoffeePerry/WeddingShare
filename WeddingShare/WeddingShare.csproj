@@ -24,6 +24,7 @@
     <None Remove="SqlScripts\MySQL\011b - Add User Freezing.sql" />
     <None Remove="SqlScripts\MySQL\012 - Add Resource Owners.sql" />
     <None Remove="SqlScripts\MySQL\013 - Rename Account Settings Keys.sql" />
+    <None Remove="SqlScripts\MySQL\014 - Rename Background Service Settings Keys.sql" />
     <None Remove="SqlScripts\SQLite\001 - Add Failed Login Tracking.sql" />
     <None Remove="SqlScripts\SQLite\002 - Add MediaType.sql" />
     <None Remove="SqlScripts\SQLite\003 - Add Checksum.sql" />
@@ -37,6 +38,7 @@
     <None Remove="SqlScripts\SQLite\011b - Add User Freezing.sql" />
     <None Remove="SqlScripts\SQLite\012 - Add Resource Owners.sql" />
     <None Remove="SqlScripts\SQLite\013 - Rename Account Settings Keys.sql" />
+    <None Remove="SqlScripts\SQLite\014 - Rename Background Service Settings Keys.sql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,6 +56,7 @@
     <EmbeddedResource Include="SqlScripts\MySQL\005 - Add ImageOrientation.sql" />
     <EmbeddedResource Include="SqlScripts\MySQL\011 - Add Audit Table.sql" />
     <EmbeddedResource Include="SqlScripts\MySQL\011b - Add User Freezing.sql" />
+    <EmbeddedResource Include="SqlScripts\MySQL\014 - Rename Background Service Settings Keys.sql" />
     <EmbeddedResource Include="SqlScripts\MySQL\013 - Rename Account Settings Keys.sql" />
     <EmbeddedResource Include="SqlScripts\MySQL\012 - Add Resource Owners.sql" />
     <EmbeddedResource Include="SqlScripts\SQLite\004 - Add 2FA.sql" />
@@ -72,6 +75,7 @@
     <EmbeddedResource Include="SqlScripts\SQLite\010 - Add CustomResources Table.sql" />
     <EmbeddedResource Include="SqlScripts\SQLite\012 - Add Resource Owners.sql" />
     <EmbeddedResource Include="SqlScripts\SQLite\013 - Rename Account Settings Keys.sql" />
+    <EmbeddedResource Include="SqlScripts\SQLite\014 - Rename Background Service Settings Keys.sql" />
   </ItemGroup>
 
   <ItemGroup>

@@ -270,7 +270,8 @@ namespace WeddingShare.Controllers
                         UploadedBy = x.UploadedBy,
                         UploadDate = x.UploadedDate,
                         ImagePath = $"/{Path.Combine(UploadsDirectory, x.GalleryName).Remove(_hostingEnvironment.WebRootPath).Replace('\\', '/').TrimStart('/')}/{x.Title}",
-                        ThumbnailPath = $"/{ThumbnailsDirectory.Remove(_hostingEnvironment.WebRootPath).Replace('\\', '/').TrimStart('/')}/{Path.GetFileNameWithoutExtension(x.Title)}.webp",
+                        ThumbnailPath = $"/{Path.Combine(ThumbnailsDirectory, x.GalleryName).Remove(_hostingEnvironment.WebRootPath).Replace('\\', '/').TrimStart('/')}/{Path.GetFileNameWithoutExtension(x.Title)}.webp",
+                        ThumbnailPathFallback = $"/{ThumbnailsDirectory.Remove(_hostingEnvironment.WebRootPath).Replace('\\', '/').TrimStart('/')}/{Path.GetFileNameWithoutExtension(x.Title)}.webp",
                         MediaType = x.MediaType
                     })?.ToList(),
                     CurrentPage = currentPage,
@@ -373,9 +374,12 @@ namespace WeddingShare.Controllers
                                         }
                                         else
                                         {
-                                            var savePath = Path.Combine(ThumbnailsDirectory, $"{Path.GetFileNameWithoutExtension(filePath)}.webp");
+                                            var gallerySavePath = Path.Combine(ThumbnailsDirectory, gallery.Name);
 
                                             _fileHelper.CreateDirectoryIfNotExists(ThumbnailsDirectory);
+                                            _fileHelper.CreateDirectoryIfNotExists(gallerySavePath);
+
+                                            var savePath = Path.Combine(gallerySavePath, $"{Path.GetFileNameWithoutExtension(filePath)}.webp");
                                             await _imageHelper.GenerateThumbnail(filePath, savePath, await _settings.GetOrDefault(Settings.Basic.ThumbnailSize, 720));
                                             
                                             var item = await _database.AddGalleryItem(new GalleryItemModel()

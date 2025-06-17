@@ -13,11 +13,15 @@ namespace WeddingShare.BackgroundWorkers
     {
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var cron = settingsHelper.GetOrDefault(BackgroundServices.Schedules.DirectoryScanner, "*/30 * * * *").Result;
+            var cron = settingsHelper.GetOrDefault(BackgroundServices.DirectoryScanner.Schedule, "*/30 * * * *").Result;
             var schedule = CrontabSchedule.Parse(cron, new CrontabSchedule.ParseOptions() { IncludingSeconds = cron.Split(new[] { ' ' }, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).Length == 6 });
 
-            await Task.Delay((int)TimeSpan.FromSeconds(10).TotalMilliseconds, stoppingToken);
-            await ScanForFiles();
+            var enabled = settingsHelper.GetOrDefault(BackgroundServices.DirectoryScanner.Enabled, true).Result;
+            if (enabled)
+            {
+                await Task.Delay((int)TimeSpan.FromSeconds(10).TotalMilliseconds, stoppingToken);
+                await ScanForFiles();
+            }
 
             while (!stoppingToken.IsCancellationRequested)
             {
@@ -26,7 +30,11 @@ namespace WeddingShare.BackgroundWorkers
                 var waitTime = nextExecutionTime - now;
                 await Task.Delay(waitTime, stoppingToken);
 
-                await ScanForFiles();
+                enabled = settingsHelper.GetOrDefault(BackgroundServices.DirectoryScanner.Enabled, true).Result;
+                if (enabled)
+                {
+                    await ScanForFiles();
+                }
             }
         }
 
@@ -103,10 +111,13 @@ namespace WeddingShare.BackgroundWorkers
                                                     });
                                                 }
 
-                                                var thumbnailPath = Path.Combine(thumbnailsDirectory, $"{Path.GetFileNameWithoutExtension(file)}.webp");
+                                                var thumbnailDir = Path.Combine(thumbnailsDirectory, galleryItem.Name);
+                                                var thumbnailPath = Path.Combine(thumbnailDir, $"{Path.GetFileNameWithoutExtension(file)}.webp");
                                                 if (!fileHelper.FileExists(thumbnailPath))
                                                 {
+                                                    fileHelper.CreateDirectoryIfNotExists(thumbnailDir);
                                                     await imageHelper.GenerateThumbnail(file, thumbnailPath, settingsHelper.GetOrDefault(Settings.Basic.ThumbnailSize, 720).Result);
+                                                    fileHelper.DeleteFileIfExists(Path.Combine(thumbnailsDirectory, $"{Path.GetFileNameWithoutExtension(file)}.webp"));
                                                 }
                                                 else
                                                 {

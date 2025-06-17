@@ -62,6 +62,7 @@ namespace WeddingShare.Models
         public DateTime? UploadDate { get; set; }
         public string? ImagePath { get; set; }
         public string? ThumbnailPath { get; set; }
+        public string? ThumbnailPathFallback { get; set; }
         public MediaType MediaType { get; set; }
     }
 }

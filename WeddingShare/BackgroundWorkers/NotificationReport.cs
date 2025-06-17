@@ -12,8 +12,8 @@ namespace WeddingShare.BackgroundWorkers
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             if (await settingsHelper.GetOrDefault(Settings.Basic.EmailReport, true) && await settingsHelper.GetOrDefault(Notifications.Smtp.Enabled, false))
-            { 
-                var cron = await settingsHelper.GetOrDefault(BackgroundServices.Schedules.EmailReport, "0 0 * * *");
+            {
+                var cron = await settingsHelper.GetOrDefault(BackgroundServices.EmailReport.Schedule, "0 0 * * *");
                 var schedule = CrontabSchedule.Parse(cron, new CrontabSchedule.ParseOptions() { IncludingSeconds = cron.Split(new[] { ' ' }, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).Length == 6 });
 
                 while (!stoppingToken.IsCancellationRequested)
@@ -23,7 +23,14 @@ namespace WeddingShare.BackgroundWorkers
                     var waitTime = nextExecutionTime - now;
                     await Task.Delay(waitTime, stoppingToken);
 
-                    await SendReport();
+                    var enabled = await settingsHelper.GetOrDefault(BackgroundServices.EmailReport.Enabled, true);
+                    if (await settingsHelper.GetOrDefault(Settings.Basic.EmailReport, true) && await settingsHelper.GetOrDefault(Notifications.Smtp.Enabled, false))
+                    {
+                        if (enabled)
+                        {
+                           await SendReport();
+                        }
+                    }
                 }
             }
         }

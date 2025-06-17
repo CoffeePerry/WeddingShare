@@ -1,4 +1,4 @@
-﻿@model List<GalleryItemModel>
+@model List<GalleryItemModel>
 @using WeddingShare.Constants
 @using WeddingShare.Models.Database
 @using WeddingShare.Views.Account
@@ -16,7 +16,7 @@
             <div class="pending-approval col-12 col-lg-4 mb-4 mb-lg-0 mb-1 mb-lg-4">
                 <div class="card">
                     <a href="/uploads/@review.GalleryName/Pending/@review.Title" class="media-viewer-item" data-media-viewer-type="@review.MediaType.ToString().ToLower()" data-media-viewer-collection="@review.GalleryName" data-media-viewer-author="@(identityEnabled ? $"{_localizer["Uploaded_By"].Value}: {(!string.IsNullOrWhiteSpace(review?.UploadedBy) ? review?.UploadedBy : "Anonymous")}" : string.Empty)" data-media-viewer-download="true">
-                        <img src="/thumbnails/@($"{System.IO.Path.GetFileNameWithoutExtension(review?.Title)}.webp")" class="review-tile" loading="lazy" />
+                        <img src="/thumbnails/@review.GalleryName/@($"{System.IO.Path.GetFileNameWithoutExtension(review?.Title)}.webp")" class="review-tile" loading="lazy" onerror="this.onerror=null;this.src='/thumbnails/@($"{System.IO.Path.GetFileNameWithoutExtension(review?.Title)}.webp")';" />
                         @if (review?.MediaType == MediaType.Video)
                         {
                             <img src="/images/play-button.svg" class="media-viewer-play" loading="lazy" />

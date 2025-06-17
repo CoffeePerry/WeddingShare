@@ -8,11 +8,15 @@ namespace WeddingShare.BackgroundWorkers
     {
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var cron = await settingsHelper.GetOrDefault(BackgroundServices.Schedules.Cleanup, "0 4 * * *");
+            var cron = await settingsHelper.GetOrDefault(BackgroundServices.Cleanup.Schedule, "0 4 * * *");
             var schedule = CrontabSchedule.Parse(cron, new CrontabSchedule.ParseOptions() { IncludingSeconds = cron.Split(new[] { ' ' }, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).Length == 6 });
 
-            await Task.Delay((int)TimeSpan.FromSeconds(10).TotalMilliseconds, stoppingToken);
-            
+            var enabled = await settingsHelper.GetOrDefault(BackgroundServices.Cleanup.Enabled, true);
+            if (enabled)
+            {
+                await Task.Delay((int)TimeSpan.FromSeconds(10).TotalMilliseconds, stoppingToken);
+            }
+
             while (!stoppingToken.IsCancellationRequested)
             {
                 var now = DateTime.Now;
@@ -20,7 +24,11 @@ namespace WeddingShare.BackgroundWorkers
                 var waitTime = nextExecutionTime - now;
                 await Task.Delay(waitTime, stoppingToken);
 
-                await Cleanup();
+                enabled = await settingsHelper.GetOrDefault(BackgroundServices.Cleanup.Enabled, true);
+                if (enabled)
+                {
+                    await Cleanup();
+                }
             }
         }
 

@@ -687,7 +687,7 @@ namespace WeddingShare.Controllers
                         {
                             foreach (var photo in _fileHelper.GetFiles(galleryDir, "*.*", SearchOption.AllDirectories))
                             {
-                                var thumbnail = Path.Combine(ThumbnailsDirectory, $"{Path.GetFileNameWithoutExtension(photo)}.webp");
+                                var thumbnail = Path.Combine(ThumbnailsDirectory, gallery.Name, $"{Path.GetFileNameWithoutExtension(photo)}.webp");
                                 _fileHelper.DeleteFileIfExists(thumbnail);
                             }
 

@@ -506,7 +506,7 @@
     <value>Versione di rilascio</value>
   </data>
   <data name="Rename" xml:space="preserve">
-    <value>Rinomina</value>
+    <value>Nome</value>
   </data>
   <data name="Resources" xml:space="preserve">
     <value>Risorse</value>
@@ -515,7 +515,7 @@
     <value>Revisione</value>
   </data>
   <data name="Save_QR" xml:space="preserve">
-    <value>Salvar codice QR</value>
+    <value>Salvare il QR</value>
   </data>
   <data name="Save_To_Custom_Resources_Failed" xml:space="preserve">
     <value>Impossibile salvare la risorsa personalizzata</value>
@@ -1091,7 +1091,7 @@
     <value>Visita</value>
   </data>
   <data name="Wipe" xml:space="preserve">
-    <value>Pulire</value>
+    <value>Wipe</value>
   </data>
   <data name="Wipe_All_Confirmation" xml:space="preserve">
     <value>Sei sicuro di voler pulire tutte le gallerie?</value>

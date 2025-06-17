@@ -11,6 +11,12 @@
             public const string LockoutAttempts = "Settings:Account:Lockout_Attempts";
             public const string LockoutMins = "Settings:Account:Lockout_Mins";
 
+            public class Admin
+            {
+                public const string Username = "Settings:Account:Admin:Username";
+                public const string Password = "Settings:Account:Admin:Password";
+            }
+
             public class Owner
             {
                 public const string BaseKey = "Settings:Account:Owner:";
