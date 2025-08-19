@@ -32,7 +32,7 @@ namespace WeddingShare.Helpers.Dbup
                         catch { }
                     }
 
-                    var galleries = await database.GetAllGalleries();
+                    var galleries = (await database.GetAllGalleries())?.Where(x => !x.Identifier.Equals("All", StringComparison.OrdinalIgnoreCase));
                     if (galleries != null && galleries.Any())
                     {
                         var galleryKeys = GetKeys<Constants.Settings.Gallery>();
@@ -51,7 +51,7 @@ namespace WeddingShare.Helpers.Dbup
                                             {
                                                 Id = key,
                                                 Value = galleryOverride
-                                            }, gallery.Name);
+                                            }, gallery.Id);
                                         }
                                     }
                                     catch { }

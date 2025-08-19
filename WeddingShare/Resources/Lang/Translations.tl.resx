@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Hindi tanggap na Gallery</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Tanggapin</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Pagkilos</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Tinanggihan ni Bulk ang lahat ng naghihintay na mga review</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Sinang - ayunan ng isang bisita ang paggamit ng mga cookies</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Nilalang na galerya</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Pakisuyong makipag - ugnayan sa isang administrador ng site upang makagamit</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Sawi sa pagtala ng audit na mensahe para sa pagsang-ayon ng cookie</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Patakaran ng Cookie</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Sa paggamit ng website na ito ay sumasang-ayon ka sa aming paggamit ng mga pangunahing cookies ayon sa aming mga termino ng paggamit ng cookie. Upang malaman ang higit pa pakisuyong malasin ang ating pangmalas</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Gumawa</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Tiyak mo bang nais mong alisin ang galeryang ito?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Ito ay isang bersyon ng demo. Ang lahat ng kaayusan ay paminsan - minsang sinisira upang matiyak ang isang malinis na rekord para sa mga manunubok sa hinaharap.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Nagkaroon ng Nakapipinsalang Pagkilos</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Natuklasan ang talaksang Diplicate</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Pakikipag - usap sa Email</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Transportasyon</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Titulo</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Ang nilalaman na makikita sa pahina ng CookiePolicy info</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Kaugaliang Patakaran sa Cookie</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Mga Kaugalian</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Sawi ang pagkuha ng mga setting</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Konde ng Column</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Ano ang default gallery filter</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Pagkahulog sa Tapal</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Ano ang default gallery group</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Grupong Nagwawasak</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Ano ang default gallery order</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Lihis na Kaayusan</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Ano ang default gallery view</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Sekreto</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Dapat bang salain at i - group media ang gumagamit nito?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Ipakita ang mga Filipina</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Kung ang titulo ay itanghal sa itaas ng galerya</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Ipakita ang Titulo</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Kung ang mga bisita ay papayagang mag - download ng mga bagay - bagay</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Pahina Agad - agad</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Kung ang mga gumagamit ay hilingang pumasok sa adres ng email</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Kailangan ang Pakikipag - usap sa Email</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Kung kailangan ang tseke ng pagkakakilanlan upang i-upload ang media</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Itaas</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Dapat bang makita ng gumagamit ang GDPR style popups?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Malugod</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Paglalaho</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Pagdalaw</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Babala</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Uso</value>

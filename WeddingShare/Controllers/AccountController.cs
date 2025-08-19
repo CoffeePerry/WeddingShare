@@ -38,8 +38,6 @@ namespace WeddingShare.Controllers
         private readonly string TempDirectory;
         private readonly string UploadsDirectory;
         private readonly string ThumbnailsDirectory;
-        private readonly string LogosDirectory;
-        private readonly string BannersDirectory;
         private readonly string CustomResourcesDirectory;
 
         public AccountController(IWebHostEnvironment hostingEnvironment, ISettingsHelper settings, IDatabaseHelper database, IDeviceDetector deviceDetector, IFileHelper fileHelper, IEncryptionHelper encryption, INotificationHelper notificationHelper, Helpers.IUrlHelper url, IAuditHelper audit, ILogger<AccountController> logger, IStringLocalizer<Lang.Translations> localizer)
@@ -59,8 +57,6 @@ namespace WeddingShare.Controllers
             TempDirectory = Path.Combine(_hostingEnvironment.WebRootPath, Directories.TempFiles);
             UploadsDirectory = Path.Combine(_hostingEnvironment.WebRootPath, Directories.Uploads);
             ThumbnailsDirectory = Path.Combine(_hostingEnvironment.WebRootPath, Directories.Thumbnails);
-            LogosDirectory = Path.Combine(_hostingEnvironment.WebRootPath, Directories.Logos);
-            BannersDirectory = Path.Combine(_hostingEnvironment.WebRootPath, Directories.Banners);
             CustomResourcesDirectory = Path.Combine(_hostingEnvironment.WebRootPath, Directories.CustomResources);
         }
 
@@ -189,14 +185,17 @@ namespace WeddingShare.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(AccountTabs tab = AccountTabs.Reviews)
         {
             if (User?.Identity == null || !User.Identity.IsAuthenticated)
             { 
                 return Redirect("/");
             }
 
-            var model = new IndexModel();
+            var model = new IndexModel()
+            {
+                ActiveTab = tab
+            };
 
             var deviceType = HttpContext.Session.GetString(SessionKey.DeviceType);
             if (string.IsNullOrWhiteSpace(deviceType))
@@ -209,35 +208,40 @@ namespace WeddingShare.Controllers
             {
                 var user = await _database.GetUser(User.Identity.GetUserId());
                 if (user != null)
-                { 
-                    if (!await _settings.GetOrDefault(Settings.Basic.SingleGalleryMode, false))
+                {
+                    if (tab == AccountTabs.Reviews)
                     {
-                        model.Galleries = await _database.GetAllGalleries();
+                        model.PendingRequests = await GetPendingReviews();
+                    }
+                    else if (tab == AccountTabs.Galleries)
+                    {
+                        model.Galleries = (await _database.GetAllGalleries())?.Where(x => !x.Identifier.Equals("All", StringComparison.OrdinalIgnoreCase))?.ToList();
                         if (model.Galleries != null)
-                        { 
+                        {
                             var all = await _database.GetGallery(0);
                             if (all != null)
-                            { 
+                            {
                                 model.Galleries.Add(all);
                             }
                         }
-
-                        model.PendingRequests = await _database.GetPendingGalleryItems();
                     }
-                    else
+                    else if (tab == AccountTabs.Users)
                     {
-                        var gallery = await _database.GetGallery("default");
-                        if (gallery != null)
-                        { 
-                            model.Galleries = new List<GalleryModel>() { gallery };
-                            model.PendingRequests = await _database.GetPendingGalleryItems(gallery.Id);
-                        }
+                        model.Users = await _database.GetAllUsers();
                     }
-
-                    model.CustomResources = await _database.GetAllCustomResources();
-                    model.Users = await _database.GetAllUsers();
-                    model.Settings = (await _database.GetAllSettings())?.ToDictionary(x => x.Id.ToUpper(), x => x.Value ?? string.Empty);
-                    model.AuditLogs = await _database.GetAuditLogs();
+                    else if (tab == AccountTabs.Resources)
+                    {
+                        model.CustomResources = await _database.GetAllCustomResources();
+                    }
+                    else if (tab == AccountTabs.Settings)
+                    {
+                        model.Settings = (await _database.GetAllSettings())?.ToDictionary(x => x.Id.ToUpper(), x => x.Value ?? string.Empty);
+                        model.CustomResources = await _database.GetAllCustomResources();
+                    }
+                    else if (tab == AccountTabs.Audit)
+                    {
+                        model.AuditLogs = await _database.GetAuditLogs();
+                    }
                 }
             }
             catch (Exception ex)
@@ -264,24 +268,13 @@ namespace WeddingShare.Controllers
                 var user = await _database.GetUser(User.Identity.GetUserId());
                 if (user != null)
                 {
-                    if (!await _settings.GetOrDefault(Settings.Basic.SingleGalleryMode, false))
+                    result = (await _database.GetAllGalleries())?.Where(x => !x.Identifier.Equals("All", StringComparison.OrdinalIgnoreCase))?.ToList();
+                    if (result != null)
                     {
-                        result = await _database.GetAllGalleries();
-                        if (result != null)
+                        var all = await _database.GetGallery(0);
+                        if (all != null)
                         {
-                            var all = await _database.GetGallery(0);
-                            if (all != null)
-                            {
-                                result.Add(all);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        var gallery = await _database.GetGallery("default");
-                        if (gallery != null)
-                        {
-                            result = new List<GalleryModel>() { gallery };
+                            result.Add(all);
                         }
                     }
                 }
@@ -298,30 +291,19 @@ namespace WeddingShare.Controllers
         [RequiresRole(Permission = AccessPermissions.Review_View)]
         public async Task<IActionResult> PendingReviews()
         {
+            var galleries = new List<PhotoGallery>();
+
             if (User?.Identity == null || !User.Identity.IsAuthenticated)
             {
                 return Redirect("/");
             }
-
-            List<GalleryItemModel>? result = null;
 
             try
             {
                 var user = await _database.GetUser(User.Identity.GetUserId());
                 if (user != null)
                 {
-                    if (!await _settings.GetOrDefault(Settings.Basic.SingleGalleryMode, false))
-                    {
-                        result = await _database.GetPendingGalleryItems();
-                    }
-                    else
-                    {
-                        var gallery = await _database.GetGallery("default");
-                        if (gallery != null)
-                        {
-                            result = await _database.GetPendingGalleryItems(gallery.Id);
-                        }
-                    }
+                    galleries = await GetPendingReviews();
                 }
             }
             catch (Exception ex)
@@ -329,7 +311,7 @@ namespace WeddingShare.Controllers
                 _logger.LogError(ex, $"{_localizer["Pending_Uploads_Failed"].Value} - {ex?.Message}");
             }
 
-            return PartialView("~/Views/Account/Partials/PendingReviews.cshtml", result ?? new List<GalleryItemModel>());
+            return PartialView("~/Views/Account/Partials/PendingReviews.cshtml", galleries);
         }
 
         [HttpGet]
@@ -447,7 +429,7 @@ namespace WeddingShare.Controllers
                 var gallery = await _database.GetGallery(galleryId);
                 if (!string.IsNullOrWhiteSpace(gallery?.Name))
                 { 
-                    model.Settings = (await _database.GetAllSettings(gallery.Name))?.Where(x => x.Id.StartsWith(Settings.Gallery.BaseKey, StringComparison.OrdinalIgnoreCase))?.ToDictionary(x => x.Id.ToUpper(), x => x.Value ?? string.Empty);
+                    model.Settings = (await _database.GetAllSettings(gallery.Id))?.Where(x => x.Id.StartsWith(Settings.Gallery.BaseKey, StringComparison.OrdinalIgnoreCase))?.ToDictionary(x => x.Id.ToUpper(), x => x.Value ?? string.Empty);
                     model.CustomResources = await _database.GetAllCustomResources();
                 }
             }
@@ -469,42 +451,46 @@ namespace WeddingShare.Controllers
                 {
                     var review = await _database.GetPendingGalleryItem(id);
                     if (review != null)
-                    { 
-                        var galleryDir = Path.Combine(UploadsDirectory, review.GalleryName);
-                        var reviewFile = Path.Combine(galleryDir, "Pending", review.Title);
-                        if (action == ReviewAction.APPROVED)
-                        {
-                            _fileHelper.MoveFileIfExists(reviewFile, Path.Combine(galleryDir, review.Title));
-
-                            review.State = GalleryItemState.Approved;
-                            await _database.EditGalleryItem(review);
-
-                            await _audit.LogAction(User?.Identity?.Name, $"'{review.Title}' {_localizer["Audit_ItemApprovedInGallery"].Value} '{review.GalleryName}'");
-                        }
-                        else if (action == ReviewAction.REJECTED)
-                        {
-                            var retain = await _settings.GetOrDefault(Settings.Gallery.RetainRejectedItems, false);
-                            if (retain)
+                    {
+                        var gallery = await _database.GetGallery(review.GalleryId);
+                        if (gallery != null)
+                        { 
+                            var galleryDir = Path.Combine(UploadsDirectory, gallery.Identifier);
+                            var reviewFile = Path.Combine(galleryDir, "Pending", review.Title);
+                            if (action == ReviewAction.APPROVED)
                             {
-                                var rejectedDir = Path.Combine(galleryDir, "Rejected");
-                                _fileHelper.CreateDirectoryIfNotExists(rejectedDir);
-                                _fileHelper.MoveFileIfExists(reviewFile, Path.Combine(rejectedDir, review.Title));
+                                _fileHelper.MoveFileIfExists(reviewFile, Path.Combine(galleryDir, review.Title));
+
+                                review.State = GalleryItemState.Approved;
+                                await _database.EditGalleryItem(review);
+
+                                await _audit.LogAction(User?.Identity?.Name, $"'{review.Title}' {_localizer["Audit_ItemApprovedInGallery"].Value} '{gallery.Identifier}'");
                             }
-                            else
+                            else if (action == ReviewAction.REJECTED)
                             {
-                                _fileHelper.DeleteFileIfExists(reviewFile);
+                                var retain = await _settings.GetOrDefault(Settings.Gallery.RetainRejectedItems, false);
+                                if (retain)
+                                {
+                                    var rejectedDir = Path.Combine(galleryDir, "Rejected");
+                                    _fileHelper.CreateDirectoryIfNotExists(rejectedDir);
+                                    _fileHelper.MoveFileIfExists(reviewFile, Path.Combine(rejectedDir, review.Title));
+                                }
+                                else
+                                {
+                                    _fileHelper.DeleteFileIfExists(reviewFile);
+                                }
+
+                                await _database.DeleteGalleryItem(review);
+
+                                await _audit.LogAction(User?.Identity?.Name, $"'{review.Title}' {_localizer["Audit_ItemRejectedInGallery"].Value} '{gallery.Identifier}'");
+                            }
+                            else if (action == ReviewAction.UNKNOWN)
+                            {
+                                throw new Exception(_localizer["Unknown_Review_Action"].Value);
                             }
 
-                            await _database.DeleteGalleryItem(review);
-
-                            await _audit.LogAction(User?.Identity?.Name, $"'{review.Title}' {_localizer["Audit_ItemRejectedInGallery"].Value} '{review.GalleryName}'");
+                            return Json(new { success = true, action });
                         }
-                        else if (action == ReviewAction.UNKNOWN)
-                        {
-                            throw new Exception(_localizer["Unknown_Review_Action"].Value);
-                        }
-
-                        return Json(new { success = true, action });
                     }
                     else
                     {
@@ -531,40 +517,47 @@ namespace WeddingShare.Controllers
                     var items = await _database.GetPendingGalleryItems();
                     if (items != null && items.Any())
                     {
-                        foreach (var review in items)
-                        { 
-                            var galleryDir = Path.Combine(UploadsDirectory, review.GalleryName);
-                            var reviewFile = Path.Combine(galleryDir, "Pending", review.Title);
-                            if (action == ReviewAction.APPROVED)
+                        foreach (var galleryGroup in items.GroupBy(x => x.GalleryId))
+                        {
+                            var gallery = await _database.GetGallery(galleryGroup.Key);
+                            if (gallery != null)
                             {
-                                _fileHelper.MoveFileIfExists(reviewFile, Path.Combine(galleryDir, review.Title));
-
-                                review.State = GalleryItemState.Approved;
-                                await _database.EditGalleryItem(review);
-
-                                await _audit.LogAction(User?.Identity?.Name, _localizer["Audit_BulkApproveReviews"].Value);
-                            }
-                            else if (action == ReviewAction.REJECTED)
-                            {
-                                var retain = await _settings.GetOrDefault(Settings.Gallery.RetainRejectedItems, false);
-                                if (retain)
+                                foreach (var review in galleryGroup)
                                 {
-                                    var rejectedDir = Path.Combine(galleryDir, "Rejected");
-                                    _fileHelper.CreateDirectoryIfNotExists(rejectedDir);
-                                    _fileHelper.MoveFileIfExists(reviewFile, Path.Combine(rejectedDir, review.Title));
-                                }
-                                else
-                                {
-                                    _fileHelper.DeleteFileIfExists(reviewFile);
-                                }
+                                    var galleryDir = Path.Combine(UploadsDirectory, gallery.Identifier);
+                                    var reviewFile = Path.Combine(galleryDir, "Pending", review.Title);
+                                    if (action == ReviewAction.APPROVED)
+                                    {
+                                        _fileHelper.MoveFileIfExists(reviewFile, Path.Combine(galleryDir, review.Title));
 
-                                await _database.DeleteGalleryItem(review);
+                                        review.State = GalleryItemState.Approved;
+                                        await _database.EditGalleryItem(review);
 
-                                await _audit.LogAction(User?.Identity?.Name, _localizer["Audit_BulkRejectReviews"].Value);
-                            }
-                            else if (action == ReviewAction.UNKNOWN)
-                            {
-                                throw new Exception(_localizer["Unknown_Review_Action"].Value);
+                                        await _audit.LogAction(User?.Identity?.Name, _localizer["Audit_BulkApproveReviews"].Value);
+                                    }
+                                    else if (action == ReviewAction.REJECTED)
+                                    {
+                                        var retain = await _settings.GetOrDefault(Settings.Gallery.RetainRejectedItems, false);
+                                        if (retain)
+                                        {
+                                            var rejectedDir = Path.Combine(galleryDir, "Rejected");
+                                            _fileHelper.CreateDirectoryIfNotExists(rejectedDir);
+                                            _fileHelper.MoveFileIfExists(reviewFile, Path.Combine(rejectedDir, review.Title));
+                                        }
+                                        else
+                                        {
+                                            _fileHelper.DeleteFileIfExists(reviewFile);
+                                        }
+
+                                        await _database.DeleteGalleryItem(review);
+
+                                        await _audit.LogAction(User?.Identity?.Name, _localizer["Audit_BulkRejectReviews"].Value);
+                                    }
+                                    else if (action == ReviewAction.UNKNOWN)
+                                    {
+                                        throw new Exception(_localizer["Unknown_Review_Action"].Value);
+                                    }
+                                }
                             }
                         }
                     }
@@ -590,8 +583,8 @@ namespace WeddingShare.Controllers
                 {
                     try
                     {
-                        var check = await _database.GetGallery(model.Name);
-                        if (check == null)
+                        var alreadyExists = ((await _database.GetGalleryNames()).Any(x => x.Equals(model.Name, StringComparison.OrdinalIgnoreCase))) || ((await _database.GetGalleryId(model.Identifier)) != null);
+                        if (!alreadyExists)
                         {
                             if (await _database.GetGalleryCount() < await _settings.GetOrDefault(Settings.Basic.MaxGalleryCount, 1000000))
                             {
@@ -634,7 +627,7 @@ namespace WeddingShare.Controllers
                 {
                     try
                     {
-                        var check = await _database.GetGallery(model.Name);
+                        var check = await _database.GetGallery(model.Id);
                         if (check == null || model.Id == check.Id)
                         {
                             var gallery = await _database.GetGallery(model.Id);
@@ -682,12 +675,12 @@ namespace WeddingShare.Controllers
                     var gallery = await _database.GetGallery(id);
                     if (gallery != null)
                     {
-                        var galleryDir = Path.Combine(UploadsDirectory, gallery.Name);
+                        var galleryDir = Path.Combine(UploadsDirectory, gallery.Identifier);
                         if (_fileHelper.DirectoryExists(galleryDir))
                         {
                             foreach (var photo in _fileHelper.GetFiles(galleryDir, "*.*", SearchOption.AllDirectories))
                             {
-                                var thumbnail = Path.Combine(ThumbnailsDirectory, gallery.Name, $"{Path.GetFileNameWithoutExtension(photo)}.webp");
+                                var thumbnail = Path.Combine(ThumbnailsDirectory, gallery.Identifier, $"{Path.GetFileNameWithoutExtension(photo)}.webp");
                                 _fileHelper.DeleteFileIfExists(thumbnail);
                             }
 
@@ -770,7 +763,7 @@ namespace WeddingShare.Controllers
                     var gallery = await _database.GetGallery(id);
                     if (gallery != null && gallery.Id > 1)
                     {
-                        var galleryDir = Path.Combine(UploadsDirectory, gallery.Name);
+                        var galleryDir = Path.Combine(UploadsDirectory, gallery.Identifier);
                         _fileHelper.DeleteDirectoryIfExists(galleryDir);
 
                         if (await _settings.GetOrDefault(Notifications.Alerts.DestructiveAction, true))
@@ -810,7 +803,7 @@ namespace WeddingShare.Controllers
                         var gallery = await _database.GetGallery(photo.GalleryId);
                         if (gallery != null)
                         { 
-                            var photoPath = Path.Combine(UploadsDirectory, gallery.Name, photo.Title);
+                            var photoPath = Path.Combine(UploadsDirectory, gallery.Identifier, photo.Title);
                             _fileHelper.DeleteFileIfExists(photoPath);
 
                             await _audit.LogAction(User?.Identity?.Name, $"'{photo?.Title}' {_localizer["Audit_ItemDeletedInGallery"].Value} '{gallery?.Name}'");
@@ -1070,7 +1063,7 @@ namespace WeddingShare.Controllers
                                 {
                                     Id = m.Key,
                                     Value = m.Value
-                                }, gallery?.Name ?? string.Empty);
+                                }, gallery?.Id);
 
                                 if (setting == null || (setting.Value ?? string.Empty) != (m.Value ?? string.Empty))
                                 {
@@ -1141,18 +1134,6 @@ namespace WeddingShare.Controllers
                                 ZipFile.CreateFromDirectory(ThumbnailsDirectory, thumbnailsZip, CompressionLevel.Optimal, false);
                             }
 
-                            var logosZip = Path.Combine(exportDir, $"Logos.bak");
-                            if (options.Logos && _fileHelper.DirectoryExists(LogosDirectory))
-                            {
-                                ZipFile.CreateFromDirectory(LogosDirectory, logosZip, CompressionLevel.Optimal, false);
-                            }
-
-                            var bannersZip = Path.Combine(exportDir, $"Banners.bak");
-                            if (options.Banners && _fileHelper.DirectoryExists(BannersDirectory))
-                            {
-                                ZipFile.CreateFromDirectory(BannersDirectory, bannersZip, CompressionLevel.Optimal, false);
-                            }
-
                             var customResourcesZip = Path.Combine(exportDir, $"CustomResources.bak");
                             if (options.CustomResources && _fileHelper.DirectoryExists(CustomResourcesDirectory))
                             {
@@ -1166,8 +1147,6 @@ namespace WeddingShare.Controllers
                             _fileHelper.DeleteFileIfExists(dbExport);
                             _fileHelper.DeleteFileIfExists(uploadsZip);
                             _fileHelper.DeleteFileIfExists(thumbnailsZip);
-                            _fileHelper.DeleteFileIfExists(logosZip);
-                            _fileHelper.DeleteFileIfExists(bannersZip);
                             _fileHelper.DeleteFileIfExists(customResourcesZip);
 
                             await _audit.LogAction(User?.Identity?.Name, _localizer["Audit_ExportedBackup"].Value);
@@ -1225,18 +1204,6 @@ namespace WeddingShare.Controllers
 
                                     var thumbnailsZip = Path.Combine(importDir, "Thumbnails.bak");
                                     ZipFile.ExtractToDirectory(thumbnailsZip, ThumbnailsDirectory, true);
-
-                                    var logosZip = Path.Combine(importDir, "Logos.bak");
-                                    if (_fileHelper.FileExists(logosZip))
-                                    { 
-                                        ZipFile.ExtractToDirectory(logosZip, LogosDirectory, true);
-                                    }
-
-                                    var bannersZip = Path.Combine(importDir, "Banners.bak");
-                                    if (_fileHelper.FileExists(bannersZip))
-                                    {
-                                        ZipFile.ExtractToDirectory(bannersZip, BannersDirectory, true);
-                                    }
 
                                     var customResourcesZip = Path.Combine(importDir, "CustomResources.bak");
                                     if (_fileHelper.FileExists(customResourcesZip))
@@ -1530,8 +1497,8 @@ namespace WeddingShare.Controllers
             {
                 if (await _settings.GetOrDefault(Notifications.Alerts.FailedLogin, true))
                 {
-                    var ipAddress = this.TryGetIpAddress(Request.HttpContext);
-                    var country = this.TryGetCountry(Request.HttpContext);
+                    var ipAddress = Request.HttpContext.TryGetIpAddress();
+                    var country = Request.HttpContext.TryGetCountry();
 
                     await _notificationHelper.Send("Invalid Login Detected", $"An invalid login attempt was made for account '{model?.Username}' from ip address '{ipAddress}' based in country '{country}'.", _url.GenerateBaseUrl(HttpContext?.Request, "/Account"));
                 }
@@ -1558,49 +1525,41 @@ namespace WeddingShare.Controllers
             }
         }
 
-        private string TryGetIpAddress(HttpContext ctx)
+        private async Task<List<PhotoGallery>> GetPendingReviews()
         {
-            try
+            var galleries = new List<PhotoGallery>();
+
+            var items = await _database.GetPendingGalleryItems();
+            if (items != null)
             {
-                var ipAddress = TryGetHeaderValue(ctx, ["CF-Connecting-IP", "CF-Connecting-IPv6", "X-Forwarded-For", "HTTP_X_FORWARDED_FOR", "REMOTE_ADDR"]);
-                if (string.IsNullOrWhiteSpace(ipAddress) || ipAddress.Equals("Unknown", StringComparison.OrdinalIgnoreCase))
+                foreach (var galleryGroup in items.GroupBy(x => x.GalleryId))
                 {
-                    return ctx.Connection?.RemoteIpAddress?.ToString() ?? "Unknown";
-                }
-
-                return ipAddress;
-            }
-            catch 
-            {
-                return "Unknown";
-            }
-        }
-
-        private string TryGetCountry(HttpContext ctx)
-        {
-            return TryGetHeaderValue(ctx, [ "CF-IPCountry" ]);
-        }
-
-        private string TryGetHeaderValue(HttpContext ctx, string[] headers)
-        {
-            foreach (var header in headers)
-            {
-                try
-                {
-                    string? val = ctx.Request.Headers[header];
-                    if (!string.IsNullOrWhiteSpace(val))
+                    var gallery = await _database.GetGallery(galleryGroup.Key);
+                    if (gallery != null)
                     {
-                        var vals = val.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-                        if (vals.Length != 0)
+                        galleries.Add(new PhotoGallery()
                         {
-                            return vals[0];
-                        }
+                            Gallery = gallery,
+                            Images = items?.Select(x => new PhotoGalleryImage()
+                            {
+                                Id = x.Id,
+                                GalleryId = x.GalleryId,
+                                Name = Path.GetFileName(x.Title),
+                                UploadedBy = x.UploadedBy,
+                                UploaderEmailAddress = x.UploaderEmailAddress,
+                                UploadDate = x.UploadedDate,
+                                ImagePath = $"/{Path.Combine(UploadsDirectory, gallery.Identifier).Remove(_hostingEnvironment.WebRootPath).Replace('\\', '/').TrimStart('/')}/Pending/{x.Title}",
+                                ThumbnailPath = $"/{Path.Combine(ThumbnailsDirectory, gallery.Identifier).Remove(_hostingEnvironment.WebRootPath).Replace('\\', '/').TrimStart('/')}/{Path.GetFileNameWithoutExtension(x.Title)}.webp",
+                                ThumbnailPathFallback = $"/{ThumbnailsDirectory.Remove(_hostingEnvironment.WebRootPath).Replace('\\', '/').TrimStart('/')}/{Path.GetFileNameWithoutExtension(x.Title)}.webp",
+                                MediaType = x.MediaType
+                            })?.ToList(),
+                            ItemsPerPage = int.MaxValue,
+                        });
                     }
                 }
-                catch { }
             }
 
-            return "Unknown";
+            return galleries;
         }
     }
 }

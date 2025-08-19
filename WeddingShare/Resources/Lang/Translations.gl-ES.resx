@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Galería Inválida</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Acción</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk rexeitou todas as revisións pendentes</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Un visitante ha aprobado el uso de cookies</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Creamos galería</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Póñase en contacto cun administrador do sitio para proporcionar acceso</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Non chegou a unha mensaxe de auditoría para a aprobación de cookies</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Política de cookies</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Ao usar este sitio web vostede acepta o noso uso de cookies básicas de acordo cos nosos termos de uso de cookies. Para saber máis, vexa o noso</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Crea</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Estás seguro de que queres eliminar esta galería?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>É unha versión demo. Toda a configuración é aniquilada periódicamente para garantir unha lousa limpa para futuros testadores.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Acción destrutiva realizada</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Ficheiro duplicado detectado</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Email Enderezo</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Exportación</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Título</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>O contido a mostrar na páxina de información de CookiePolicy</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Política de cookies personalizadas</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Políticas aduaneiras</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Non chegou a configuración</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Columna Conde</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Cal é o filtro de galería por defecto</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Filtro por defecto</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Cal é o grupo de galerías por defecto</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Grupo por defecto</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Cal é a orde da galería por defecto</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Orde por defecto</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Cal é a vista da galería por defecto</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Chave secreta</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>É posible filtrar e filtrar os medios de comunicación?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Mostrar filtros</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Se o título aparece na parte superior da galería</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Mostrar título</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Se os invitados poden subir elementos</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Páxina oficial: Load Prompt</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Os usuarios deben introducir un enderezo de correo electrónico</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Require enderezo de correo electrónico</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Se se require o control de identidade para subir os medios</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Tema</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Debe o usuario ver os popups de estilo GDPR?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Habilitado</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Slideshow</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Visita</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Aviso</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Wipe</value>

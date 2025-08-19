@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>不合法的相簿</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>接受</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>動作</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk 拒絕了所有待定的審查</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>有客人同意了吃餅干</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>已建立相簿</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>請聯繫站台管理員以提供存取</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>登入 Cookie 批準的稽核訊息失敗</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Cookie 政策</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>在使用相關相關資訊上, 就想再多找找找看相去相去相去相去相去</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>建立</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>您確定要刪除此畫廊嗎 ?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>這是演示版. 所有配置被定期擦去, 以確保未來的測試者能有清潔的區域 .</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>已執行的破壞動作</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>已檢測到複製檔案</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>電子郵件地址</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>匯出</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>篇</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Cookie 政策資訊頁面所顯示的內容</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>自訂 Cookie 策略</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>自訂政策</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>取得設定值失敗</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>欄數</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>第 二 章 第 三 章</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>第 二 章</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>預設相簿群組是什麼</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>預設群組</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>第 二 章 第 三 章</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>默认排序</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>預設的相簿檢視相簿是</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>密钥</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>使用者是否能过滤和群組媒體?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>顯示分頁</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>如果標題被顯示到畫廊的頂端</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>顯示標題</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>是否允許客人上傳項目</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>頁面載入提示</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>如果需要使用者輸入電子郵件地址</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>需要電子郵件地址</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>如果上傳媒體需要身份檢查</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>主題</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>使用者要看到 GDPR 樣式彈出嗎 ?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>已開啟</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>投影片放映</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>出访</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>警告</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>擦除</value>

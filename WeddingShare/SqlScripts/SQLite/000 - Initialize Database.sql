@@ -21,6 +21,7 @@ CREATE TABLE `gallery_items` (
 INSERT INTO `galleries` 
 	(`id`, `name`, `secret_key`)
 VALUES 
+	(0, 'all', NULL),
 	(1, 'default', NULL);
 
 --

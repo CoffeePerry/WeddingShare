@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Invalid Gallery</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Akcepto</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Ago</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk malaprobis ĉiujn klarigitajn recenzojn</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Vizito aprobis la uzon de kuketoj</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Kreita galerio</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Bonvolu kontakti retejon administranto por provizi aliron</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Malsukcesa por ensaluti revizimesaĝon por kliko</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Cookie Politiko</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Uzante ĉi tiun retejon vi konsentas al nia uzo de bazaj kuketoj laŭ niaj kondiĉoj de kuketo-uzokutimo. Por ekscii pli, bonvolu vidi nian</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Krei</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Ĉu vi volas forigi tiun galerion?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Tio estas demo versio. Ĉiu konfiguracio periode estas forviŝita por certigi puran ardezon por estontaj testistoj.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Destruktura Ago rezultas</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Duplika dosiero detektis</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Retpoŝto</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Eksporto</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Titolo</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>La enhavo por montri sur la CookiePolicy info paĝo</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Kutimo Cookie Politiko</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Kutimaj Politikoj</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Malsukcesis akiri agordojn</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Kolono Count</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Kio estas la defaŭlta galerio filtrilo</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Defaŭlta Filter</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Kio estas la defaŭlta galeriogrupo</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Defaŭlta grupo</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Kio estas la defaŭlta galerio</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Defaŭlta Ordo</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Kio estas la defaŭlta galerio</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Sekretoj</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Ĉu la uzanto povas filtri kaj grupigi amaskomunikilojn?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Montri Filters</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Se la titolo estus elmontrita ĉe la pinto de la galerio</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Ĉefa artikolo</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Ĉu gastoj rajtas alŝuti erojn</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Paĝo Load Prompt</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Se uzantoj estu postulataj por eniri retpoŝtan adreson</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Postula retpoŝto</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Se la identeckontrolo estu postulata por alŝuti amaskomunikilojn</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Temoj</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Ĉu la uzanto vidas GDPR stilajn poplojn?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Enabled</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Slideshow</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Vizito</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Averto</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Wipe</value>

@@ -10,7 +10,7 @@
 
 @if (userPermissions.HasFlag(AccessPermissions.Data_View))
 {
-    <section class="pnl-account pnl-account-data pb-2 pb-lg-5 d-none">
+    <section class="pnl-account pnl-account-data pb-2 pb-lg-5">
         <div class="container px-3 px-lg-1 my-3 my-lg-0">
             <div class="row">
                 <div class="col-12">
@@ -31,7 +31,7 @@
 
     @if (showMySQLFeatures && (userPermissions.HasFlag(AccessPermissions.Data_Import)) || userPermissions.HasFlag(AccessPermissions.Data_Export))
     {
-        <section class="pnl-account pnl-account-data pb-0 pb-lg-4 d-none">
+        <section class="pnl-account pnl-account-data pb-0 pb-lg-4">
             <div class="container px-3 px-lg-1 my-3 my-lg-0">
                 <div class="row">
                     <div class="col-12">
@@ -64,7 +64,7 @@
 
     @if (userPermissions.HasFlag(AccessPermissions.Data_Wipe))
     {
-        <section class="pnl-account pnl-account-data pb-2 pb-lg-5 d-none">
+        <section class="pnl-account pnl-account-data pb-2 pb-lg-5">
             <div class="container px-3 px-lg-1 my-3 my-lg-0">
                 <div class="row">
                     <div class="col-12">

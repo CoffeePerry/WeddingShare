@@ -1,0 +1,33 @@
+﻿@model IDictionary<string, string>?
+@using WeddingShare.Constants
+
+@if (Model != null && Model.Any())
+{
+    <div class="row mb-4 mb-lg-4">
+        <div class="col-12">
+            <label>@_localizer["Settings_PoliciesEnabled_Label"].Value</label>
+            <select class="setting-field form-control" data-setting-name="@Settings.Policies.Enabled">
+                @foreach (var option in ViewOptions.YesNo)
+                {
+                    if (Model.GetValue(Settings.Policies.Enabled.ToUpper(), "true").Equals(option.Value, StringComparison.OrdinalIgnoreCase))
+                    {
+                        <option value="@option.Value" selected="selected">@option.Key</option>
+                    }
+                    else
+                    {
+                        <option value="@option.Value">@option.Key</option>
+                    }
+                }
+            </select>
+            <div class="form-text">@_localizer["Settings_PoliciesEnabled_Help"].Value</div>
+        </div>
+    </div>
+
+    <div class="row mb-4 mb-lg-4">
+        <div class="col-12">
+            <label>@_localizer["Settings_CustomCookiePolicy_Label"].Value</label>
+            <textarea class="setting-field form-control" data-setting-name="@Settings.Policies.CookiePolicy">@Model.GetValue(Settings.Policies.CookiePolicy.ToUpper(), string.Empty)</textarea>
+            <div class="form-text">@_localizer["Settings_CustomCookiePolicy_Help"].Value</div>
+        </div>
+    </div>
+}

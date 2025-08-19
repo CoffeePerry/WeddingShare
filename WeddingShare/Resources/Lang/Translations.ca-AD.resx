@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Galeria no vàlida</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Accepta</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Acció</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Massa rebutjat totes les revisions pendents</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Un visitant ha aprovat l'ús de les galetesName</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>S' ha creat la galeria</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Si us plau, contacteu amb un administrador del lloc web per proporcionar accés</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Ha fallat en registrar un missatge d'auditori per aprovar galetes</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Política de galetes</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Utilitzant aquest lloc web estàs d'acord amb el nostre ús de galetes bàsiques d'acord amb els nostres termes d'ús de galeta. Per descobrir-ne més si us plau, mireu la nostra</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Crea</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Esteu segur que voleu esborrar aquesta galeria?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Aquesta és una versió demo. Tota la configuració està periòdicament esborrada per assegurar una pissarra neta per als futurs exàmens.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Acció obsoleta realitzada</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>S' ha detectat un fitxer duplicat</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Adreça de correu electrònic</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Exporta</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Títol</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>El contingut que s'ha de mostrar a la pàgina d'informació de galeta</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Política de galetes personalitzada</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Polítiques personalitzades</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Ha fallat en obtenir l' arranjament</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Comptador de columnes</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Quin és el filtre de galeria per omissió</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Filtre per omissió</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Quin és el grup de galeria per omissió</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Grup per omissió</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Quin és l' ordre per omissió de la galeria</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Ordre per omissió</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Quina és la vista per omissió de la galeria</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Clau secreta</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>L' usuari hauria de filtrar i agrupar els suports?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Mostra els filtres</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>S' hauria de mostrar el títol a la part superior de la galeria</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Mostra el títol</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Cal que els convidats pugin elements</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Pregunta a la càrrega de pàgina</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Cal als usuaris introduir una adreça de correu electrònic</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Requereix l' adreça de correu electrònic</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Cal la comprovació d' identitat per pujar suports</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Tema</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>L' usuari hauria de veure els emergents d' estil R del PIB?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Habilitat</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Passi de diapositives</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Visiteu</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Avís</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Esborrat</value>

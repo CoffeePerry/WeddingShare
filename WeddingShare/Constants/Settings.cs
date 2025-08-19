@@ -48,12 +48,14 @@
             public const string BaseKey = "Settings:Database:";
             public const string Type = "Settings:Database:Type";
             public const string ConnectionString = "Settings:Database:Connection_String";
+            public const string DatabaseName = "Settings:Database:Database_Name";
             public const string SyncFromConfig = "Settings:Database:Sync_From_Config";
         }
 
         public class Gallery
         {
             public const string BaseKey = "Settings:Gallery:";
+            public const string ShowTitle = "Settings:Gallery:Show_Title";
             public const string BannerImage = "Settings:Gallery:Banner_Image";
             public const string Quote = "Settings:Gallery:Quote";
             public const string SecretKey = "Settings:Gallery:Secret_Key";
@@ -70,9 +72,13 @@
             public const string MaxSizeMB = "Settings:Gallery:Max_Size_MB";
             public const string MaxFileSizeMB = "Settings:Gallery:Max_File_Size_MB";
             public const string DefaultView = "Settings:Gallery:Default_View";
+            public const string DefaultGroup = "Settings:Gallery:Default_Group";
+            public const string DefaultOrder = "Settings:Gallery:Default_Order";
+            public const string DefaultFilter = "Settings:Gallery:Default_Filter";
             public const string UploadPeriod = "Settings:Gallery:Upload_Period";
             public const string AllowedFileTypes = "Settings:Gallery:Allowed_File_Types";
             public const string CameraUploads = "Settings:Gallery:Camera_Uploads";
+            public const string ShowFilters = "Settings:Gallery:Show_Filters";
 
             public class QRCode
             {
@@ -97,6 +103,7 @@
             public const string Enabled = "Settings:Identity_Check:Enabled";
             public const string ShowOnPageLoad = "Settings:Identity_Check:Show_On_Page_Load";
             public const string RequireIdentityForUpload = "Settings:Identity_Check:Require_Identity_For_Upload";
+            public const string RequireEmail = "Settings:Identity_Check:Require_Email";
         }
 
         public class Languages
@@ -120,6 +127,13 @@
             public const string BaseKey = "Settings:Themes:";
             public const string Enabled = "Settings:Themes:Enabled";
             public const string Default = "Settings:Themes:Default";
+        }
+
+        public class Policies
+        {
+            public const string BaseKey = "Settings:Policies:";
+            public const string Enabled = "Settings:Policies:Enabled";
+            public const string CookiePolicy = "Settings:Policies:CookiePolicy";
         }
     }
 }

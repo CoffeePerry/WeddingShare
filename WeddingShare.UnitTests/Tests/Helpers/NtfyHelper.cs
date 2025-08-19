@@ -63,8 +63,8 @@ namespace WeddingShare.UnitTests.Tests.Helpers
             Assert.That(actual, Is.EqualTo(expected));
         }
 
-        [TestCase(null, false)]
-        [TestCase("", false)]
+        [TestCase(null, true)]
+        [TestCase("", true)]
         [TestCase("UnitTest", true)]
         public async Task NtfyHelper_Token(string? token, bool expected)
         {

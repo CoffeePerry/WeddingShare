@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Vigane galerii</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Nõustun</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Action</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk lükkas tagasi kõik pooleliolevad läbivaatamised</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Külastaja on küpsiste kasutamise heaks kiitnud</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Loodud galerii</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Palun võtke ühendust saidi administraatoriga, et pakkuda juurdepääsu</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Küpsiste heakskiitmiseks auditisõnumi logimine nurjus</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Küpsiste reeglid</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Seda veebilehte kasutades nõustute, et kasutame põhilisi küpsiseid vastavalt meie küpsiste kasutamise tingimustele. Lisateabe saamiseks palun vaadake meie</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Loo</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Kas tõesti kustutada see galerii?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>See on demo versioon. Kõik konfiguratsioonid pühkitakse perioodiliselt, et tagada tulevaste testijate jaoks puhas kiltkivi.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Teostatud hävitav tegevus</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Tuvastati topeltfail</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>E-posti aadress</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Eksport</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Pealkiri</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Sisu kuvatakse CookiePolicy infolehel</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Kohandatud küpsisepoliitika</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Tollipoliitika</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Seadistuste hankimine nurjus</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Kolonnide loend</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Mis on vaikimisi galerii filter</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>VaikefilterName</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Mis on vaikimisi galerii grupp</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Vaikimisi grupp</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Mis on galerii vaikimisi järjekord</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Vaikekorraldus</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Mis on galerii vaikevaade</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Salavõti</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Kas kasutaja saab filtreerida ja rühmitada meediat?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Näita filtreid</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Pealkiri tuleb näidata galerii ülaosas</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Näita tiitlit</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Kas külalistel lubatakse üles laadida</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Lehekülje laadimise viip</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Kas kasutaja peab sisestama e-posti aadressi</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Nõutakse e- posti aadressi</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Kas meedia üleslaadimiseks on vaja identiteedikontrolli</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Topic</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Kas kasutaja peaks nägema GDPR stiilis hüpikaknaid?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Lubatud</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Slaidiseanss</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Külasta</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Hoiatus</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Pühkige</value>

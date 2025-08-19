@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Nederīga galerija</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Pieņemt</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Darbība</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk noraidīja visas vēl nepieņemtās atsauksmes</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Apmeklētājs ir apstiprinājis sīkdatņu izmantošanu</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Izveidota galerija</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Lai nodrošinātu piekļuvi, sazinieties ar vietnes administratoru</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Neizdevās reģistrēt audita ziņojumu sīkdatņu apstiprināšanai</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Sīkdatņu politika</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Izmantojot šo tīmekļa vietni, jūs piekrītat pamata sīkdatņu izmantošanai saskaņā ar mūsu sīkdatņu lietošanas noteikumiem. Lai uzzinātu vairāk, lūdzu, skatiet mūsu</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Izveidot</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Vai tiešām vēlaties dzēst šo galeriju?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Šī ir demo versija. Visu konfigurāciju periodiski noslauka, lai nodrošinātu tīru šīferi nākamajiem testētājiem.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Iznīcinoša darbība</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Atrasts dublikāts</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>E- pasta adrese</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Eksports</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Nosaukums</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Sīkdatņu politikas informācijas lapā attēlojamais saturs</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Pielāgota sīkdatņu politika</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Pielāgotā politika</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Neizdevās iegūt iestatījumus</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Kolonnu skaits</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Kas ir noklusētais galerijas filtrs</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Noklusētais filtrs</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Kas ir noklusētā galerijas grupa</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Noklusētā grupa</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Kas ir noklusētais galerijas rīkojums</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Noklusētā kārtība</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Kāds ir noklusētais galerijas skats</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Slepenā atslēga</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Vai lietotājam vajadzētu būt iespējai filtrēt un grupēt datu nesēju?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Rādīt filtrus</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Ja nosaukums redzams galerijas augšpusē</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Rādīt nosaukumu</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Ja viesiem ir atļauts augšupielādēt ierakstus</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Lapas ielādes pieprasījums</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Ja lietotājiem ir jāievada e-pasta adrese</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Nepieciešama e- pasta adrese</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Ja nepieciešama identitātes pārbaude, lai augšupielādētu datu nesēju</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Temats</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Vai lietotājam vajadzētu redzēt GDPR stila izlec?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Aktivizēts</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Slīdrāde</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Apmeklējums</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Brīdinājums</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Noslaucīt</value>

@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>अवैध गैलरी</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>स्वीकार करना</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>कार्रवाई</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>थोक ने सभी लंबित समीक्षाओं को खारिज कर दिया</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>एक आगंतुक ने कुकीज़ के उपयोग को मंजूरी दे दी है</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>गैलरी</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>कृपया एक्सेस प्रदान करने के लिए साइट व्यवस्थापक से संपर्क करें</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>कुकी अनुमोदन के लिए एक लेखा परीक्षा संदेश लॉग करने में विफल</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>कुकी नीति</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>इस वेबसाइट का उपयोग करके आप कुकी उपयोग की हमारी शर्तों के अनुसार बुनियादी कुकीज़ के हमारे उपयोग के लिए सहमत हैं। हमसे संपर्क करें</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>बनाना</value>
   </data>
@@ -270,6 +285,9 @@
   </data>
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>क्या आप इस गैलरी को हटाना चाहते हैं?</value>
+  </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>यह एक डेमो संस्करण है। भविष्य के परीक्षकों के लिए स्वच्छ स्लेट सुनिश्चित करने के लिए सभी विन्यास समय-समय पर पोंछे जाते हैं।.</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>विनाशकारी कार्रवाई का प्रदर्शन</value>
@@ -685,6 +703,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>शीर्षक</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>कुकीनीति जानकारी पृष्ठ पर प्रदर्शित करने के लिए सामग्री</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>कस्टम कुकी नीति</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>कस्टम नीतियां</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>सेटिंग्स प्राप्त करने में विफल</value>
   </data>
@@ -817,6 +844,12 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>गुप्त कुंजी</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>क्या उपयोगकर्ता मीडिया को फ़िल्टर और समूहित करने में सक्षम होना चाहिए?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>फ़िल्टर दिखाएं</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>क्या मेहमानों को आइटम अपलोड करने की अनुमति है</value>
   </data>
@@ -924,6 +957,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>विषय</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>क्या उपयोगकर्ता GDPR शैली पॉपअप देख सकते हैं?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>सक्षम</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>स्लाइड शो</value>
@@ -1089,6 +1128,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>यात्रा</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>चेतावनी</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>वाइप</value>

@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Virheellinen galleria</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Hyväksy</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Toiminto</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk hylkäsi kaikki vireillä olevat tarkistukset</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Vierailija on hyväksynyt evästeiden käytön</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Luotu galleria</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Ota yhteyttä sivuston ylläpitäjään</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Evästeen hyväksyntää koskevan tarkastusviestin kirjaamis epäonnistui</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Evästekäytäntö</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Käyttämällä tätä sivustoa hyväksyt perusevästeiden käytön evästeiden käyttöehtojen mukaisesti. Lisätietoja</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Luo</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Haluatko varmasti poistaa tämän gallerian?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Tämä on demoversio. Kaikki konfiguraatiot pyyhitään ajoittain, jotta varmistetaan puhdas taulu tuleville testaajille.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Tuhoava toiminta suoritettu</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Kahdenna havaittu tiedosto</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Sähköpostiosoite</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Vie</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Nimi</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>CookiePolicy info-sivulla näytettävä sisältö</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Oma evästekäytäntö</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Omat politiikat</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Asetusten saaminen epäonnistui</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Sarakemäärä</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Mikä on oletus galleriasuodatin</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Oletussuodin</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Mikä on oletus galleria ryhmä</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Oletusryhmä</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Mikä on oletus galleria järjestyksessä</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Oletusjärjestys</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Mikä on oletusgallerian näkymä</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Salainen avain</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Pitäisikö käyttäjän pystyä suodattamaan ja ryhmittelemään mediaa?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Näytä suotimet</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Jos otsikko näytetään yläreunassa galleria</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Näytä otsikko</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Pitäisikö vieraiden saada ladata kohteita</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Sivun lataus</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Jos käyttäjiä vaaditaan antamaan sähköpostiosoite</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Vaadi sähköpostiosoite</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Jos henkilöllisyyden tarkistus vaaditaan ladata media</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Aihe</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Pitäisikö käyttäjän nähdä GDPR-tyylisiä ponnahdusikkunoita?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Käytössä</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Diaesitys</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Vierailu</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Varoitus</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Pyyhi</value>

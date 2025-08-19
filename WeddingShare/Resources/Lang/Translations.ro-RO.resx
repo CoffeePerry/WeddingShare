@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Galerie nevalidă</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Acceptă</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Acțiune</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk a respins toate reexaminările în curs</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Un vizitator a aprobat utilizarea cookie-urilor</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Galerie creată</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Vă rugăm să contactați un administrator de site pentru a oferi acces</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Nu s-a putut înregistra un mesaj de audit pentru aprobarea cookie-ului</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Politica privind cookie-urile</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Prin utilizarea acestui site sunteți de acord cu utilizarea de cookie-uri de bază în conformitate cu termenii noștri de utilizare a cookie-urilor. Pentru a afla mai multe vă rugăm să vizualizați noastre</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Creează</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Sigur doriți să ștergeți această galerie?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Aceasta este o versiune demo. Toate configuraţiile sunt ştearse periodic pentru a asigura o tabla curată pentru viitorii testatori.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Acţiune distructivă efectuată</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Fișier duplicat detectat</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Adresa de e-mail</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Exportă</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Titlu</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Conținutul de afișat pe pagina de informații CookiePolitical</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Politica de cookie-uri personalizate</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Politici personalizate</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Obținerea setărilor a eșuat</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Număr coloană</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Ce este filtrul de galerie implicit</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Filtru implicit</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Ce este grupul galeriei implicite</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Grup implicit</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Care este ordinea implicită a galeriei</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Ordine implicită</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Care este vizualizarea implicită a galeriei</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Cheie secretă</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Ar trebui ca utilizatorul să fie capabil să filtreze și să grupeze medii?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Afișează filtre</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>În cazul în care titlul ar fi afișat în partea de sus a galeriei</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Arată titlul</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>În cazul în care oaspeților li se permite să încarce elemente</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Încarcă pagina prompt</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>În cazul în care utilizatorii trebuie să introducă o adresă de e-mail</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Necesită adresa de e-mail</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>În cazul în care verificarea identității este necesară pentru a încărca media</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Subiect</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Ar trebui utilizatorul să vadă popup-uri stil GDPR?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Activat</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Slideshow</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Vizită</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Avertisment</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Şterge</value>

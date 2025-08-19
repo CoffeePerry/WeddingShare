@@ -29,7 +29,7 @@
                                     else
                                     {
                                         <div class="sponsor-card">
-                                            <img src="@((await _settings.GetOrDefault(Sponsors.Github.ProfileUrl, string.Empty))?.TrimEnd('/'))/@($"{sponsor}.png")" class="sponsor-card-logo" alt="@sponsor" onerror="this.src = '/images/@(platform.Name.ToLower())_avatar.png';" />
+                                            <img src="/images/@(platform.Name.ToLower())_avatar.png" class="sponsor-card-logo" alt="@sponsor" />
                                             <p class="sponsor-card-name">@sponsor</p>
                                         </div>
                                     }

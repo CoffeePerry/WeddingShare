@@ -171,67 +171,118 @@
             let uploadedCount = 0;
             let requiresReview = true;
             let errors = [];
+            let retries = 0;
 
-            for (var i = 0; i < dataRefs.files.length; i++) {
-                const formData = new FormData();
-                formData.append('__RequestVerificationToken', token);
-                formData.append('Id', galleryId);
-                formData.append('SecretKey', secretKey);
-                formData.append(dataRefs.files[i].name, dataRefs.files[i]);
+            function processFileUpload(i) {
+                if (i < dataRefs.files.length) {
+                    const formData = new FormData();
+                    formData.append('__RequestVerificationToken', token);
+                    formData.append('Id', galleryId);
+                    formData.append('SecretKey', secretKey);
+                    formData.append(dataRefs.files[i].name, dataRefs.files[i]);
 
-                displayLoader(localization.translate('Upload_Progress', { index: i + 1, count: dataRefs.files.length }));
+                    displayLoader(`${localization.translate('Upload_Progress', { index: i + 1, count: dataRefs.files.length })} <br/><br/><span id="file-upload-progress">0%</span>`);
 
-                let response = await postData({ url, formData });
-                if (response !== undefined && response.success === true) {
-                    uploadedCount++;
-                    requiresReview = response.requiresReview;
-                } else if (response.errors !== undefined && response.errors.length > 0) {
-                    errors.push(response.errors);
+                    $.ajax({
+                        url: url,
+                        type: 'POST',
+                        data: formData,
+                        async: true,
+                        cache: false,
+                        contentType: false,
+                        dataType: 'json',
+                        processData: false,
+                        success: function (response) {
+                            if (response !== undefined && response.success === true) {
+                                requiresReview = response.requiresReview;
+                            } else if (response.errors !== undefined && response.errors.length > 0) {
+                                errors.push(response.errors);
+                            }
+                        },
+                        xhr: function () {
+                            var xhr = new window.XMLHttpRequest();
+
+                            xhr.upload.addEventListener("progress", function (evt) {
+                                if (evt.lengthComputable) {
+                                    var percentComplete = evt.loaded / evt.total;
+                                    percentComplete = parseInt(percentComplete * 100);
+
+                                    if ($('span#file-upload-progress').length > 0) {
+                                        $('span#file-upload-progress').text(`(${percentComplete}%)`);
+                                    }
+                                }
+                            }, false);
+
+                            xhr.upload.addEventListener("load", function (evt) {
+                                uploadedCount++;
+                                processFileUpload(i + 1);
+                            }, false);
+
+                            xhr.upload.addEventListener("error", function (evt) {
+                                console.log(evt);
+                                if (retries < 5) {
+                                    setTimeout(function () {
+                                        retries++;
+                                        processFileUpload(i);
+                                    }, 2000);
+                                } else {
+                                    displayMessage(localization.translate('Upload'), localization.translate('Upload_Failed'), errors);
+                                }
+                            }, false);
+
+                            return xhr;
+                        },
+                    });
+                } else {
+                    hideLoader();
+
+                    if (requiresReview) {
+                        displayMessage(localization.translate('Upload'), localization.translate('Upload_Success_Pending_Review', { count: uploadedCount }), errors);
+
+                        const formData = new FormData();
+                        formData.append('Id', galleryId);
+                        formData.append('SecretKey', secretKey);
+                        formData.append('Count', uploadedCount);
+
+                        $.ajax({
+                            url: '/Gallery/UploadCompleted',
+                            type: 'POST',
+                            data: formData,
+                            async: true,
+                            cache: false,
+                            contentType: false,
+                            dataType: 'json',
+                            processData: false,
+                            success: function (response) {
+                                dataRefs.input.value = '';
+
+                                let counter = $('.review-counter');
+                                if (counter.length > 0) {
+                                    counter.find('.review-counter-total').text(response.counters.total);
+                                    counter.find('.review-counter-approved').text(response.counters.approved);
+                                    counter.find('.review-counter-pending').text(response.counters.pending);
+                                }
+                            },
+                            error: function (response) {
+                                console.log(response);
+                                displayMessage(localization.translate('Upload'), localization.translate('Upload_Failed'), errors);
+                            }
+                        });
+                    } else {
+                        displayMessage(localization.translate('Upload'), localization.translate('Upload_Success', { count: uploadedCount }), errors, function () {
+                            refreshGalleryPage();
+                        });
+                    }
                 }
             }
 
-            hideLoader();
-
-            if (requiresReview) {
-                displayMessage(localization.translate('Upload'), localization.translate('Upload_Success_Pending_Review', { count: uploadedCount }), errors);
-
-                const formData = new FormData();
-                formData.append('Id', galleryId);
-                formData.append('SecretKey', secretKey);
-                formData.append('Count', uploadedCount);
-
-                postData({ url: '/Gallery/UploadCompleted', formData }).then(data => {
-                    dataRefs.input.value = '';
-
-                    let counter = $('.review-counter');
-                    if (counter.length > 0) {
-                        counter.find('.review-counter-total').text(data.counters.total);
-                        counter.find('.review-counter-approved').text(data.counters.approved);
-                        counter.find('.review-counter-pending').text(data.counters.pending);
-                    }
-                });
-            } else {
-                displayMessage(localization.translate('Upload'), localization.translate('Upload_Success', { count: uploadedCount }), errors, function () {
-                    refreshGalleryPage();
-                });
-            }
-        }
-
-        const postData = async request => {
-            return fetch(request.url, {
-                method: 'POST',
-                body: request.formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    return data;
-                });
+            processFileUpload(0);
         }
 
         // Handle both selected and dropped files
         const handleFiles = async dataRefs => {
             let files = [...dataRefs.files];
-            
+
             // Remove unaccepted file types
             files = files.filter(item => {
                 var isAllowed = isImageFile(item) || isVideoFile(item);

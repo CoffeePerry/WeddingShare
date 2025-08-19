@@ -1,21 +1,20 @@
 @using WeddingShare.Constants
+@using WeddingShare.Helpers
 @inject WeddingShare.Helpers.IConfigHelper _config
+@inject WeddingShare.Helpers.ILanguageHelper _language
+@inject WeddingShare.Helpers.Database.IDatabaseHelper _database
 
 @{
-    var galleryName = (!string.IsNullOrWhiteSpace(ViewBag?.GalleryId) && !ViewBag.GalleryId.Equals("all", StringComparison.OrdinalIgnoreCase)) ? ViewBag.GalleryId.ToLower() : "default";
-    var title = await _settings.GetOrDefault(Settings.Basic.Title, "WeddingShare", galleryName);
+    var galleryIdentifier = (!string.IsNullOrWhiteSpace(ViewBag?.GalleryIdentifier) && !ViewBag.GalleryIdentifier.Equals("All", StringComparison.OrdinalIgnoreCase)) ? ViewBag.GalleryIdentifier.ToLower() : "default";
+    var galleryId = (_database?.GetGalleryId(galleryIdentifier)?.Result) ?? 1;
+
+    var title = await _settings.GetOrDefault(Settings.Basic.Title, "WeddingShare", galleryId);
     var isDemoMode = await _settings.GetOrDefault(Settings.IsDemoMode, false);
 
-    string logo;
+    var logo = "/images/logo.png";
     try
     {
-        var logoGallery = _config.Get($"{Settings.Basic.Logo}_{galleryName}") != null ? galleryName : "default";
-
-        logo = await _settings.GetOrDefault(Settings.Basic.Logo, "/images/logo.png", logoGallery);
-        if (!logo.StartsWith("/images", StringComparison.OrdinalIgnoreCase) && !logo.StartsWith("/logos", StringComparison.OrdinalIgnoreCase) && !logo.StartsWith("/custom_resources", StringComparison.OrdinalIgnoreCase))
-        {
-            logo = $"/logos/{logoGallery}.{System.IO.Path.GetExtension(logo).Trim('.')}";
-        }
+        logo = await _settings.GetOrDefault(Settings.Basic.Logo, "/images/logo.png", galleryId);
     }
     catch
     {
@@ -47,8 +46,28 @@
     {
         culture = Context?.Session?.GetString(SessionKey.SelectedLanguage)?.Trim();
         if (string.IsNullOrEmpty(culture))
-        { 
-            culture = WeddingShare.Configurations.LocalizationConfiguration.CurrentCulture;
+        {
+            culture = await _language.GetOrFallbackCulture(string.Empty, await _settings.GetOrDefault(Settings.Languages.Default, "en-GB"));
+
+            <script>
+                (function () {
+                    document.addEventListener('DOMContentLoaded', function () {
+                        let culture = window.navigator.language;
+                        if (culture !== undefined && culture.length > 0) {
+                            $.ajax({
+                                type: "POST",
+                                url: '/Language/ChangeDisplayLanguage',
+                                data: { culture: culture },
+                                success: function (data) {
+                                    if (data.success) {
+                                        window.location.reload();
+                                    }
+                                }
+                            });
+                        }
+                    });
+                })();
+            </script>
         }
     }
     catch
@@ -123,7 +142,8 @@
                             }
                             @if (await _settings.GetOrDefault(Settings.IdentityCheck.Enabled, true))
                             {
-                                <i class="change-identity fa-solid fa-id-card fa-1x text-secondary pointer mx-2" data-identity="@Context?.Session.GetString(SessionKey.ViewerIdentity)"></i>
+                                var requireEmail = await _settings.GetOrDefault(Settings.IdentityCheck.RequireEmail, false);
+                                <i class="change-identity fa-solid fa-id-card fa-1x text-secondary pointer mx-2" data-identity-name="@Context?.Session.GetString(SessionKey.ViewerIdentity)" @(requireEmail ? $"data-identity-email={Context?.Session.GetString(SessionKey.ViewerEmailAddress)}" : string.Empty)></i>
                             }
                             @if (User?.Identity != null && User.Identity.IsAuthenticated)
                             {
@@ -181,7 +201,7 @@
             @if (isDemoMode)
             {
                 <div class="alert alert-warning text-center" role="alert">
-                    <i class="fa fa-warning mx-3"></i><b>WARNING:</b> This is a demo version. All configuration is periodically wiped to ensure a clean slate for future testers. 
+                    <i class="fa fa-warning mx-3"></i><b>@(_localizer["Warning"].Value.ToUpper()):</b> @_localizer["Demo_Message"].Value
                 </div>
             }
 
@@ -213,7 +233,7 @@
         @if (await _settings.GetOrDefault(Settings.IdentityCheck.Enabled, true) && await _settings.GetOrDefault(Settings.IdentityCheck.ShowOnPageLoad, true) && string.IsNullOrWhiteSpace(Context?.Session?.GetString(SessionKey.ViewerIdentity)))
         {
             <script>
-                displayIdentityCheck(false);
+                displayIdentityCheck(@((await _settings.GetOrDefault(Settings.IdentityCheck.RequireEmail, false)).ToString().ToLower()));
             </script>
         }
 
@@ -231,6 +251,8 @@
                 </p>
             </div>
         </footer>
+
+        <partial name="_CookieConsentPartial" />
 
         <!-- Sponsors Button -->
         <i id="btn-show-sponsors" class="fa-solid fa-bolt"></i>

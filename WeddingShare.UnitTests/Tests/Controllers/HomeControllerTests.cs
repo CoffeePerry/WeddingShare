@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using WeddingShare.Constants;
@@ -16,6 +17,7 @@ namespace WeddingShare.UnitTests.Tests.Helpers
         private readonly ISettingsHelper _settings = Substitute.For<ISettingsHelper>();
         private readonly IDatabaseHelper _database = Substitute.For<IDatabaseHelper>();
         private readonly IDeviceDetector _deviceDetector = Substitute.For<IDeviceDetector>();
+        private readonly IAuditHelper _audit = Substitute.For<IAuditHelper>();
         private readonly ILogger<HomeController> _logger = Substitute.For<ILogger<HomeController>>();
         private readonly IStringLocalizer<Lang.Translations> _localizer = Substitute.For<IStringLocalizer<Lang.Translations>>();
         
@@ -40,9 +42,9 @@ namespace WeddingShare.UnitTests.Tests.Helpers
         {
             _deviceDetector.ParseDeviceType(Arg.Any<string>()).Returns(deviceType);
             _settings.GetOrDefault(Settings.Basic.SingleGalleryMode, Arg.Any<bool>()).Returns(singleGalleryMode);
-            _settings.GetOrDefault(Settings.Gallery.SecretKey, Arg.Any<string>(), Arg.Any<string>()).Returns(secretKey);
+            _settings.GetOrDefault(Settings.Gallery.SecretKey, Arg.Any<string>(), Arg.Any<int>()).Returns(secretKey);
 
-            var controller = new HomeController(_settings, _database, _deviceDetector, _logger, _localizer);
+            var controller = new HomeController(_settings, _database, _deviceDetector, _audit, _logger, _localizer);
             controller.ControllerContext.HttpContext = new DefaultHttpContext()
             {
                 Session = new MockSession()
@@ -60,7 +62,7 @@ namespace WeddingShare.UnitTests.Tests.Helpers
                 Assert.That(actual.Permanent, Is.EqualTo(false));
                 Assert.That(actual.ControllerName, Is.EqualTo("Gallery"));
                 Assert.That(actual.ActionName, Is.EqualTo("Index"));
-                Assert.That(actual.RouteValues, Is.Null);
+                Assert.That(actual.RouteValues, singleGalleryMode ? Is.EqualTo(new RouteValueDictionary { { "identifier", "default" } }) : Is.Null);
                 Assert.That(actual.Fragment, Is.Null);
             }
         }

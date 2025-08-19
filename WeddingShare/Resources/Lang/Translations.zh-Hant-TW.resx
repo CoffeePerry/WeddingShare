@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>无效的图片库</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>接受</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>行动</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>驳回所有待审审查</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>有访客同意使用饼干</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>已创建相册</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>请联系网站管理员提供访问</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>登录审计信件供 cookie 批准失败</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Cookie 策略</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>通过使用这个网站 你同意我们使用 基本饼干 根据我们的饼干使用条件。 要知道更多 请看我们</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>创建</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>您确定要删除此画廊吗 ?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>这是一个演示版。 所有配置都定期被擦去,以确保未来的测试者有一个干净的板块.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>已执行的破坏行动</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>检测到复制文件</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>电子邮件地址</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>导出</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>标题</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Cookie 政策信息页面显示的内容</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>自定义 Cookie 策略</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>自定义政策</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>获取设置失败</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>列数</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>默认画廊过滤器是什么</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>默认过滤器</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>默认画廊组是什么</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>默认组</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>默认画廊命令是什么</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>默认顺序</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>默认画廊视图是什么</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>密钥</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>用户是否应该能够过滤和组介质?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>显示过滤器</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>如果标题显示在画廊的顶端</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>显示标题</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>是否允许客人上传项目</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>页面加载提示</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>是否要求用户输入电子邮件地址</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>需要电子邮件地址</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>如果需要身份检查才能上传媒体</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>专题</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>用户应该看到 GDPR 风格弹出吗 ?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>已启用</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>幻灯片放映</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>访问</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>3⁄4 ̄ ̧漯B</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>擦拭</value>

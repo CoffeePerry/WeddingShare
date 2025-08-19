@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Invalid Gallery</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Action</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk rejected all pending reviews</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>A visitor has approved the use of cookies</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Created gallery</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Please contact a site administrator to provide access</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Failed to log an audit message for cookie approval</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Cookie Policy</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>By using this website you agree to our use of basic cookies in accordance with our terms of cookie usage. To find out more please view our</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Are you sure you want to delete this gallery?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>This is a demo version. All configuration is periodically wiped to ensure a clean slate for future testers.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Destructive Action Performed</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Duplicate file detected</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Email Address</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Export</value>
@@ -601,9 +622,6 @@
   <data name="Settings_Basic" xml:space="preserve">
     <value>Basic</value>
   </data>
-  <data name="Settings_Basic" xml:space="preserve">
-    <value>Basic</value>
-  </data>
   <data name="Settings_Basic_BaseUrl_Help" xml:space="preserve">
     <value>The base Url to be used in links and notifications</value>
   </data>
@@ -688,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Title</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>The content to display on the CookiePolicy info page</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Custom Cookie Policy</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Custom Policies</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Failed to get settings</value>
   </data>
@@ -717,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Column Count</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>What is the default gallery filter</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Default Filter</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>What is the default gallery group</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Default Group</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>What is the default gallery order</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Default Order</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>What is the default gallery view</value>
@@ -820,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Secret Key</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Should the user be able to filter and group media?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Show Filters</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Should the title be displayed at the top of the gallery</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Show Title</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Should guests be allowed to upload items</value>
   </data>
@@ -860,7 +917,7 @@
     <value>Access Token</value>
   </data>
   <data name="Settings_IdentityCheck" xml:space="preserve">
-    <value>Guest Name</value>
+    <value>Guest Identity</value>
   </data>
   <data name="Settings_IdentityCheck_Enabled_Help" xml:space="preserve">
     <value>Prompt users for their name</value>
@@ -873,6 +930,12 @@
   </data>
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Page Load Prompt</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Should users be required to enter an email address</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Require Email Address</value>
   </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Should the guest name check be required to upload media</value>
@@ -927,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Topic</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Should the user see GDPR style popups?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Enabled</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Slideshow</value>
@@ -1092,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Visit</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Wipe</value>

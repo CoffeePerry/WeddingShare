@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>無効なギャラリー</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>お問い合わせ</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>アクション</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>一括ですべての保留レビューを拒否</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>訪問者はクッキーの使用を承認しました</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>制作ギャラリー</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>サイトの管理者に連絡してアクセスしてください</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>クッキーの承認のための監査メッセージをログに失敗しました</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>クッキーポリシー</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>このウェブサイトを使用することにより、クッキーの使用条件に従って、基本的なクッキーの使用に同意するものとします。 詳しくはこちらをご覧ください</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>作成する</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>このギャラリーを削除したいですか?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>デモ版です。 すべての構成は、将来のテスターのためのきれいなスレートを保証するために定期的に拭きます.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>破壊的な行動の実行</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>検出された重複ファイル</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>メールアドレス</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>エクスポート</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>タイトル</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>CookiePolicy情報ページで表示するコンテンツ</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>カスタムクッキーポリシー</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>カスタムポリシー</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>設定が失敗</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>列数</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>デフォルトのギャラリーフィルタとは</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>デフォルト フィルター</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>デフォルトのギャラリーグループとは</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>デフォルトグループ</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>デフォルトのギャラリーの注文は何ですか</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>デフォルト注文</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>デフォルトのギャラリービューとは</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>秘密鍵</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>ユーザーがフィルタリングやグループメディアをグループ化できるの?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>フィルターを表示</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>タイトルがギャラリーの一番上に表示されるべき</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>タイトルを表示</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>お客様が商品をアップロードできる場合</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>ページの読み込みプロンプト</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>ユーザーがメールアドレスを入力する必要があります</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>必須メールアドレス</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>メディアをアップロードするには、本人確認が必要です</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>トピック</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>GDPRスタイルのポップアップが表示された場合?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>有効化</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>スライドショー</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>アクセス</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>インフォメーション</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>ウィップ</value>

@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Érvénytelen galéria</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Elfogadás</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Intézkedés</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk elutasította az összes függőben lévő felülvizsgálatot</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>A látogató jóváhagyta a sütik használatát</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Létrehozott galéria</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Kérjük, lépjen kapcsolatba a webhely adminisztrátorával a hozzáférés biztosítása érdekében</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Nem sikerült bejelentkezni a cookie-k jóváhagyásához</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Sütipolitika</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>A weboldal használatával beleegyezik abba, hogy az alapvető cookie-kat a cookie-k használatának feltételeivel összhangban használjuk. Hogy többet tudjunk meg, kérjük, tekintse meg a</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Létrehozás</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Biztos, hogy törölni akarod ezt a galériát?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Ez egy demó verzió. Minden konfiguráció rendszeresen törlődik, hogy tiszta pala legyen a jövőbeli tesztelők számára.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Megsemmisítő művelet</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>A kijelölt fájl másolása</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>E- mail cím</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Exportálás</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Cím</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>A CookiePolicy info oldalon megjelenítendő tartalom</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Egyedi cookie-politika</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Egyéni politikák</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Nem sikerült beállítani</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Oszlopszám</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Mi az alapértelmezett galéria szűrő</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Alapértelmezett szűrő</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Mi az alapértelmezett galéria csoport</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Alapértelmezett csoport</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Mi az alapértelmezett galéria sorrend</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Alapértelmezett sorrend</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Mi az alapértelmezett galéria nézet</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Titkos kulcs</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Lehetővé kell tenni a felhasználó számára, hogy szűrje és csoportosítsa a médiát?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Szűrők megjelenítése</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Ha a cím megjelenik a galéria tetején</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>A cím megjelenítése</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>A vendégek számára lehetővé kell tenni a tételek feltöltését</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Oldalbetöltés</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Amennyiben a felhasználóknak e-mail címet kell megadniuk</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>E-mail cím kérése</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Amennyiben a személyazonosság-ellenőrzés szükséges a média feltöltéséhez</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Téma</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>A felhasználónak látnia kell a GDPR stílust?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Engedélyezve</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Diavetítés</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Látogatás</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Figyelem</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Törlő</value>

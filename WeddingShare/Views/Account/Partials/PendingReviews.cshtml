@@ -1,56 +1,72 @@
-@model List<GalleryItemModel>
+@model List<PhotoGallery>
 @using WeddingShare.Constants
 @using WeddingShare.Models.Database
-@using WeddingShare.Views.Account
+@using WeddingShare.Views.Account.Partials
 
 @{
     var userPermissions = User?.Identity?.GetUserPermissions() ?? AccessPermissions.None;
     var identityEnabled = await _settings.GetOrDefault(Settings.IdentityCheck.Enabled, true);
+    var requireEmailEnabled = identityEnabled ? await _settings.GetOrDefault(Settings.IdentityCheck.RequireEmail, false) : false;
 }
 
 <div class="row">
     @if (userPermissions.HasFlag(AccessPermissions.Review_View) && Model != null && Model.Any())
     {
-        foreach (var review in Model)
+        foreach (var gallery in Model)
         {
-            <div class="pending-approval col-12 col-lg-4 mb-4 mb-lg-0 mb-1 mb-lg-4">
-                <div class="card">
-                    <a href="/uploads/@review.GalleryName/Pending/@review.Title" class="media-viewer-item" data-media-viewer-type="@review.MediaType.ToString().ToLower()" data-media-viewer-collection="@review.GalleryName" data-media-viewer-author="@(identityEnabled ? $"{_localizer["Uploaded_By"].Value}: {(!string.IsNullOrWhiteSpace(review?.UploadedBy) ? review?.UploadedBy : "Anonymous")}" : string.Empty)" data-media-viewer-download="true">
-                        <img src="/thumbnails/@review.GalleryName/@($"{System.IO.Path.GetFileNameWithoutExtension(review?.Title)}.webp")" class="review-tile" loading="lazy" onerror="this.onerror=null;this.src='/thumbnails/@($"{System.IO.Path.GetFileNameWithoutExtension(review?.Title)}.webp")';" />
-                        @if (review?.MediaType == MediaType.Video)
-                        {
-                            <img src="/images/play-button.svg" class="media-viewer-play" loading="lazy" />
-                        }
-                        @if (userPermissions.HasFlag(AccessPermissions.Review_Approve))
-                        {
-                            <i class="fa fa-thumbs-up btnReviewApprove d-lg-none" data-id="@review?.Id" data-name="@review?.Title"></i>
-                        }
-                        @if (userPermissions.HasFlag(AccessPermissions.Review_Reject))
-                        {
-                            <i class="fa fa-thumbs-down btnReviewReject d-lg-none" data-id="@review?.Id" data-name="@review?.Title"></i>
-                        }
-                    </a>
-                    <div class="card-header my-0 py-0">
-                        <div class="row card-title text-capitalize border-top py-0 pt-2">
-                            @if (identityEnabled)
-                            {
-                                <div class="col-12 col-lg-6 text-lg-center">
-                                    <b>@_localizer["Gallery"].Value:</b> @review?.GalleryName
+            if (gallery.Images != null)
+            {
+                foreach (var review in gallery.Images)
+                {
+                    if (review != null)
+                    {
+                        <div class="pending-approval col-12 col-lg-4 mb-4 mb-lg-0 mb-1 mb-lg-4">
+                            <div class="card">
+                                <a href="@review.ImagePath" class="media-viewer-item" data-media-viewer-type="@review.MediaType.ToString().ToLower()" data-media-viewer-collection="@review.GalleryName" data-media-viewer-author="@(identityEnabled ? $"{_localizer["Uploaded_By"].Value}: {(!string.IsNullOrWhiteSpace(review?.UploadedBy) ? $"{review?.UploadedBy}{(!string.IsNullOrWhiteSpace(review?.UploaderEmailAddress) ? $" - {review?.UploaderEmailAddress?.ToLower()}" : string.Empty)}" : "Anonymous")}" : string.Empty)" data-media-viewer-download="true">
+                                    <img src="@review.ThumbnailPath" class="review-tile" loading="lazy" onerror="this.onerror=null;this.src='@(review.ThumbnailPathFallback)';" />
+                                    @if (review?.MediaType == MediaType.Video)
+                                    {
+                                        <img src="/images/play-button.svg" class="media-viewer-play" loading="lazy" />
+                                    }
+                                    @if (userPermissions.HasFlag(AccessPermissions.Review_Approve))
+                                    {
+                                        <i class="fa fa-thumbs-up btnReviewApprove d-lg-none" data-id="@review?.Id" data-name="@review?.Name"></i>
+                                    }
+                                    @if (userPermissions.HasFlag(AccessPermissions.Review_Reject))
+                                    {
+                                        <i class="fa fa-thumbs-down btnReviewReject d-lg-none" data-id="@review?.Id" data-name="@review?.Name"></i>
+                                    }
+                                </a>
+                                <div class="card-header my-0 py-0">
+                                    <div class="row card-title text-capitalize border-top py-0 pt-2">
+                                        @if (identityEnabled)
+                                        {
+                                            <div class="col-12 col-lg-6 text-lg-center">
+                                                <b>@_localizer["Gallery"].Value:</b> @gallery.Gallery.Name
+                                            </div>
+                                            <div class="col-12 col-lg-6 text-lg-center">
+                                                <b>@_localizer["Uploader"].Value:</b> @(!string.IsNullOrWhiteSpace(review?.UploadedBy) ? review.UploadedBy : "Anonymous")
+                                            </div>
+                                            @if (requireEmailEnabled)
+                                            {
+                                                <div class="col-12 text-lg-center mt-lg-1">
+                                                    <b>@_localizer["EmailAddress"].Value:</b> <span class="text-lowercase">@(!string.IsNullOrWhiteSpace(review?.UploaderEmailAddress) ? review.UploaderEmailAddress : "Anonymous")</span>
+                                                </div>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <div class="col-12">
+                                                <b>@_localizer["Gallery"].Value:</b> @gallery.Gallery.Name
+                                            </div>
+                                        }
+                                    </div>
                                 </div>
-                                <div class="col-12 col-lg-6 text-lg-center">
-                                    <b>@_localizer["Uploader"].Value:</b> @(!string.IsNullOrWhiteSpace(review?.UploadedBy) ? review.UploadedBy : "Anonymous")
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="col-12">
-                                    <b>@_localizer["Gallery"].Value:</b> @review?.GalleryName
-                                </div>
-                            }
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    }
+                }
+            }
         }
     }
     else

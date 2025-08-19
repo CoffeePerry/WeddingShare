@@ -11,59 +11,82 @@ namespace WeddingShare.BackgroundWorkers
     {
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            if (await settingsHelper.GetOrDefault(Settings.Basic.EmailReport, true) && await settingsHelper.GetOrDefault(Notifications.Smtp.Enabled, false))
+            var enabled = await settingsHelper.GetOrDefault(BackgroundServices.EmailReport.Enabled, true);
+            if (enabled)
             {
                 var cron = await settingsHelper.GetOrDefault(BackgroundServices.EmailReport.Schedule, "0 0 * * *");
-                var schedule = CrontabSchedule.Parse(cron, new CrontabSchedule.ParseOptions() { IncludingSeconds = cron.Split(new[] { ' ' }, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).Length == 6 });
+                var nextExecutionTime = DateTime.Now.AddSeconds(10);
 
                 while (!stoppingToken.IsCancellationRequested)
                 {
-                    var now = DateTime.Now;
-                    var nextExecutionTime = schedule.GetNextOccurrence(now);
-                    var waitTime = nextExecutionTime - now;
-                    await Task.Delay(waitTime, stoppingToken);
+                    var currentCron = await settingsHelper.GetOrDefault(BackgroundServices.EmailReport.Schedule, "0 0 * * *");
 
-                    var enabled = await settingsHelper.GetOrDefault(BackgroundServices.EmailReport.Enabled, true);
-                    if (await settingsHelper.GetOrDefault(Settings.Basic.EmailReport, true) && await settingsHelper.GetOrDefault(Notifications.Smtp.Enabled, false))
+                    var now = DateTime.Now;
+                    if (now >= nextExecutionTime)
                     {
-                        if (enabled)
+                        if (await settingsHelper.GetOrDefault(Settings.Basic.EmailReport, true) && await settingsHelper.GetOrDefault(Notifications.Smtp.Enabled, false))
                         {
-                           await SendReport();
+                            await SendReport();
                         }
+
+                        var schedule = CrontabSchedule.Parse(cron, new CrontabSchedule.ParseOptions() { IncludingSeconds = cron.Split(new[] { ' ' }, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).Length == 6 });
+                        nextExecutionTime = schedule.GetNextOccurrence(now);
                     }
+                    else
+                    {
+                        if (!currentCron.Equals(cron))
+                        {
+                            nextExecutionTime = DateTime.Now;
+                        }
+
+                        await Task.Delay(TimeSpan.FromSeconds(1), stoppingToken);
+                    }
+
+                    cron = currentCron;
                 }
             }
         }
 
         private async Task SendReport()
         {
-            await Task.Run(async () =>
+            try
             {
-                var pendingItems = await databaseHelper.GetPendingGalleryItems();
-                if (pendingItems != null && pendingItems.Any())
+                await Task.Run(async () =>
                 {
-                    var builder = new StringBuilder();
-                    builder.AppendLine($"<h1>You have items pending review!</h1>");
-                    
-                    foreach (var item in pendingItems.GroupBy(x => x.GalleryName).OrderBy(x => x.Key))
+                    var pendingItems = await databaseHelper.GetPendingGalleryItems();
+                    if (pendingItems != null && pendingItems.Any())
                     {
-                        try
-                        {
-                            builder.AppendLine($"<p style=\"font-size: 16pt;\">{item.Key} - Pending Items ({item.Count()})</p>");
-                        }
-                        catch (Exception ex)
-                        {
-                            loggerFactory.CreateLogger<NotificationReport>().LogError(ex, $"Failed to build gallery report for id '{item?.Key}' - {ex?.Message}");
-                        }
-                    }
+                        var builder = new StringBuilder();
+                        builder.AppendLine($"<h1>You have items pending review!</h1>");
 
-                    var sent = await new EmailHelper(settingsHelper, smtpHelper, loggerFactory.CreateLogger<EmailHelper>()).Send("Pending Items Report", builder.ToString());
-                    if (!sent)
-                    {
-                        loggerFactory.CreateLogger<NotificationReport>().LogWarning($"Failed to send notification report");
+                        foreach (var item in pendingItems.GroupBy(x => x.GalleryId).OrderByDescending(x => x.Count()))
+                        {
+                            var gallery = await databaseHelper.GetGallery(item.Key);
+                            if (gallery != null)
+                            {
+                                try
+                                {
+                                    builder.AppendLine($"<p style=\"font-size: 16pt;\">{gallery.Name} - Pending Items ({item.Count()})</p>");
+                                }
+                                catch (Exception ex)
+                                {
+                                    loggerFactory.CreateLogger<NotificationReport>().LogError(ex, $"Failed to build gallery report for '{gallery.Name}' - {ex?.Message}");
+                                }
+                            }
+                        }
+
+                        var sent = await new EmailHelper(settingsHelper, smtpHelper, loggerFactory.CreateLogger<EmailHelper>()).Send("Pending Items Report", builder.ToString());
+                        if (!sent)
+                        {
+                            loggerFactory.CreateLogger<NotificationReport>().LogWarning($"Failed to send notification report");
+                        }
                     }
-                }
-            });
+                });
+            }
+            catch (Exception ex)
+            {
+                loggerFactory.CreateLogger<NotificationReport>().LogError(ex, $"NotificationReport - Failed to send report - {ex?.Message}");
+            }
         }
     }
 }

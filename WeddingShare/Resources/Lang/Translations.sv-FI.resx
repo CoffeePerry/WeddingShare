@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Invalid Galleri</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Acceptera</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Action</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk avvisade alla väntande recensioner</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>En besökare har godkänt användningen av cookies</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Skapat galleri</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Kontakta en webbplatsadministratör för att ge åtkomst</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Underlåtenhet att logga ett revisionsmeddelande för cookie-godkännande</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Cookie Policy</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Genom att använda denna webbplats godkänner du vår användning av grundläggande cookies i enlighet med våra villkor för användning av cookies. För att ta reda på mer vänligen se vår</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Skapa</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Är du säker på att du vill ta bort detta galleri?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Detta är en demoversion. All konfiguration torkas regelbundet för att säkerställa en ren skiffer för framtida testare.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Destruktiv åtgärd utförd</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Duplicera filen upptäckt</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>E-postadress</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Export</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Titel</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Innehållet att visa på CookiePolicy info sida</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Anpassad Cookie Policy</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Anpassade politiker</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Misslyckades med att få inställningar</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Column Count</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Vad är standard gallerifilter</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Standardfilter</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Vad är standardgallerigruppen</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Standard Group</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Vad är standard galleri order</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Standardorder</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Vad är standard Gallery View</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Hemlig nyckel</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Ska användaren kunna filtrera och gruppera media?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Visa filter</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Om titeln visas högst upp på galleriet</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Visa titel</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Om gästerna får ladda upp objekt</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Page Load Prompt</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Om användarna måste ange en e-postadress</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Kräver e-postadress</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Om identitetskontrollen krävs för att ladda upp media</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Ämne</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Skulle användaren se GDPR stil popups?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Enabled</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Slideshow</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Besök</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Varning</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Wipe</value>

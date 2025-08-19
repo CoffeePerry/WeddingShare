@@ -5,34 +5,33 @@
 
 @if (Model.ViewMode != ViewMode.Slideshow)
 {
-    var galleryName = (!string.IsNullOrWhiteSpace(Model?.GalleryName) && !Model.GalleryName.Equals("all", StringComparison.OrdinalIgnoreCase)) ? Model.GalleryName.ToLower() : "default";
+    var galleryName = (!string.IsNullOrWhiteSpace(Model?.Gallery?.Identifier) && !Model.Gallery.Identifier.Equals("All", StringComparison.OrdinalIgnoreCase)) ? Model.Gallery.Name.ToLower() : "default";
 
-    string banner;
+    var showTitle = await _settings.GetOrDefault(Settings.Gallery.ShowTitle, true, Model?.Gallery?.Id);
+    if (showTitle)
+    {
+        <div class="row mb-4">
+            <div class="col-12">
+                <h6 class="display-6 mx-0 my-0 text-center text-capitalize">@Model?.Gallery?.Name</h6>
+            </div>
+        </div>
+    }
+
     try
     {
-        var bannerGallery = _config.Get($"{Settings.Gallery.BannerImage}_{galleryName}") != null ? galleryName : "default";
-
-        banner = await _settings.GetOrDefault(Settings.Gallery.BannerImage, string.Empty, galleryName);
+        var banner = await _settings.GetOrDefault(Settings.Gallery.BannerImage, string.Empty, Model?.Gallery?.Id);
         if (!string.IsNullOrWhiteSpace(banner))
         {
-            if (!banner.StartsWith("/images", StringComparison.OrdinalIgnoreCase) && !banner.StartsWith("/banners", StringComparison.OrdinalIgnoreCase) && !banner.StartsWith("/custom_resources", StringComparison.OrdinalIgnoreCase))
-            {
-                banner = $"/banners/{bannerGallery}.{System.IO.Path.GetExtension(banner).Trim('.')}";
-            }
-
-            if (!string.IsNullOrWhiteSpace(banner))
-            {
-                <div class="row mb-3 mb-lg-4 p-0">
-                    <div class="col-12 gallery_banner_header text-center p-0">
-                        <img src="@banner" alt="banner image" />
-                    </div>
+            <div class="row mb-3 mb-lg-4 p-0">
+                <div class="col-12 gallery_banner_header text-center p-0">
+                    <img src="@banner" alt="banner image" />
                 </div>
-            }
+            </div>
         }
     }
     catch { }
 
-    var quote = await _settings.GetOrDefault(Settings.Gallery.Quote, string.Empty, galleryName);
+    var quote = await _settings.GetOrDefault(Settings.Gallery.Quote, string.Empty, Model?.Gallery?.Id);
     if (!string.IsNullOrWhiteSpace(quote))
     {
         <div class="row mb-3 mb-lg-4 border rounded">
@@ -42,7 +41,7 @@
         </div>
     }
 
-    if (await _settings.GetOrDefault(Settings.Gallery.ReviewCounter, true, Model?.GalleryName))
+    if (await _settings.GetOrDefault(Settings.Gallery.ReviewCounter, true, Model?.Gallery?.Id))
     {
         <div class="row mb-3 mb-lg-4 review-counter">
             <div class="col-4">
@@ -60,7 +59,7 @@
 
 @if (Model?.Images != null && Model.Images.Any())
 {
-    <div class="row">
+    <div class="row mx-1">
         @if (Model.ViewMode == ViewMode.Slideshow)
         {
             <partial name="~/Views/Gallery/Modes/Slideshow.cshtml" model="Model" />
@@ -84,7 +83,7 @@ else
 {
     <div class="row mt-5 pt-5">
         <div class="col-12 text-center">
-            <h3 class="display-6">@(Model?.FileUploader != null ? _localizer["Gallery_Empty_Upload"].Value : _localizer["Gallery_Empty"].Value)</h3>
+            <h3 class="display-6">@(Model?.UploadActivated != null ? _localizer["Gallery_Empty_Upload"].Value : _localizer["Gallery_Empty"].Value)</h3>
         </div>
     </div>
 }

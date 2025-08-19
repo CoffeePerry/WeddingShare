@@ -18,6 +18,8 @@ namespace WeddingShare.Helpers.Database
             _logger = logger;
 
             _logger.LogInformation($"Using MySQL connection string: '{_connString}'");
+
+            this.TestConnection();
         }
 
         #region Setup
@@ -31,6 +33,28 @@ namespace WeddingShare.Helpers.Database
             var conn = new MySqlConnection(connString);
             await DisableOnlyFullGroup(conn);
             return conn;
+        }
+
+        private void TestConnection()
+        {
+            try
+            {
+                using (var conn = GetConnection().Result)
+                {
+                    var cmd = CreateCommand($"SELECT 1", conn);
+                    cmd.CommandType = CommandType.Text;
+
+                    conn.Open();
+                    cmd.ExecuteScalarAsync();
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                var message = $"Failed to connect to the database instance. Please check your database is up and running and the connection string used is correct";
+                _logger.LogCritical(ex, message);
+                Environment.FailFast(message, ex);
+            }
         }
 
         private MySqlCommand CreateCommand(string cmd, MySqlConnection conn)
@@ -142,14 +166,51 @@ namespace WeddingShare.Helpers.Database
             return result;
         }
 
-        public async Task<int?> GetGalleryId(string? name)
+        public async Task<int?> GetGalleryIdByName(string? name)
         {
+            int? result = null;
+
             if (!string.IsNullOrWhiteSpace(name))
             {
-                return (await this.GetGallery(name))?.Id;
+                using (var conn = await GetConnection())
+                {
+                    var cmd = CreateCommand($"SELECT g.`id` FROM `galleries` AS g WHERE UPPER(g.`name`)=UPPER(@Name);", conn);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("Name", name);
+
+                    await conn.OpenAsync();
+                    result = (int?)(long?)await cmd.ExecuteScalarAsync();
+                    await conn.CloseAsync();
+                }
             }
 
-            return null;
+            return result;
+        }
+
+        public async Task<int?> GetGalleryId(string identifier)
+        {
+            int? result = null;
+
+            if (!string.IsNullOrWhiteSpace(identifier))
+            {
+                using (var conn = await GetConnection())
+                {
+                    var cmd = CreateCommand($"SELECT g.`id` FROM `galleries` AS g WHERE UPPER(g.`identifier`)=UPPER(@Identifier);", conn);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("Identifier", identifier);
+
+                    await conn.OpenAsync();
+                    result = (int?)(long?)await cmd.ExecuteScalarAsync();
+                    await conn.CloseAsync();
+                }
+            }
+
+            return result;
+        }
+
+        public async Task<string?> GetGalleryIdentifier(int id)
+        {
+            return (await this.GetGallery(id))?.Identifier;
         }
 
         public async Task<string?> GetGalleryName(int id)
@@ -185,47 +246,18 @@ namespace WeddingShare.Helpers.Database
                         result = new GalleryModel()
                         {
                             Id = 0,
+                            Identifier = "all",
                             Name = "all",
                             SecretKey = null,
                             TotalItems = galleries?.Sum(x => x.TotalItems) ?? 0,
                             ApprovedItems = galleries?.Sum(x => x.ApprovedItems) ?? 0,
                             PendingItems = galleries?.Sum(x => x.PendingItems) ?? 0,
-                            TotalGallerySize = galleries?.Sum(x => x.TotalGallerySize) ?? 0
+                            TotalGallerySize = galleries?.Sum(x => x.TotalGallerySize) ?? 0,
+                            Owner = 1
                         };
                     }
                 }
                 await conn.CloseAsync();
-            }
-
-            return result;
-        }
-
-        public async Task<GalleryModel?> GetGallery(string name)
-        {
-            GalleryModel? result = null;
-
-            if (string.Equals("All", name, StringComparison.OrdinalIgnoreCase))
-            {
-                result = await GetGallery(0);
-            }
-            else
-            {
-                long? galleryId = 0;
-                using (var conn = await GetConnection())
-                {
-                    var cmd = CreateCommand($"SELECT `id` FROM `galleries` WHERE `name`=@Name;", conn);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Parameters.AddWithValue("Name", name?.ToLower());
-
-                    await conn.OpenAsync();
-                    galleryId = (long?)await cmd.ExecuteScalarAsync();
-                    await conn.CloseAsync();
-                }
-
-                if (galleryId != null && galleryId > 0)
-                {
-                    result = await GetGallery((int)galleryId);
-                }
             }
 
             return result;
@@ -237,8 +269,9 @@ namespace WeddingShare.Helpers.Database
 
             using (var conn = await GetConnection())
             {
-                var cmd = CreateCommand($"INSERT INTO `galleries` (`name`, `secret_key`, `owner`) VALUES (@Name, @SecretKey, @Owner); SELECT g.*, COUNT(gi.`id`) AS `total`, SUM(CASE WHEN gi.`state`=@ApprovedState THEN 1 ELSE 0 END) AS `approved`, SUM(CASE WHEN gi.`state`=@PendingState THEN 1 ELSE 0 END) AS `pending`, SUM(gi.file_size) AS `total_gallery_size` FROM `galleries` AS g LEFT JOIN `gallery_items` AS gi ON g.`id` = gi.`gallery_id` WHERE g.`id`=LAST_INSERT_ID();", conn);
+                var cmd = CreateCommand($"INSERT INTO `galleries` (`identifier`, `name`, `secret_key`, `owner`) VALUES (@Identifier, @Name, @SecretKey, @Owner); SELECT g.*, COUNT(gi.`id`) AS `total`, SUM(CASE WHEN gi.`state`=@ApprovedState THEN 1 ELSE 0 END) AS `approved`, SUM(CASE WHEN gi.`state`=@PendingState THEN 1 ELSE 0 END) AS `pending`, SUM(gi.file_size) AS `total_gallery_size` FROM `galleries` AS g LEFT JOIN `gallery_items` AS gi ON g.`id` = gi.`gallery_id` WHERE g.`id`=LAST_INSERT_ID();", conn);
                 cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("Identifier", model.Identifier);
                 cmd.Parameters.AddWithValue("Name", model.Name.ToLower());
                 cmd.Parameters.AddWithValue("SecretKey", !string.IsNullOrWhiteSpace(model.SecretKey) ? model.SecretKey : DBNull.Value);
                 cmd.Parameters.AddWithValue("ApprovedState", (int)GalleryItemState.Approved);
@@ -271,7 +304,7 @@ namespace WeddingShare.Helpers.Database
                 {
                     Id = Settings.Gallery.SecretKey,
                     Value = model.SecretKey
-                }, result.Name);
+                }, result.Id);
             }
 
             return result;
@@ -625,12 +658,13 @@ namespace WeddingShare.Helpers.Database
             {
                 using (var conn = await GetConnection())
                 {
-                    var cmd = CreateCommand($"INSERT INTO `gallery_items` (`gallery_id`, `title`, `state`, `uploaded_by`, `uploaded_date`, `checksum`, `media_type`, `orientation`, `file_size`) VALUES (@GalleryId, @Title, @State, @UploadedBy, @UploadedDate, @Checksum, @MediaType, @Orientation, @FileSize); SELECT g.`name` AS `gallery_name`, gi.* FROM `gallery_items` AS gi LEFT JOIN `galleries` AS g ON gi.`gallery_id` = g.`id` WHERE gi.`id`=LAST_INSERT_ID();", conn);
+                    var cmd = CreateCommand($"INSERT INTO `gallery_items` (`gallery_id`, `title`, `state`, `uploaded_by`, `uploader_email`, `uploaded_date`, `checksum`, `media_type`, `orientation`, `file_size`) VALUES (@GalleryId, @Title, @State, @UploadedBy, @UploaderEmailAddress, @UploadedDate, @Checksum, @MediaType, @Orientation, @FileSize); SELECT g.`name` AS `gallery_name`, gi.* FROM `gallery_items` AS gi LEFT JOIN `galleries` AS g ON gi.`gallery_id` = g.`id` WHERE gi.`id`=LAST_INSERT_ID();", conn);
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("GalleryId", model.GalleryId);
                     cmd.Parameters.AddWithValue("Title", model.Title);
                     cmd.Parameters.AddWithValue("State", (int)model.State);
                     cmd.Parameters.AddWithValue("UploadedBy", !string.IsNullOrWhiteSpace(model.UploadedBy) ? model.UploadedBy : DBNull.Value);
+                    cmd.Parameters.AddWithValue("UploaderEmailAddress", !string.IsNullOrWhiteSpace(model.UploaderEmailAddress) ? model.UploaderEmailAddress : DBNull.Value);
                     cmd.Parameters.AddWithValue("UploadedDate", model.UploadedDate ?? DateTime.UtcNow);
                     cmd.Parameters.AddWithValue("Checksum", !string.IsNullOrWhiteSpace(model.Checksum) ? model.Checksum : DBNull.Value);
                     cmd.Parameters.AddWithValue("MediaType", (int)model.MediaType);
@@ -667,12 +701,13 @@ namespace WeddingShare.Helpers.Database
 
             using (var conn = await GetConnection())
             {
-                var cmd = CreateCommand($"UPDATE `gallery_items` SET `title`=@Title, `state`=@State, `uploaded_by`=@UploadedBy, `uploaded_date`=@UploadedDate, `checksum`=@Checksum, `media_type`=@MediaType, `orientation`=@Orientation, `file_size`=@FileSize WHERE `id`=@Id; SELECT g.`name` AS `gallery_name`, gi.* FROM `gallery_items` AS gi LEFT JOIN `galleries` AS g ON gi.`gallery_id` = g.`id` WHERE gi.`id`=@Id;", conn);
+                var cmd = CreateCommand($"UPDATE `gallery_items` SET `title`=@Title, `state`=@State, `uploaded_by`=@UploadedBy, `uploader_email`=@UploaderEmailAddress, `uploaded_date`=@UploadedDate, `checksum`=@Checksum, `media_type`=@MediaType, `orientation`=@Orientation, `file_size`=@FileSize WHERE `id`=@Id; SELECT g.`name` AS `gallery_name`, gi.* FROM `gallery_items` AS gi LEFT JOIN `galleries` AS g ON gi.`gallery_id` = g.`id` WHERE gi.`id`=@Id;", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("Id", model.Id);
                 cmd.Parameters.AddWithValue("Title", model.Title);
                 cmd.Parameters.AddWithValue("State", (int)model.State);
                 cmd.Parameters.AddWithValue("UploadedBy", !string.IsNullOrWhiteSpace(model.UploadedBy) ? model.UploadedBy : DBNull.Value);
+                cmd.Parameters.AddWithValue("UploaderEmailAddress", !string.IsNullOrWhiteSpace(model.UploaderEmailAddress) ? model.UploaderEmailAddress : DBNull.Value);
                 cmd.Parameters.AddWithValue("UploadedDate", model.UploadedDate != null ? model.UploadedDate : DBNull.Value);
                 cmd.Parameters.AddWithValue("Checksum", !string.IsNullOrWhiteSpace(model.Checksum) ? model.Checksum : DBNull.Value);
                 cmd.Parameters.AddWithValue("MediaType", (int)model.MediaType);
@@ -1266,7 +1301,7 @@ namespace WeddingShare.Helpers.Database
         #endregion
 
         #region Settings
-        public async Task<IEnumerable<SettingModel>?> GetAllSettings(string? gallery = "")
+        public async Task<IEnumerable<SettingModel>?> GetAllSettings(int? galleryId = null)
         {
             List<SettingModel> result = new List<SettingModel>();
 
@@ -1283,24 +1318,20 @@ namespace WeddingShare.Helpers.Database
                     result = await ReadSettings(reader);
                 }
 
-                if (result != null && !string.IsNullOrWhiteSpace(gallery))
+                if (result != null && galleryId != null)
                 {
-                    var galleryId = await this.GetGalleryId(gallery);
-                    if (galleryId != null)
-                    {
-                        // Get Gallery Overrides
-                        cmd = CreateCommand($"SELECT `id`, `value` FROM `gallery_settings` WHERE `gallery_id`=@GalleryId;", conn);
-                        cmd.Parameters.AddWithValue("GalleryId", (int)galleryId);
-                        cmd.CommandType = CommandType.Text;
+                    // Get Gallery Overrides
+                    cmd = CreateCommand($"SELECT `id`, `value` FROM `gallery_settings` WHERE `gallery_id`=@GalleryId;", conn);
+                    cmd.Parameters.AddWithValue("GalleryId", (int)galleryId);
+                    cmd.CommandType = CommandType.Text;
 
-                        using (var reader = await cmd.ExecuteReaderAsync())
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        var overrides = (await ReadSettings(reader))?.Where(x => !string.IsNullOrWhiteSpace(x.Value));
+                        if (overrides != null && overrides.Any())
                         {
-                            var overrides = (await ReadSettings(reader))?.Where(x => !string.IsNullOrWhiteSpace(x.Value));
-                            if (overrides != null && overrides.Any())
-                            {
-                                result = result.Where(x => !overrides.Any(o => o.Id.Equals(x.Id, StringComparison.OrdinalIgnoreCase))).ToList();
-                                result.AddRange(overrides);
-                            }
+                            result = result.Where(x => !overrides.Any(o => o.Id.Equals(x.Id, StringComparison.OrdinalIgnoreCase))).ToList();
+                            result.AddRange(overrides);
                         }
                     }
                 }
@@ -1311,17 +1342,26 @@ namespace WeddingShare.Helpers.Database
             return result;
         }
 
-        public async Task<SettingModel?> GetSetting(string id, string? gallery = "")
+        public async Task<SettingModel?> GetSetting(string id)
+        {
+            return await GetSetting(id, 0);
+        }
+
+        public async Task<SettingModel?> GetSetting(string id, string gallery)
+        {
+            return await GetSetting(id, await this.GetGalleryIdByName(gallery) ?? 0);
+        }
+
+        public async Task<SettingModel?> GetSetting(string id, int galleryId)
         {
             SettingModel? result;
 
-            var galleryId = await this.GetGalleryId(gallery);
             using (var conn = await GetConnection())
             {
-                var cmd = CreateCommand($"SELECT `id`, `value` FROM (SELECT `id`, `value`, '2' AS `priority` FROM `settings` WHERE `id`=@Id UNION SELECT `id`, `value`, '1' AS `priority` FROM `gallery_settings` WHERE `id`=@Id AND `gallery_id`=@GalleryId) ORDER BY `priority` ASC LIMIT 1;", conn);
+                var cmd = CreateCommand($"SELECT `id`, `value` FROM (SELECT `id`, `value`, '2' AS `priority` FROM `settings` WHERE `id`=@Id UNION SELECT `id`, `value`, '1' AS `priority` FROM `gallery_settings` WHERE `id`=@Id AND `gallery_id`=@GalleryId) AS sq1 ORDER BY `priority` ASC LIMIT 1;", conn);
 
                 cmd.Parameters.AddWithValue("Id", id.ToUpper());
-                cmd.Parameters.AddWithValue("GalleryId", galleryId ?? 0);
+                cmd.Parameters.AddWithValue("GalleryId", galleryId);
                 cmd.CommandType = CommandType.Text;
 
                 await conn.OpenAsync();
@@ -1335,42 +1375,37 @@ namespace WeddingShare.Helpers.Database
             return result;
         }
 
-        public async Task<SettingModel?> GetGallerySpecificSetting(string id, string gallery)
+        public async Task<SettingModel?> GetGallerySpecificSetting(string id, int galleryId)
         {
             SettingModel? result = null;
 
-            var galleryId = await this.GetGalleryId(gallery);
-            if (galleryId != null)
+            using (var conn = await GetConnection())
             {
-                using (var conn = await GetConnection())
+                var cmd = CreateCommand($"SELECT `id`, `value` FROM `gallery_settings` WHERE `id`=@Id AND `gallery_id`=@GalleryId;", conn);
+
+                cmd.Parameters.AddWithValue("Id", id.ToUpper());
+                cmd.Parameters.AddWithValue("GalleryId", galleryId);
+                cmd.CommandType = CommandType.Text;
+
+                await conn.OpenAsync();
+                using (var reader = await cmd.ExecuteReaderAsync())
                 {
-                    var cmd = CreateCommand($"SELECT `id`, `value` FROM `gallery_settings` WHERE `id`=@Id AND `gallery_id`=@GalleryId;", conn);
-
-                    cmd.Parameters.AddWithValue("Id", id.ToUpper());
-                    cmd.Parameters.AddWithValue("GalleryId", galleryId);
-                    cmd.CommandType = CommandType.Text;
-
-                    await conn.OpenAsync();
-                    using (var reader = await cmd.ExecuteReaderAsync())
-                    {
-                        result = (await ReadSettings(reader))?.FirstOrDefault();
-                    }
-                    await conn.CloseAsync();
+                    result = (await ReadSettings(reader))?.FirstOrDefault();
                 }
+                await conn.CloseAsync();
             }
 
             return result;
         }
 
-        public async Task<SettingModel?> AddSetting(SettingModel model, string? gallery = "")
+        public async Task<SettingModel?> AddSetting(SettingModel model, int? galleryId = null)
         {
             SettingModel? result = null;
 
-            var galleryId = await this.GetGalleryId(gallery);
             using (var conn = await GetConnection())
             {
                 MySqlCommand cmd;
-                if (!string.IsNullOrWhiteSpace(gallery))
+                if (galleryId != null)
                 {
                     cmd = CreateCommand($"INSERT INTO `gallery_settings` (`id`, `gallery_id`, `value`) VALUES (@Id, @GalleryId, @Value); SELECT * FROM `gallery_settings` WHERE `id`=LAST_INSERT_ID() AND `gallery_id`=@GalleryId;", conn);
                     cmd.Parameters.AddWithValue("GalleryId", galleryId);
@@ -1407,15 +1442,14 @@ namespace WeddingShare.Helpers.Database
             return result;
         }
 
-        public async Task<SettingModel?> EditSetting(SettingModel model, string? gallery = "")
+        public async Task<SettingModel?> EditSetting(SettingModel model, int? galleryId = null)
         {
             SettingModel? result = null;
 
-            var galleryId = await this.GetGalleryId(gallery);
             using (var conn = await GetConnection())
             {
                 MySqlCommand cmd;
-                if (!string.IsNullOrWhiteSpace(gallery))
+                if (galleryId != null)
                 {
                     cmd = CreateCommand($"UPDATE `gallery_settings` SET `value`=@Value WHERE `id`=@Id AND `gallery_id`=@GalleryId; SELECT * FROM `gallery_settings` WHERE `id`=@Id AND `gallery_id`=@GalleryId;", conn);
                     cmd.Parameters.AddWithValue("GalleryId", galleryId);
@@ -1452,23 +1486,23 @@ namespace WeddingShare.Helpers.Database
             return result;
         }
 
-        public async Task<SettingModel?> SetSetting(SettingModel model, string? gallery = "")
+        public async Task<SettingModel?> SetSetting(SettingModel model, int? galleryId = null)
         {
             if (!string.IsNullOrWhiteSpace(model.Id))
             {
                 try
                 {
-                    if (!string.IsNullOrWhiteSpace(gallery))
+                    if (galleryId != null)
                     {
                         // Gallery Override
-                        var result = await GetGallerySpecificSetting(model.Id, gallery);
+                        var result = await GetGallerySpecificSetting(model.Id, galleryId.Value);
                         if (result == null && !string.IsNullOrEmpty(model.Value))
                         {
                             return await AddSetting(new SettingModel()
                             {
                                 Id = model.Id.ToUpper(),
                                 Value = model.Value
-                            }, gallery);
+                            }, galleryId);
                         }
                         else if (result != null && !string.IsNullOrEmpty(model.Value))
                         {
@@ -1476,7 +1510,7 @@ namespace WeddingShare.Helpers.Database
                             {
                                 Id = model.Id.ToUpper(),
                                 Value = model.Value
-                            }, gallery);
+                            }, galleryId);
                         }
                         else if (result != null && string.IsNullOrEmpty(model.Value))
                         {
@@ -1484,7 +1518,7 @@ namespace WeddingShare.Helpers.Database
                             {
                                 Id = model.Id.ToUpper(),
                                 Value = model.Value
-                            }, gallery);
+                            }, galleryId);
                         }
                     }
                     else
@@ -1527,15 +1561,14 @@ namespace WeddingShare.Helpers.Database
             };
         }
 
-        public async Task<bool> DeleteSetting(SettingModel model, string? gallery = "")
+        public async Task<bool> DeleteSetting(SettingModel model, int? galleryId = null)
         {
             bool result = false;
 
-            var galleryId = await this.GetGalleryId(gallery);
             using (var conn = await GetConnection())
             {
                 MySqlCommand cmd;
-                if (!string.IsNullOrWhiteSpace(gallery))
+                if (galleryId != null)
                 {
                     cmd = CreateCommand($"DELETE FROM `gallery_settings` WHERE `id`=@Id AND `gallery_id`=@GalleryId;", conn);
                     cmd.Parameters.AddWithValue("GalleryId", galleryId);
@@ -1568,15 +1601,14 @@ namespace WeddingShare.Helpers.Database
             return result;
         }
 
-        public async Task<bool> DeleteAllSettings(string? gallery = "")
+        public async Task<bool> DeleteAllSettings(int? galleryId = null)
         {
             bool result = false;
 
-            var galleryId = await this.GetGalleryId(gallery);
             using (var conn = await GetConnection())
             {
                 MySqlCommand cmd;
-                if (!string.IsNullOrWhiteSpace(gallery))
+                if (galleryId != null)
                 {
                     cmd = CreateCommand($"DELETE FROM `gallery_settings` WHERE `gallery_id`=@GalleryId;", conn);
                     cmd.Parameters.AddWithValue("GalleryId", galleryId);
@@ -1672,12 +1704,16 @@ namespace WeddingShare.Helpers.Database
         #region Backups
         public async Task<bool> Import(string path)
         {
-            throw new NotImplementedException("This feature is not yet available");
+            return await Task.Run(() => {
+                return false;
+            });
         }
 
         public async Task<bool> Export(string path)
         {
-            throw new NotImplementedException("This feature is not yet available");
+            return await Task.Run(() => {
+                return false;
+            });
         }
         #endregion
 
@@ -1692,21 +1728,18 @@ namespace WeddingShare.Helpers.Database
                 {
                     try
                     {
-                        var id = !await reader.IsDBNullAsync("id") ? reader.GetInt32("id") : 0;
-                        if (id > 0)
+                        items.Add(new GalleryModel()
                         {
-                            items.Add(new GalleryModel()
-                            {
-                                Id = id,
-                                Name = !await reader.IsDBNullAsync("name") ? reader.GetString("name") : "Unknown",
-                                SecretKey = !await reader.IsDBNullAsync("secret_key") ? reader.GetString("secret_key") : null,
-                                TotalItems = !await reader.IsDBNullAsync("total") ? reader.GetInt32("total") : 0,
-                                ApprovedItems = !await reader.IsDBNullAsync("approved") ? reader.GetInt32("approved") : 0,
-                                PendingItems = !await reader.IsDBNullAsync("pending") ? reader.GetInt32("pending") : 0,
-                                TotalGallerySize = !await reader.IsDBNullAsync("total_gallery_size") ? reader.GetInt64("total_gallery_size") : 0,
-                                Owner = !await reader.IsDBNullAsync("owner") ? reader.GetInt32("owner") : 0
-                            });
-                        }
+                            Id = !await reader.IsDBNullAsync("id") ? reader.GetInt32("id") : 0,
+                            Identifier = !await reader.IsDBNullAsync("identifier") ? reader.GetString("identifier") : GalleryHelper.GenerateGalleryIdentifier(),
+                            Name = !await reader.IsDBNullAsync("name") ? reader.GetString("name") : "Unknown",
+                            SecretKey = !await reader.IsDBNullAsync("secret_key") ? reader.GetString("secret_key") : null,
+                            TotalItems = !await reader.IsDBNullAsync("total") ? reader.GetInt32("total") : 0,
+                            ApprovedItems = !await reader.IsDBNullAsync("approved") ? reader.GetInt32("approved") : 0,
+                            PendingItems = !await reader.IsDBNullAsync("pending") ? reader.GetInt32("pending") : 0,
+                            TotalGallerySize = !await reader.IsDBNullAsync("total_gallery_size") ? reader.GetInt64("total_gallery_size") : 0,
+                            Owner = !await reader.IsDBNullAsync("owner") ? reader.GetInt32("owner") : 0
+                        });
                     }
                     catch (Exception ex)
                     {
@@ -1735,9 +1768,9 @@ namespace WeddingShare.Helpers.Database
                             {
                                 Id = id,
                                 GalleryId = !await reader.IsDBNullAsync("gallery_id") ? reader.GetInt32("gallery_id") : 0,
-                                GalleryName = !await reader.IsDBNullAsync("gallery_name") ? reader.GetString("gallery_name") : string.Empty,
                                 Title = !await reader.IsDBNullAsync("title") ? reader.GetString("title") : string.Empty,
                                 UploadedBy = !await reader.IsDBNullAsync("uploaded_by") ? reader.GetString("uploaded_by") : null,
+                                UploaderEmailAddress = !await reader.IsDBNullAsync("uploader_email") ? reader.GetString("uploader_email") : null,
                                 UploadedDate = !await reader.IsDBNullAsync("uploaded_date") ? reader.GetDateTime("uploaded_date") : null,
                                 Checksum = !await reader.IsDBNullAsync("checksum") ? reader.GetString("checksum") : null,
                                 MediaType = !await reader.IsDBNullAsync("media_type") ? (MediaType)reader.GetInt32("media_type") : MediaType.Unknown,
@@ -1775,9 +1808,9 @@ namespace WeddingShare.Helpers.Database
                             {
                                 Id = id,
                                 GalleryId = !await reader.IsDBNullAsync("gallery_id") ? reader.GetInt32("gallery_id") : 0,
-                                GalleryName = !await reader.IsDBNullAsync("gallery_name") ? reader.GetString("gallery_name") : "default",
                                 Title = !await reader.IsDBNullAsync("title") ? reader.GetString("title") : string.Empty,
                                 UploadedBy = !await reader.IsDBNullAsync("uploaded_by") ? reader.GetString("uploaded_by") : null,
+                                UploaderEmailAddress = !await reader.IsDBNullAsync("uploader_email") ? reader.GetString("uploader_email") : null,
                                 Checksum = !await reader.IsDBNullAsync("checksum") ? reader.GetString("checksum") : null,
                                 MediaType = !await reader.IsDBNullAsync("media_type") ? (MediaType)reader.GetInt32("media_type") : MediaType.Unknown,
                                 Orientation = !await reader.IsDBNullAsync("orientation") ? (ImageOrientation)reader.GetInt32("orientation") : ImageOrientation.None,

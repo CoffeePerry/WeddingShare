@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>คลังภาพไม่ถูกต้อง</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>ยอมรับ</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>การกระทํา</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk ปฏิเสธการทบทวนทั้งหมด</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>ผู้ มา เยี่ยม ได้ อนุมัติ ให้ ใช้ คุกกี้</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>คลังภาพที่ถูกสร้างขึ้น</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>โปรดติดต่อผู้ดูแลเว็บไซต์เพื่อให้เข้าถึง</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>ล้มเหลวในการบันทึกจดหมายตรวจสอบ เพื่อให้มีการอนุญาตคุกกี้</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>ข้อกําหนดของคุกกี้</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>โดยการใช้เว็บไซต์นี้ คุณตกลงใช้คุกกี้พื้นฐานของเรา ตามเงื่อนไขของเรา เพื่อค้นหาเพิ่มเติม โปรดมองของเรา</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>สร้าง</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>คุณแน่ใจหรือว่าต้องการจะลบคลังภาพนี้?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>นี่คือรุ่นเดโม การปรับแต่งทั้งหมด ถูกลบออกไปเป็นระยะ ๆ เพื่อตรวจสอบความสะอาดของตัวทดสอบในอนาคต.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>ปฏิบัติ การ สอน</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>ตรวจพบแฟ้มซ้ํากัน</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>ที่อยู่อีเมล</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>ส่งออก</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>ชื่อ</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>เนื้อหาที่จะใช้แสดงบนหน้าข้อมูลคุกกี้ Pholinky</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>ข้อกําหนดของคุกกี้กําหนดเอง</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>ข้อกําหนดกําหนดเอง</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>ล้มเหลวในการรับการตั้งค่า</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>จํานวนคอลัมน์</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>ตัวกรองปริยายของคลังภาพคืออะไร</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>ตัวกรองปริยาย</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>กลุ่มคลังภาพปริยายคืออะไร</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>กลุ่มปริยาย</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>ลําดับคลังภาพปริยายคืออะไร</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>ลําดับปริยาย</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>มุมมองคลังภาพปริยายคืออะไร</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>กุญแจลับ</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>จะให้ผู้ใช้สามารถกรองและจัดกลุ่มสื่อได้หรือไม่?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>แสดงตัวกรอง</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>ควรให้แสดงชื่อเรื่องอยู่ด้านบนสุดของคลังภาพหรือไม่</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>แสดงชื่อเรื่อง</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>ควรอนุญาตให้แขกทําการอัปโหลดรายการ</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>เตือนการโหลดหน้าเว็บ</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>ควรให้ผู้ใช้ใส่ที่อยู่อีเมลหรือไม่</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>ต้องการที่อยู่อีเมล</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>ต้องการตรวจสอบการแสดงตัวเพื่ออัปโหลดสื่อ</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>ภาพร่าง</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>ผู้ใช้ควรดูรูปแบบ GDPR หรือไม่?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>เปิดใช้งาน</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>นําเสนอภาพนิ่ง</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>ไปยัง</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>คําเตือน</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>กวาด</value>

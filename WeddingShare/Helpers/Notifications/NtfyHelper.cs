@@ -25,8 +25,7 @@ namespace WeddingShare.Helpers.Notifications
 
             if (string.IsNullOrWhiteSpace(await _settings.GetOrDefault(Constants.Notifications.Ntfy.Token, string.Empty)))
             {
-                _logger.LogWarning($"Invalid Ntfy token specified");
-                return false;
+                _logger.LogWarning($"No Ntfy token specified. It is recommended that you secure your topic with a token");
             }
 
             if (await _settings.GetOrDefault(Constants.Notifications.Ntfy.Enabled, false))

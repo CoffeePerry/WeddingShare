@@ -25,6 +25,66 @@
 
     <div class="row mb-4 mb-lg-4">
         <div class="col-12">
+            <label>@_localizer["Settings_Gallery_DefaultGroup_Label"].Value</label>
+            <select class="setting-field form-control" data-setting-name="@Settings.Gallery.DefaultGroup">
+                @foreach (var option in ViewOptions.GalleryDefaultGroup)
+                {
+                    if (Model.Settings.GetValue(Settings.Gallery.DefaultGroup.ToUpper(), "0").Equals(option.Value, StringComparison.OrdinalIgnoreCase))
+                    {
+                        <option value="@option.Value" selected="selected">@option.Key</option>
+                    }
+                    else
+                    {
+                        <option value="@option.Value">@option.Key</option>
+                    }
+                }
+            </select>
+            <div class="form-text">@_localizer["Settings_Gallery_DefaultGroup_Help"].Value</div>
+        </div>
+    </div>
+
+    <div class="row mb-4 mb-lg-4">
+        <div class="col-12">
+            <label>@_localizer["Settings_Gallery_DefaultOrder_Label"].Value</label>
+            <select class="setting-field form-control" data-setting-name="@Settings.Gallery.DefaultOrder">
+                @foreach (var option in ViewOptions.GalleryDefaultOrder)
+                {
+                    if (Model.Settings.GetValue(Settings.Gallery.DefaultOrder.ToUpper(), "1").Equals(option.Value, StringComparison.OrdinalIgnoreCase))
+                    {
+                        <option value="@option.Value" selected="selected">@option.Key</option>
+                    }
+                    else
+                    {
+                        <option value="@option.Value">@option.Key</option>
+                    }
+                }
+            </select>
+            <div class="form-text">@_localizer["Settings_Gallery_DefaultOrder_Help"].Value</div>
+        </div>
+    </div>
+
+    <div class="row mb-4 mb-lg-4">
+        <div class="col-12">
+            <label>@_localizer["Settings_Gallery_DefaultFilter_Label"].Value</label>
+            <select class="setting-field form-control" data-setting-name="@Settings.Gallery.DefaultFilter">
+                @foreach (var option in ViewOptions.GalleryDefaultFilter)
+                {
+                    if (Model.Settings.GetValue(Settings.Gallery.DefaultFilter.ToUpper(), "0").Equals(option.Value, StringComparison.OrdinalIgnoreCase))
+                    {
+                        <option value="@option.Value" selected="selected">@option.Key</option>
+                    }
+                    else
+                    {
+                        <option value="@option.Value">@option.Key</option>
+                    }
+                }
+            </select>
+            <div class="form-text">@_localizer["Settings_Gallery_DefaultFilter_Help"].Value</div>
+        </div>
+    </div>
+
+    <div class="row mb-4 mb-lg-4">
+        <div class="col-12">
             <label>@_localizer["Settings_Gallery_SecretKey_Label"].Value</label>
             <input class="setting-field form-control" data-setting-name="@Settings.Gallery.SecretKey" placeholder="MySuperSecretKey" value="@Model.Settings.GetValue(Settings.Gallery.SecretKey.ToUpper(), string.Empty)" type="password" />
             <div class="form-text">@_localizer["Settings_Gallery_SecretKey_Help"].Value</div>
@@ -48,6 +108,26 @@
                 }
             </select>
             <div class="form-text">@_localizer["Settings_Gallery_FullWidth_Help"].Value</div>
+        </div>
+    </div>
+
+    <div class="row mb-4 mb-lg-4">
+        <div class="col-12">
+            <label>@_localizer["Settings_Gallery_ShowTitle_Label"].Value</label>
+            <select class="setting-field form-control" data-setting-name="@Settings.Gallery.ShowTitle">
+                @foreach (var option in ViewOptions.YesNo)
+                {
+                    if (Model.Settings.GetValue(Settings.Gallery.ShowTitle.ToUpper(), "true").Equals(option.Value, StringComparison.OrdinalIgnoreCase))
+                    {
+                        <option value="@option.Value" selected="selected">@option.Key</option>
+                    }
+                    else
+                    {
+                        <option value="@option.Value">@option.Key</option>
+                    }
+                }
+            </select>
+            <div class="form-text">@_localizer["Settings_Gallery_ShowTitle_Help"].Value</div>
         </div>
     </div>
 
@@ -323,7 +403,7 @@
         <div class="col-12">
             <label>@_localizer["Settings_Gallery_QRCodeDefaultSort_Label"].Value</label>
             <select class="setting-field form-control" data-setting-name="@Settings.Gallery.QRCode.DefaultSort">
-                @foreach (var option in ViewOptions.GalleryDefaultSort)
+                @foreach (var option in ViewOptions.GalleryDefaultOrder)
                 {
                     if (Model.Settings.GetValue(Settings.Gallery.QRCode.DefaultSort.ToUpper(), "1").Equals(option.Value, StringComparison.OrdinalIgnoreCase))
                     {
@@ -345,7 +425,7 @@
             <select class="setting-field form-control" data-setting-name="@Settings.Gallery.QRCode.IncludeCulture">
                 @foreach (var option in ViewOptions.YesNo)
                 {
-                    if (Model.Settings.GetValue(Settings.Gallery.QRCode.IncludeCulture, "true").Equals(option.Value, StringComparison.OrdinalIgnoreCase))
+                    if (Model.Settings.GetValue(Settings.Gallery.QRCode.IncludeCulture.ToUpper(), "true").Equals(option.Value, StringComparison.OrdinalIgnoreCase))
                     {
                         <option value="@option.Value" selected="selected">@option.Key</option>
                     }
@@ -356,6 +436,26 @@
                 }
             </select>
             <div class="form-text">@_localizer["Settings_Gallery_QRCodeIncludeCulture_Help"].Value</div>
+        </div>
+    </div>
+
+    <div class="row mb-4 mb-lg-4">
+        <div class="col-12">
+            <label>@_localizer["Settings_Gallery_ShowFilters_Label"].Value</label>
+            <select class="setting-field form-control" data-setting-name="@Settings.Gallery.ShowFilters">
+                @foreach (var option in ViewOptions.YesNo)
+                {
+                    if (Model.Settings.GetValue(Settings.Gallery.ShowFilters.ToUpper(), "true").Equals(option.Value, StringComparison.OrdinalIgnoreCase))
+                    {
+                        <option value="@option.Value" selected="selected">@option.Key</option>
+                    }
+                    else
+                    {
+                        <option value="@option.Value">@option.Key</option>
+                    }
+                }
+            </select>
+            <div class="form-text">@_localizer["Settings_Gallery_ShowFilters_Help"].Value</div>
         </div>
     </div>
 

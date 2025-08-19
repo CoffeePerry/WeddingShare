@@ -7,16 +7,16 @@ namespace WeddingShare.Helpers
 {
     public interface ISettingsHelper
     {
-        Task<SettingModel?> Get(string key, string? gallery = "");
-        Task<string> GetOrDefault(string key, string defaultValue, string? gallery = "");
-        Task<int> GetOrDefault(string key, int defaultValue, string? gallery = "");
-        Task<long> GetOrDefault(string key, long defaultValue, string? gallery = "");
-        Task<decimal> GetOrDefault(string key, decimal defaultValue, string? gallery = "");
-        Task<double> GetOrDefault(string key, double defaultValue, string? gallery = "");
-        Task<bool> GetOrDefault(string key, bool defaultValue, string? gallery = "");
-        Task<DateTime?> GetOrDefault(string key, DateTime? defaultValue, string? gallery = "");
-        Task<SettingModel?> SetSetting(string key, string value, string? gallery = "");
-        Task<bool> DeleteSetting(string key, string? gallery = "");
+        Task<SettingModel?> Get(string key, int? galleryId = null);
+        Task<string> GetOrDefault(string key, string defaultValue, int? galleryId = null);
+        Task<int> GetOrDefault(string key, int defaultValue, int? galleryId = null);
+        Task<long> GetOrDefault(string key, long defaultValue, int? galleryId = null);
+        Task<decimal> GetOrDefault(string key, decimal defaultValue, int? galleryId = null);
+        Task<double> GetOrDefault(string key, double defaultValue, int? galleryId = null);
+        Task<bool> GetOrDefault(string key, bool defaultValue, int? galleryId = null);
+        Task<DateTime?> GetOrDefault(string key, DateTime? defaultValue, int? galleryId = null);
+        Task<SettingModel?> SetSetting(string key, string value, int? galleryId = null);
+        Task<bool> DeleteSetting(string key, int? galleryId = null);
         Task<string> GetReleaseVersion(int places = 3);
     }
 
@@ -33,13 +33,13 @@ namespace WeddingShare.Helpers
             _logger = logger;
         }
 
-        public async Task<SettingModel?> Get(string key, string? gallery = "")
+        public async Task<SettingModel?> Get(string key, int? galleryId = null)
         {
             if (!string.IsNullOrWhiteSpace(key))
             { 
                 try
                 {
-                    var dbValue = await _databaseHelper.GetSetting(key, gallery);
+                    var dbValue = galleryId != null ? await _databaseHelper.GetSetting(key, galleryId.Value) : await _databaseHelper.GetSetting(key);
                     if (dbValue != null)
                     {
                         return dbValue;
@@ -64,11 +64,11 @@ namespace WeddingShare.Helpers
             return null;
         }
 
-        public async Task<string> GetOrDefault(string key, string defaultValue, string? gallery = "")
+        public async Task<string> GetOrDefault(string key, string defaultValue, int? galleryId = null)
         {
             try
             {
-                var value = (await this.Get(key, gallery))?.Value;
+                var value = (await this.Get(key, galleryId))?.Value;
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     return value;
@@ -79,11 +79,11 @@ namespace WeddingShare.Helpers
             return defaultValue;
         }
 
-        public async Task<int> GetOrDefault(string key, int defaultValue, string? gallery = "")
+        public async Task<int> GetOrDefault(string key, int defaultValue, int? galleryId = null)
         {
             try
             {
-                var value = await this.GetOrDefault(key, string.Empty, gallery);
+                var value = await this.GetOrDefault(key, string.Empty, galleryId);
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     return Convert.ToInt32(value);
@@ -94,11 +94,11 @@ namespace WeddingShare.Helpers
             return defaultValue;
         }
 
-        public async Task<long> GetOrDefault(string key, long defaultValue, string? gallery = "")
+        public async Task<long> GetOrDefault(string key, long defaultValue, int? galleryId = null)
         {
             try
             {
-                var value = await this.GetOrDefault(key, string.Empty, gallery);
+                var value = await this.GetOrDefault(key, string.Empty, galleryId);
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     return Convert.ToInt64(value);
@@ -109,11 +109,11 @@ namespace WeddingShare.Helpers
             return defaultValue;
         }
 
-        public async Task<decimal> GetOrDefault(string key, decimal defaultValue, string? gallery = "")
+        public async Task<decimal> GetOrDefault(string key, decimal defaultValue, int? galleryId = null)
         {
             try
             {
-                var value = await this.GetOrDefault(key, string.Empty, gallery);
+                var value = await this.GetOrDefault(key, string.Empty, galleryId);
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     return Convert.ToDecimal(value);
@@ -124,11 +124,11 @@ namespace WeddingShare.Helpers
             return defaultValue;
         }
 
-        public async Task<double> GetOrDefault(string key, double defaultValue, string? gallery = "")
+        public async Task<double> GetOrDefault(string key, double defaultValue, int? galleryId = null)
         {
             try
             {
-                var value = await this.GetOrDefault(key, string.Empty, gallery);
+                var value = await this.GetOrDefault(key, string.Empty, galleryId);
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     return Convert.ToDouble(value);
@@ -139,11 +139,11 @@ namespace WeddingShare.Helpers
             return defaultValue;
         }
 
-        public async Task<bool> GetOrDefault(string key, bool defaultValue, string? gallery = "")
+        public async Task<bool> GetOrDefault(string key, bool defaultValue, int? galleryId = null)
         {
             try
             {
-                var value = await this.GetOrDefault(key, string.Empty, gallery);
+                var value = await this.GetOrDefault(key, string.Empty, galleryId);
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     return Convert.ToBoolean(value);
@@ -154,11 +154,11 @@ namespace WeddingShare.Helpers
             return defaultValue;
         }
 
-        public async Task<DateTime?> GetOrDefault(string key, DateTime? defaultValue, string? gallery = "")
+        public async Task<DateTime?> GetOrDefault(string key, DateTime? defaultValue, int? galleryId = null)
         {
             try
             {
-                var value = await this.GetOrDefault(key, string.Empty, gallery);
+                var value = await this.GetOrDefault(key, string.Empty, galleryId);
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     return Convert.ToDateTime(value);
@@ -169,7 +169,7 @@ namespace WeddingShare.Helpers
             return defaultValue;
         }
 
-        public async Task<SettingModel?> SetSetting(string key, string value, string? gallery = "")
+        public async Task<SettingModel?> SetSetting(string key, string value, int? galleryId = null)
         {
             if (!string.IsNullOrWhiteSpace(key))
             {
@@ -177,28 +177,28 @@ namespace WeddingShare.Helpers
                 {
                     Id = key,
                     Value = value
-                }, gallery);
+                }, galleryId);
             }
 
             return null;
         }
 
-        public async Task<bool> DeleteSetting(string key, string? gallery = "")
+        public async Task<bool> DeleteSetting(string key, int? galleryId = null)
         {
             if (!string.IsNullOrWhiteSpace(key))
             {
                 return await _databaseHelper.DeleteSetting(new SettingModel()
                 {
                     Id = key.ToUpper()
-                }, gallery);
+                }, galleryId);
             }
 
             return false;
         }
 
-        public async Task<bool> DeleteAllSettings(string? gallery = "")
+        public async Task<bool> DeleteAllSettings(int? galleryId = null)
         {
-            return await _databaseHelper.DeleteAllSettings(gallery);
+            return await _databaseHelper.DeleteAllSettings(galleryId);
         }
 
         public async Task<string> GetReleaseVersion(int places = 3)

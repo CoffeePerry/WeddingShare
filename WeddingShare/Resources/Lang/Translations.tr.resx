@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Invalid Gallery</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Kabul</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Eylem</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk tüm bekleyen yorumları reddetti</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Bir ziyaretçi kurabiyenin kullanımını onayladı</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Oluşturulmuş galeri</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Lütfen erişim sağlamak için bir site yöneticisiyle iletişime geçin</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Çerez onayı için bir denetim mesajı yayınlamaya başarısız oldu</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Cookie Policy</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Bu web sitesini kullanarak, kurabiye kullanımı açısından temel kurabiye kullanımımıza katılıyorsunuz. Daha fazla bilgi edinmek için lütfen bize bakın</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Bu galeriyi silmek istediğinizden emin misiniz?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Bu bir demo versiyonudur. Tüm konfigürasyonlar, gelecekteki testçiler için temiz bir kesme sağlamak için periyodik olarak silinir.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Destructive Action Gerçekleştirildi</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Duplicate file detected</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>E-posta Adresi</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>İhracat İhracatı</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Başlık:</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>CookiePolicy info sayfasında görüntülemek için içerik</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Özel Çerez Politikası</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Özel Politikalar</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Ayarları almak için başarısız oldu</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Köşe</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Varsayılan galeri filtresi nedir</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Varsayılan filtre</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Varsayılan galeri grubu nedir</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Varsayılan Grup</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Varsayılan galeri düzeni nedir</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Varsayılan sipariş</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Varsayılan galeri görünümü nedir</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Gizli Anahtar</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Kullanıcı filtre ve grup medyayı filtreleyebilmeli mi?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Gösteri filtreleri</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Başlık galerinin üst kısmında gösterilmelidir</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Show Title</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Konuklar eşyaları yüklemeye izin verilmelidir</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Page Load Prompt</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Kullanıcıların bir e-posta adresi girmek için gerekli olmalıdır</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>E-posta Adresi</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Medyayı yüklemek için kimlik kontrolü gerekli olmalıdır</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Topic</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Kullanıcı GDPR stili popups görmeli mi?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Enabled</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Slideshow</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Ziyaret Ziyaret Ziyareti</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Uyarı</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Wipe</value>

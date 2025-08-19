@@ -7,7 +7,8 @@
 
 @{
     var userPermissions = User?.Identity?.GetUserPermissions() ?? AccessPermissions.None;
-    var qrCodeEnabled = await _settings.GetOrDefault(Settings.Gallery.QRCode.Enabled, true, Model?.GalleryName);
+    var qrCodeEnabled = await _settings.GetOrDefault(Settings.Gallery.QRCode.Enabled, true, Model?.Gallery?.Id);
+    var showFilters = await _settings.GetOrDefault(Settings.Gallery.ShowFilters, true, Model?.Gallery?.Id);
 }
 
 @if (qrCodeEnabled)
@@ -35,95 +36,98 @@
 {
     <div class="row px-4 mb-4 presentation-hidden">
         <div class="col-12 px-2 px-xl-0">
-            @if (User?.Identity != null && User.Identity.IsAuthenticated && userPermissions.HasFlag(AccessPermissions.Settings_Gallery_Update) && !(Model?.GalleryName ?? "Default").Equals("All", StringComparison.OrdinalIgnoreCase))
+            @if (User?.Identity != null && User.Identity.IsAuthenticated && userPermissions.HasFlag(AccessPermissions.Settings_Gallery_Update) && !Model.Gallery.Identifier.Equals("All", StringComparison.OrdinalIgnoreCase))
             {
                 <div class="btn-group w-100 mb-2">
-                    <button class="btnGallerySettings btn btn-danger btn-sm" type="button" data-gallery-name="@Model?.GalleryName" data-gallery-id="@Model?.GalleryId">
+                    <button class="btnGallerySettings btn btn-danger btn-sm" type="button" data-gallery-name="@Model?.Gallery?.Name" data-gallery-id="@Model?.Gallery?.Id">
                         @_localizer["Settings"].Value
                     </button>
                 </div>
             }
 
-            @if (qrCodeEnabled)
+            @if (showFilters)
             {
+                @if (qrCodeEnabled)
+                {
+                    <div class="btn-group w-100 mb-2">
+                        <button class="btnSaveQRCode btn btn-primary btn-sm" type="button" data-gallery-name="@Model?.Gallery?.Name">
+                            @_localizer["Save_QR"].Value
+                        </button>
+                    </div>
+                }
+
                 <div class="btn-group w-100 mb-2">
-                    <button class="btnSaveQRCode btn btn-primary btn-sm" type="button" data-gallery-name="@Model?.GalleryName">
-                        @_localizer["Save_QR"].Value
+                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @_localizer["View"].Value
                     </button>
+                    <div class="dropdown-menu">
+                        @foreach (ViewMode mode in Enum.GetValues(typeof(ViewMode)))
+                        {
+                            var append = new List<KeyValuePair<string, string>>()
+                        {
+                            new KeyValuePair<string, string>("mode", ((int)mode).ToString())
+                        };
+                            <a class="dropdown-item" href="@_url.GenerateFullUrl(Context.Request, Context.Request.Path, append)">@mode</a>
+                        }
+                    </div>
                 </div>
-            }
 
-            <div class="btn-group w-100 mb-2">
-                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @_localizer["View"].Value
-                </button>
-                <div class="dropdown-menu">
-                    @foreach (ViewMode mode in Enum.GetValues(typeof(ViewMode)))
-                    {
-                        var append = new List<KeyValuePair<string, string>>()
-                    {
-                        new KeyValuePair<string, string>("mode", ((int)mode).ToString())
-                    };
-                        <a class="dropdown-item" href="@_url.GenerateFullUrl(Context.Request, Context.Request.Path, append)">@mode</a>
-                    }
-                </div>
-            </div>
-
-            <div class="btn-group w-100 mb-2">
-                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @_localizer["Group"].Value
-                </button>
-                <div class="dropdown-menu">
-                    @foreach (GalleryGroup group in (Enum.GetValues(typeof(GalleryGroup)).Cast<GalleryGroup>().OrderBy(x => x == GalleryGroup.None ? 0 : 1).ThenBy(x => x.ToString())))
-                    {
-                        var append = new List<KeyValuePair<string, string>>()
-                    {
-                        new KeyValuePair<string, string>("group", ((int)group).ToString())
-                    };
-                        <a class="dropdown-item" href="@_url.GenerateFullUrl(Context.Request, Context.Request.Path, append)">@group</a>
-                    }
-                </div>
-            </div>
-
-            <div class="btn-group w-100 mb-2">
-                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @_localizer["Sort"].Value
-                </button>
-                <div class="dropdown-menu">
-                    @foreach (GalleryOrder order in Enum.GetValues(typeof(GalleryOrder)))
-                    {
-                        var append = new List<KeyValuePair<string, string>>()
-                    {
-                        new KeyValuePair<string, string>("order", ((int)order).ToString())
-                    };
-                        <a class="dropdown-item" href="@_url.GenerateFullUrl(Context.Request, Context.Request.Path, append)">@order</a>
-                    }
-                </div>
-            </div>
-
-            <div class="btn-group w-100 mb-2">
-                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @_localizer["Filter"].Value
-                </button>
-                <div class="dropdown-menu">
-                    @foreach (GalleryFilter filter in (Enum.GetValues(typeof(GalleryFilter))).Cast<GalleryFilter>().OrderBy(x => x == GalleryFilter.All ? 0 : 1).ThenBy(x => x.ToString()))
-                    {
-                        var append = new List<KeyValuePair<string, string>>()
-                    {
-                        new KeyValuePair<string, string>("filter", ((int)filter).ToString())
-                    };
-                        <a class="dropdown-item" href="@_url.GenerateFullUrl(Context.Request, Context.Request.Path, append)">@filter</a>
-                    }
-                </div>
-            </div>
-
-            @if (await _settings.GetOrDefault(Settings.Gallery.Download, true, Model?.GalleryName) || (User?.Identity != null && User.Identity.IsAuthenticated))
-            {
                 <div class="btn-group w-100 mb-2">
-                    <button class="btnDownloadGallery btn btn-primary btn-sm" type="button" data-gallery-id="@Model?.GalleryId" data-gallery-key="@(await _settings.GetOrDefault(Settings.Gallery.SecretKey, string.Empty, Model?.GalleryName))">
-                        @_localizer["Download"].Value
+                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @_localizer["Group"].Value
                     </button>
+                    <div class="dropdown-menu">
+                        @foreach (GalleryGroup group in (Enum.GetValues(typeof(GalleryGroup)).Cast<GalleryGroup>().OrderBy(x => x == GalleryGroup.None ? 0 : 1).ThenBy(x => x.ToString())))
+                        {
+                            var append = new List<KeyValuePair<string, string>>()
+                        {
+                            new KeyValuePair<string, string>("group", ((int)group).ToString())
+                        };
+                            <a class="dropdown-item" href="@_url.GenerateFullUrl(Context.Request, Context.Request.Path, append)">@group</a>
+                        }
+                    </div>
                 </div>
+
+                <div class="btn-group w-100 mb-2">
+                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @_localizer["Sort"].Value
+                    </button>
+                    <div class="dropdown-menu">
+                        @foreach (GalleryOrder order in Enum.GetValues(typeof(GalleryOrder)))
+                        {
+                            var append = new List<KeyValuePair<string, string>>()
+                        {
+                            new KeyValuePair<string, string>("order", ((int)order).ToString())
+                        };
+                            <a class="dropdown-item" href="@_url.GenerateFullUrl(Context.Request, Context.Request.Path, append)">@order</a>
+                        }
+                    </div>
+                </div>
+
+                <div class="btn-group w-100 mb-2">
+                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @_localizer["Filter"].Value
+                    </button>
+                    <div class="dropdown-menu">
+                        @foreach (GalleryFilter filter in (Enum.GetValues(typeof(GalleryFilter))).Cast<GalleryFilter>().OrderBy(x => x == GalleryFilter.All ? 0 : 1).ThenBy(x => x.ToString()))
+                        {
+                            var append = new List<KeyValuePair<string, string>>()
+                        {
+                            new KeyValuePair<string, string>("filter", ((int)filter).ToString())
+                        };
+                            <a class="dropdown-item" href="@_url.GenerateFullUrl(Context.Request, Context.Request.Path, append)">@filter</a>
+                        }
+                    </div>
+                </div>
+
+                @if (await _settings.GetOrDefault(Settings.Gallery.Download, true, Model?.Gallery?.Id) || (User?.Identity != null && User.Identity.IsAuthenticated))
+                {
+                    <div class="btn-group w-100 mb-2">
+                        <button class="btnDownloadGallery btn btn-primary btn-sm" type="button" data-gallery-id="@Model?.Gallery?.Id" data-gallery-key="@(await _settings.GetOrDefault(Settings.Gallery.SecretKey, string.Empty, Model?.Gallery?.Id))">
+                            @_localizer["Download"].Value
+                        </button>
+                    </div>
+                }
             }
         </div>
     </div>

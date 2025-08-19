@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Clár na dToghthóirí</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Glacadh le</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Gníomhaíocht</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Dhiúltaigh Bulk gach léirmheas ar feitheamh</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>D’fhormheas cuairteoir úsáid fianán</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Gailearaí cruthaithe</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Téigh i dteagmháil le riarthóir suímh chun rochtain a sholáthar</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Failed chun teachtaireacht iniúchóireachta le haghaidh formheas fianán a logáil</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Polasaí Cócaireachta</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Trí úsáid a bhaint as an suíomh gréasáin seo aontaíonn tú lenár n-úsáid a bhaint as fianáin bunúsacha de réir ár dtéarmaí úsáide fianán. Chun tuilleadh eolais a fháil féach ar ár</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Tréimhse saoil: ilbhliantúil</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>An bhfuil tú cinnte gur mhaith leat an gailearaí seo a scriosadh?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Is é seo an leagan taispeána. Déantar gach cumraíocht a ghlanadh go tréimhsiúil chun slinn ghlan a chinntiú do thástálaithe sa todhchaí.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>GnÃ omhaÃ ochta suaite</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Comhad dúbailte braitheadh</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Seoladh Ríomhphoist</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Easpórtáil</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Teideal</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>An t-ábhar a thaispeáint ar an leathanach eolais CookiePolicy</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Polasaí Cócaireachta an Chustaim</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Polasaithe an Chustaim</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Failed chun suímh a fháil</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Comhaireamh na Colún</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Cad é an scagaire gailearaí réamhshocraithe</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Scagaire Réamhshocrú</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Cad é an grúpa gailearaí réamhshocraithe</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Grúpa réamhshocraithe</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Cad é an t-ordú gailearaí réamhshocraithe</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Ordú Réamhshocrú</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Cad é an dearcadh gailearaí réamhshocraithe</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Gach ceart ar cosaint</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Ar chóir an t-úsáideoir a bheith in ann a scagadh agus na meáin ghrúpa?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Taispeáin Scagairí</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Ba chóir an teideal a chur ar taispeáint ag barr an gailearaí</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Féach ar an bpróifíl</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Má cheadaíonn aíonna míreanna a uaslódáil</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Leathanach Main</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Ba chóir go mbeadh ar úsáideoirí seoladh ríomhphoist a chur isteach</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Seoladh Ríomhphoist a Fhiosrú</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Más gá seiceáil aitheantais a uaslódáil meáin</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Taiseachas aeir: fliuch</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Ar chóir an t-úsáideoir a fheiceáil popups stíl OTIR?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Cumasaigh</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Seirbhís do Chustaiméirí</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Tabhair cuairt ar</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Ag obair</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Déan teagmháil</value>

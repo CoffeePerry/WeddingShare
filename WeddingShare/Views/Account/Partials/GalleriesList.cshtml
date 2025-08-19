@@ -22,14 +22,14 @@
             <th class="col-2 d-none d-md-table-cell">@_localizer["Space_Percent_Used"].Value</th>
             <th class="col-7 col-md-3">@_localizer["Actions"].Value</th>
         </tr>
-        @foreach (var gallery in Model.OrderBy(x => string.Equals("All", x.Name, StringComparison.OrdinalIgnoreCase) ? 0 : string.Equals("default", x.Name, StringComparison.OrdinalIgnoreCase) ? 1 : 2))
+        @foreach (var gallery in Model.OrderBy(x => x.Identifier.Equals("All", StringComparison.OrdinalIgnoreCase) ? 0 : 1).ThenBy(x => x.Name.ToLower()))
         {
             var append = new List<KeyValuePair<string, string>>()
             {
-                new KeyValuePair<string, string>("id", gallery.Name)
+                new KeyValuePair<string, string>("identifier", gallery.Identifier)
             };
 
-            var secretKey = await _settings.GetOrDefault(Settings.Gallery.SecretKey, string.Empty, gallery.Name);
+            var secretKey = await _settings.GetOrDefault(Settings.Gallery.SecretKey, string.Empty, gallery.Id);
             if (!string.IsNullOrWhiteSpace(secretKey))
             {
                 var enc = _encryption.IsEncryptionEnabled();
@@ -46,7 +46,7 @@
                     <i class="fa-solid @(!string.IsNullOrWhiteSpace(secretKey) ? "fa-lock" : "fa-lock-open") m-0"></i>
                 </td>
                 <td class="d-none d-md-table-cell text-center">
-                    @(gallery.Name.Equals("all", StringComparison.OrdinalIgnoreCase) ? _file.BytesToHumanReadable(gallery.TotalGallerySize, 2) : $"{_file.BytesToHumanReadable(gallery.TotalGallerySize, 2)} ({gallery.CalculateUsage(await _settings.GetOrDefault(Settings.Gallery.MaxSizeMB, long.MaxValue, gallery?.Name))})")
+                    @(gallery.Identifier.Equals("All", StringComparison.OrdinalIgnoreCase) ? _file.BytesToHumanReadable(gallery.TotalGallerySize, 2) : $"{_file.BytesToHumanReadable(gallery.TotalGallerySize, 2)} ({gallery.CalculateUsage(await _settings.GetOrDefault(Settings.Gallery.MaxSizeMB, long.MaxValue, gallery?.Id))})")
                 </td>
                 <td>
                     @if (userPermissions.HasFlag(AccessPermissions.Gallery_View))

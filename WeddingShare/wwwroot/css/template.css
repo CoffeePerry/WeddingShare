@@ -10994,3 +10994,42 @@ footer {
 .media-viewer-item:hover .custom-resource-delete, .media-viewer-item:hover .btnReviewApprove, .media-viewer-item:hover .btnReviewReject, .media-viewer-item:hover .btnDeletePhoto {
     display: block !important;
 }
+
+#cookieConsentWrapper {
+    background-color: #000000;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    opacity: 0.5;
+    z-index: 99998;
+}
+
+#cookieConsent {
+    text-align: center;
+    color: #333333;
+    border: 0px;
+    border-top: 1px solid #999999;
+    background-color: #EFEFEF;
+    width: 100%;
+    margin: 0px;
+    padding: 10px !important;
+    border-radius: 0px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 99999;
+}
+
+    #cookieConsent .accept-policy {
+        width: 100px;
+        margin-left: 10px;
+    }
+
+@media (max-width: 576px) {
+    #cookieConsent .accept-policy {
+        width: 100%;
+        margin: 0px;
+    }
+}

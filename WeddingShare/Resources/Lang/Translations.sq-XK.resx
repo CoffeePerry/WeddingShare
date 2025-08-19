@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Koleksion i pavlefshëm</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Prano</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Veprimi</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk kundërshtoi të gjithë vlerësimet në pritje</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Një vizitor ka miratuar përdorimin e biskotave</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Koleksion i krijuar</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Vihu në kontakt me administratorin e sitit për të krijuar hyrje</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Gabim gjatë regjistrimit të mesazhit të kontrollit për miratimin e cookie</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Politika e cookie</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Duke përdorur këtë faqe interneti ju jeni dakord për përdorimin tonë të biskotave bazë në përputhje me kushtet tona të përdorimit të biskotave. Për të gjetur më shumë ju lutemi të shikoni tonë</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Krijo</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Jeni i sigurt që dëshironi të eleminoni këtë galeri?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Ky është një version demo. I gjithë konfigurimi është fshirë periodikisht për të siguruar një listë të pastër për testuesit e ardhshëm.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Kryehet veprim destruktiv</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>U zbulua një file i dyfishuar</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Adresa email</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Eksporto</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Titulli</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Përmbajtja për t'u shfaqur në faqen e informacionit të CookiePolicy</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>E personalizuar Politika</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Politika të personalizuara</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Gabim gjatë marrjes së rregullimeve</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Numërimi i kollonës</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Cili është filtri i prezgjedhur i koleksionit</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Filtri i paracaktuar</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Cili është grupi i prezgjedhur i koleksionit</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>E prezgjedhur Grupi</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Cili është rregulli i prezgjedhur i koleksionit</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>E prezgjedhur</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Cila është paraqitja e prezgjedhur e koleksionit</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Kyçi sekret</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>A duhet të jetë përdoruesi në gjendje të filtrojë dhe grupojë media?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Shfaq filtrat</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Nëse titulli është shfaqur në krye të koleksionit</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Shfaq Titulli</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>A duhen lejuar të ftuarit të ngarkojnë elementët</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>_Programi i ruajtjes</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Përdoruesit duhet të shkruajnë një adresë email</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Adresa email</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>A duhet kontrolluar identiteti për të ngarkuar median</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Temë</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>A duhet që përdoruesi të shohë stilin PBR të popup?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Aktiv</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Diapozitivët</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Vizitim</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Kujdes:</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Fshi</value>

@@ -8,54 +8,70 @@ namespace WeddingShare.BackgroundWorkers
     {
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var cron = await settingsHelper.GetOrDefault(BackgroundServices.Cleanup.Schedule, "0 4 * * *");
-            var schedule = CrontabSchedule.Parse(cron, new CrontabSchedule.ParseOptions() { IncludingSeconds = cron.Split(new[] { ' ' }, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).Length == 6 });
-
             var enabled = await settingsHelper.GetOrDefault(BackgroundServices.Cleanup.Enabled, true);
             if (enabled)
             {
-                await Task.Delay((int)TimeSpan.FromSeconds(10).TotalMilliseconds, stoppingToken);
-            }
+                var cron = await settingsHelper.GetOrDefault(BackgroundServices.Cleanup.Schedule, "0 4 * * *");
+                var nextExecutionTime = DateTime.Now.AddSeconds(10);
 
-            while (!stoppingToken.IsCancellationRequested)
-            {
-                var now = DateTime.Now;
-                var nextExecutionTime = schedule.GetNextOccurrence(now);
-                var waitTime = nextExecutionTime - now;
-                await Task.Delay(waitTime, stoppingToken);
-
-                enabled = await settingsHelper.GetOrDefault(BackgroundServices.Cleanup.Enabled, true);
-                if (enabled)
+                while (!stoppingToken.IsCancellationRequested)
                 {
-                    await Cleanup();
+                    var currentCron = await settingsHelper.GetOrDefault(BackgroundServices.Cleanup.Schedule, "0 4 * * *");
+
+                    var now = DateTime.Now;
+                    if (now >= nextExecutionTime)
+                    {
+                        await Cleanup();
+                        
+                        var schedule = CrontabSchedule.Parse(cron, new CrontabSchedule.ParseOptions() { IncludingSeconds = cron.Split(new[] { ' ' }, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).Length == 6 });
+                        nextExecutionTime = schedule.GetNextOccurrence(now);
+                    }
+                    else
+                    {
+                        if (!currentCron.Equals(cron))
+                        {
+                            nextExecutionTime = DateTime.Now;
+                        }
+
+                        await Task.Delay(TimeSpan.FromSeconds(1), stoppingToken);
+                    }
+
+                    cron = currentCron;
                 }
             }
         }
 
         private async Task Cleanup()
         {
-            await Task.Run(() =>
+            try
             {
-                var paths = new List<string>()
+                await Task.Run(() =>
                 {
-                    Path.Combine(hostingEnvironment.WebRootPath, Directories.TempFiles)
-                };
+                    var paths = new List<string>()
+                    {
+                        Path.Combine(hostingEnvironment.WebRootPath, Directories.TempFiles)
+                    };
 
-                if (paths != null)
-                { 
-                    foreach (var path in paths)
-                    { 
-                        try
-                        { 
-                            fileHelper.DeleteDirectoryIfExists(path);
-                        }
-                        catch (Exception ex)
+                    if (paths != null)
+                    {
+                        foreach (var path in paths)
                         {
-                            logger.LogError(ex, $"An error occurred while running cleanup of '{path}'");
+                            try
+                            {
+                                fileHelper.DeleteDirectoryIfExists(path);
+                            }
+                            catch (Exception ex)
+                            {
+                                logger.LogError(ex, $"An error occurred while running cleanup of '{path}'");
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
+            catch (Exception ex) 
+            {
+                logger.LogError(ex, $"CleanupService - Failed to clean up files - {ex?.Message}");
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Text.RegularExpressions;
 using DbUp;
 using DbUp.Engine;
 using WeddingShare.Constants;
@@ -30,7 +31,8 @@ namespace WeddingShare.Helpers.Dbup
                         dbupResult = new DbupSqliteHelper().Migrate(connString);
                         break;
                     case "mysql":
-                        dbupResult = new DbupMySqlHelper().Migrate(connString);
+                        var databaseName = config.GetOrDefault(Settings.Database.DatabaseName, "weddingshare");
+                        dbupResult = new DbupMySqlHelper().Migrate(connString, databaseName);
                         break;
                     default:
                         var error = $"Database type '{dbType}' is not yet supported by this application";
@@ -103,17 +105,19 @@ namespace WeddingShare.Helpers.Dbup
 
     public class DbupMySqlHelper
     {
-        public DatabaseUpgradeResult Migrate(string connectionString)
+        public DatabaseUpgradeResult Migrate(string connectionString, string database)
         {
             try
             {
+                database = !string.IsNullOrWhiteSpace(database) ? database : Regex.Match(connectionString, "Database\\=(.+?)(;|$)", RegexOptions.IgnoreCase | RegexOptions.Multiline).Groups[1].Value;
+
                 var dbupBuilder = DeployChanges.To
                     .MySqlDatabase(connectionString)
                     .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly())
                     .WithScriptNameComparer(new DbupScriptComparer())
                     .WithFilter(new DbupScriptFilter(DatabaseType.MySQL))
                     .LogToConsole();
-                dbupBuilder.Configure(c => c.Journal = new DbupMySqlTableJournal(() => c.ConnectionManager, () => c.Log, "weddingshare", "schemaversions"));
+                dbupBuilder.Configure(c => c.Journal = new DbupMySqlTableJournal(() => c.ConnectionManager, () => c.Log, database, "schemaversions"));
 
                 return dbupBuilder.Build().PerformUpgrade();
             }

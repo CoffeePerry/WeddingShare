@@ -163,19 +163,11 @@ function checkAccountState() {
 }
 
 function selectActiveTab(tab) {
-    tab = tab.replace('#', '');
-
     if (tab === undefined || tab === null || tab.length === 0) {
         tab = $('a.pnl-selector')[0].attributes['data-tab'].value;
     }
 
-    $('a.pnl-selector').removeClass('active');
-    $(`a.pnl-selector[data-tab="${tab}"]`).addClass('active');
-
-    $('section.pnl-account').addClass('d-none');
-    $(`section.pnl-account-${tab}`).removeClass('d-none');
-
-    window.location.hash = `#${tab}`;
+    window.location = `/Account?tab=${tab}`;
 }
 
 (function () {
@@ -186,10 +178,6 @@ function selectActiveTab(tab) {
             checkAccountState();
         }, 60000);
 
-        if (window.location.pathname.toLowerCase() == '/account') {
-            selectActiveTab(window.location.hash);
-        }
-
         $(document).off('click', 'a.pnl-selector').on('click', 'a.pnl-selector', function (e) {
             preventDefaults(e);
 
@@ -197,7 +185,7 @@ function selectActiveTab(tab) {
             selectActiveTab(tab);
         });
 
-        $(document).off('change', 'input.setting-field,select.setting-field').on('change', 'input.setting-field,select.setting-field', function (e) {
+        $(document).off('change', 'input.setting-field,select.setting-field,textarea.setting-field').on('change', 'input.setting-field,select.setting-field,textarea.setting-field', function (e) {
             $(this).attr('data-updated', 'true');
         });
 
@@ -654,18 +642,6 @@ function selectActiveTab(tab) {
                     Class: 'form-check-input',
                     Label: 'Thumbnails'
                 }, {
-                    Id: 'logos',
-                    Type: 'checkbox',
-                    Checked: true,
-                    Class: 'form-check-input',
-                    Label: 'Logos'
-                }, {
-                    Id: 'banners',
-                    Type: 'checkbox',
-                    Checked: true,
-                    Class: 'form-check-input',
-                    Label: 'Banners'
-                }, {
                     Id: 'custom-resources',
                     Type: 'checkbox',
                     Checked: true,
@@ -685,8 +661,6 @@ function selectActiveTab(tab) {
                                 Database: $('#popup-modal-field-database').is(':checked'),
                                 Uploads: $('#popup-modal-field-uploads').is(':checked'),
                                 Thumbnails: $('#popup-modal-field-thumbnails').is(':checked'),
-                                Logos: $('#popup-modal-field-logos').is(':checked'),
-                                Banners: $('#popup-modal-field-banners').is(':checked'),
                                 CustomResources: $('#popup-modal-field-custom-resources').is(':checked')
                             }
                         })
@@ -1376,32 +1350,70 @@ function selectActiveTab(tab) {
 
         $(document).off('change', 'input#custom-resource-upload').on('change', 'input#custom-resource-upload', function (e) {
             const files = $(this)[0].files;
-            if (files !== undefined && files.length > 0) {
-                const formData = new FormData();
-                formData.append(files[0].name, files[0]);
+            let retries = 0;
 
-                displayLoader(localization.translate('Upload_Progress', { index: 1, count: 1 }));
+            function uploadCustomResource(i) {
+                if (files !== undefined && files.length > 0) {
+                    const formData = new FormData();
+                    formData.append(files[i].name, files[i]);
 
-                fetch('/Account/UploadCustomResource', {
-                    method: 'POST',
-                    body: formData
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        hideLoader();
+                    displayLoader(`${localization.translate('Upload_Progress', { index: i + 1, count: 1 })} <br/><br/><span id="file-upload-progress">0%</span>`);
 
-                        if (data !== undefined && data.success === true) {
-                            displayMessage(localization.translate('Upload'), localization.translate('Upload_Success', { count: 1 }));
+                    $.ajax({
+                        url: '/Account/UploadCustomResource',
+                        type: 'POST',
+                        data: formData,
+                        async: true,
+                        cache: false,
+                        contentType: false,
+                        dataType: 'json',
+                        processData: false,
+                        success: function (response) {
+                            hideLoader();
+                            if (response !== undefined && response.success === true) {
+                                displayMessage(localization.translate('Upload'), localization.translate('Upload_Success', { count: 1 }));
 
-                            updateCustomResources();
-                            updateSettings();
+                                updateCustomResources();
+                                updateSettings();
 
-                            $('input#custom-resource-upload').val('');
-                        } else if (data.errors !== undefined && data.errors.length > 0) {
-                            displayMessage(localization.translate('Upload'), localization.translate('Upload_Failed'), [data.errors]);
-                        }
+                                $('input#custom-resource-upload').val('');
+                            } else if (response.errors !== undefined && response.errors.length > 0) {
+                                displayMessage(localization.translate('Upload'), localization.translate('Upload_Failed'), [response.errors]);
+                            }
+                        },
+                        xhr: function () {
+                            var xhr = new window.XMLHttpRequest();
+
+                            xhr.upload.addEventListener("progress", function (evt) {
+                                if (evt.lengthComputable) {
+                                    var percentComplete = evt.loaded / evt.total;
+                                    percentComplete = parseInt(percentComplete * 100);
+
+                                    if ($('span#file-upload-progress').length > 0) {
+                                        $('span#file-upload-progress').text(`(${percentComplete}%)`);
+                                    }
+                                }
+                            }, false);
+
+                            xhr.upload.addEventListener("error", function (evt) {
+                                console.log(evt);
+                                if (retries < 5) {
+                                    setTimeout(function () {
+                                        retries++;
+                                        uploadCustomResource(i);
+                                    }, 2000);
+                                } else {
+                                    displayMessage(localization.translate('Upload'), localization.translate('Upload_Failed'));
+                                }
+                            }, false);
+
+                            return xhr;
+                        },
                     });
+                }
             }
+
+            uploadCustomResource(0);
         });
 
         $(document).off('click', 'i.custom-resource-delete').on('click', 'i.custom-resource-delete', function (e) {

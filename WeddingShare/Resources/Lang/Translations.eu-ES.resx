@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Galeria baliogabea</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Onartu</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Ekintza</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk-ek ez zituen iritzi guztiak baztertu</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Bisitari batek onartu du cookien erabilera</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Sortutako galeria</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Jar zaitez guneko administratzailearekin harremanetan sarbidea emateko</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Huts egin du auditoria-mezu bat erregistratzean cookie-ak onartzeko</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Cookie politika</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Webgune hau erabiltzean oinarrizko cookieak erabiltzea onartzen duzu, gure cookien erabilera-baldintzen arabera. Gehiago jakiteko, ikus gure</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Sortu</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Ziur zaude galeria hau ezabatu nahi duzula?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Hau demo bertsioa da. Konfigurazio guztia aldian-aldian ezabatzen da etorkizuneko probatzaileentzako arbel garbi bat ziurtatzeko.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Ekintza suntsitzailea</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Bikoiztutako fitxategia detektatuta</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Helbide elektronikoa</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Esportatu</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Titulua</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Cookie-politikaren informazio-orrian bistaratu beharreko edukia</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Cookien politika pertsonalizatua</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Politika pertsonalizatuak</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Huts egin du ezarpenak lortzean</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Zutabe kopurua</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Zer da galeria-iragazki lehenetsia</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Iragazki lehenetsia</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Zer da galeria-talde lehenetsia</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Talde lehenetsia</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Zer da galeria-ordena lehenetsia</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Ordena lehenetsia</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Zer da galeria-ikuspegi lehenetsia</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Ezkutuko gakoa</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Erabiltzaileak gai izan behar du euskarria iragazteko eta taldekatzeko?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Erakutsi iragazkiak</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Titulua galeriaren goialdean bistaratuko balitz</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Erakutsi titulua</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Gonbidatuek elementuak igo ditzakete</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Page Load Prompt</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Erabiltzaileak helbide elektroniko bat sartu behar badu</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Helbide elektronikoa behar da</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Identitatea egiaztatu behar den euskarria igotzeko</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Gaia</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Erabiltzaileak GDPR estiloko laster-leihoak ikusi behar ditu?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Gaituta</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Diapositiba-aurkezpena</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Bisitatu</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Abisua</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Wipe</value>

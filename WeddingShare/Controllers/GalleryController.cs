@@ -13,7 +13,6 @@ using WeddingShare.Helpers.Database;
 using WeddingShare.Helpers.Notifications;
 using WeddingShare.Models;
 using WeddingShare.Models.Database;
-using static WeddingShare.Constants.Notifications;
 
 namespace WeddingShare.Controllers
 {
@@ -58,25 +57,29 @@ namespace WeddingShare.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string id = "default", string? key = null)
+        public async Task<IActionResult> Login(string? id, string? identifier, string? key = null)
         {
-            id = id.Trim();
+            int? galleryId = 0;
 
-            var append = new List<KeyValuePair<string, string>>()
+            if (!string.IsNullOrWhiteSpace(identifier))
             {
-                new KeyValuePair<string, string>("id", id)
-            };
+                galleryId = await _database.GetGalleryId(identifier);
+            }
+            else if (!string.IsNullOrWhiteSpace(id))
+            {
+                galleryId = await _database.GetGalleryIdByName(id);
+            }
 
-            GalleryModel? gallery = await _database.GetGallery(id);
+            GalleryModel? gallery = await _database.GetGallery(galleryId.Value);
             if (gallery == null)
             {
                 if (await _settings.GetOrDefault(Settings.Basic.GuestGalleryCreation, false))
                 { 
                     if (await _database.GetGalleryCount() < await _settings.GetOrDefault(Settings.Basic.MaxGalleryCount, 1000000))
                     {
-                        await _database.AddGallery(new GalleryModel()
+                        gallery = await _database.AddGallery(new GalleryModel()
                         {
-                            Name = id.ToLower(),
+                            Name = id?.ToLower() ?? GalleryHelper.GenerateGalleryIdentifier(),
                             SecretKey = key,
                             Owner = 0
                         });
@@ -91,6 +94,11 @@ namespace WeddingShare.Controllers
                     return new RedirectToActionResult("Index", "Error", new { Reason = ErrorCode.GalleryCreationNotAllowed }, false);
                 }
             }
+
+            var append = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("identifier", gallery.Identifier)
+            };
 
             if (!string.IsNullOrWhiteSpace(key))
             {
@@ -107,117 +115,131 @@ namespace WeddingShare.Controllers
         [HttpGet]
         [RequiresSecretKey]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public async Task<IActionResult> Index(string id = "default", string? key = null, ViewMode? mode = null, GalleryGroup group = GalleryGroup.None, GalleryOrder order = GalleryOrder.Descending, GalleryFilter filter = GalleryFilter.All, string? culture = null, bool partial = false)
+        public async Task<IActionResult> Index(string? id, string? identifier, string? key = null, ViewMode? mode = null, GalleryGroup? group = null, GalleryOrder? order = null, GalleryFilter? filter = null, string? culture = null, bool partial = false)
         {
-            id = (!string.IsNullOrWhiteSpace(id) && !await _settings.GetOrDefault(Settings.Basic.SingleGalleryMode, false)) ? id.Trim().ToLower() : "default";
+            int? galleryId = null;
 
-            if (!string.IsNullOrWhiteSpace(culture))
-            { 
-                try
-                {
-                    HttpContext.Session.SetString(SessionKey.SelectedLanguage, culture);
-                    Response.Cookies.Append(
-                        CookieRequestCultureProvider.DefaultCookieName,
-                        CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-                        new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
-                    );
-                }
-                catch { }
+            if (!string.IsNullOrWhiteSpace(identifier))
+            {
+                galleryId = await _database.GetGalleryId(identifier);
+            }
+            else if (!string.IsNullOrWhiteSpace(id))
+            {
+                galleryId = await _database.GetGalleryIdByName(id);
             }
 
-            try
+            if (galleryId != null)
             {
-                ViewBag.ViewMode = mode ?? (ViewMode)await _settings.GetOrDefault(Settings.Gallery.DefaultView, (int)ViewMode.Default, id);
-            }
-            catch
-            {
-                ViewBag.ViewMode = ViewMode.Default;
-            }
-
-            var deviceType = HttpContext.Session.GetString(SessionKey.DeviceType);
-            if (string.IsNullOrWhiteSpace(deviceType))
-            {
-                deviceType = (await _deviceDetector.ParseDeviceType(Request.Headers["User-Agent"].ToString())).ToString();
-                HttpContext.Session.SetString(SessionKey.DeviceType, deviceType ?? "Desktop");
-            }
-
-            ViewBag.IsMobile = !string.Equals("Desktop", deviceType, StringComparison.OrdinalIgnoreCase);
-
-            var galleryPath = Path.Combine(UploadsDirectory, id);
-            _fileHelper.CreateDirectoryIfNotExists(galleryPath);
-            _fileHelper.CreateDirectoryIfNotExists(Path.Combine(galleryPath, "Pending"));
-
-            GalleryModel? gallery = await _database.GetGallery(id);
-            if (gallery != null)
-            {
-                ViewBag.GalleryId = gallery.Name;
-
-                var secretKey = await _settings.GetOrDefault(Settings.Gallery.SecretKey, string.Empty, gallery.Name);
-                ViewBag.SecretKey = secretKey;
-
-                var currentPage = 1;
-                try
+                if (!string.IsNullOrWhiteSpace(culture))
                 {
-                    currentPage = int.Parse((Request.Query.ContainsKey("page") && !string.IsNullOrWhiteSpace(Request.Query["page"])) ? Request.Query["page"].ToString().ToLower() : "1");
-                }
-                catch { }
-
-                var mediaType = MediaType.All;
-                if (mode == ViewMode.Slideshow)
-                {
-                    mediaType = MediaType.Image;
-                }
-                else
-                {
-                    switch (filter)
-                    {
-                        case GalleryFilter.Images:
-                            mediaType = MediaType.Image;
-                            break;
-                        case GalleryFilter.Videos:
-                            mediaType = MediaType.Video;
-                            break;
-                        default:
-                            mediaType = MediaType.All;
-                            break;
-                    }
-                }
-
-                var orientation = ImageOrientation.None;
-                switch (filter)
-                {
-                    case GalleryFilter.Landscape:
-                        orientation = ImageOrientation.Landscape;
-                        break;
-                    case GalleryFilter.Portrait:
-                        orientation = ImageOrientation.Portrait;
-                        break;
-                    case GalleryFilter.Square:
-                        orientation = ImageOrientation.Square;
-                        break;
-                    default:
-                        orientation = ImageOrientation.None;
-                        break;
-                }
-
-                var itemsPerPage = await _settings.GetOrDefault(Settings.Gallery.ItemsPerPage, 50, gallery?.Name);
-                var allowedFileTypes = (await _settings.GetOrDefault(Settings.Gallery.AllowedFileTypes, ".jpg,.jpeg,.png,.mp4,.mov", gallery?.Name)).Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
-                var items = (await _database.GetAllGalleryItems(gallery?.Id, GalleryItemState.Approved, mediaType, orientation, group, order, itemsPerPage, currentPage))?.Where(x => allowedFileTypes.Any(y => string.Equals(Path.GetExtension(x.Title).Trim('.'), y.Trim('.'), StringComparison.OrdinalIgnoreCase)));
-
-                var userPermissions = User?.Identity?.GetUserPermissions() ?? AccessPermissions.None;
-                var isGalleryAdmin = User?.Identity != null && User.Identity.IsAuthenticated && userPermissions.HasFlag(AccessPermissions.Gallery_Upload);
-
-                FileUploader? fileUploader = null;
-                if (!string.Equals("All", gallery?.Name, StringComparison.OrdinalIgnoreCase) && (await _settings.GetOrDefault(Settings.Gallery.Upload, true, gallery?.Name) || isGalleryAdmin))
-                {
-                    var uploadActvated = isGalleryAdmin;
                     try
                     {
-                        if (!uploadActvated)
-                        { 
-                            var periods = (await _settings.GetOrDefault(Settings.Gallery.UploadPeriod, "1970-01-01 00:00", gallery?.Name))?.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+                        HttpContext.Session.SetString(SessionKey.SelectedLanguage, culture);
+                        Response.Cookies.Append(
+                            CookieRequestCultureProvider.DefaultCookieName,
+                            CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                            new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+                        );
+                    }
+                    catch { }
+                }
+
+                try
+                {
+                    ViewBag.ViewMode = mode ?? (ViewMode)await _settings.GetOrDefault(Settings.Gallery.DefaultView, (int)ViewMode.Default, galleryId);
+                }
+                catch
+                {
+                    ViewBag.ViewMode = ViewMode.Default;
+                }
+
+                var deviceType = HttpContext.Session.GetString(SessionKey.DeviceType);
+                if (string.IsNullOrWhiteSpace(deviceType))
+                {
+                    deviceType = (await _deviceDetector.ParseDeviceType(Request.Headers["User-Agent"].ToString())).ToString();
+                    HttpContext.Session.SetString(SessionKey.DeviceType, deviceType ?? "Desktop");
+                }
+
+                ViewBag.IsMobile = !string.Equals("Desktop", deviceType, StringComparison.OrdinalIgnoreCase);
+
+                GalleryModel? gallery = await _database.GetGallery(galleryId.Value);
+                if (gallery != null)
+                {
+                    var galleryPath = Path.Combine(UploadsDirectory, gallery.Identifier);
+                    _fileHelper.CreateDirectoryIfNotExists(galleryPath);
+                    _fileHelper.CreateDirectoryIfNotExists(Path.Combine(galleryPath, "Pending"));
+
+                    ViewBag.GalleryIdentifier = gallery.Identifier;
+
+                    var secretKey = await _settings.GetOrDefault(Settings.Gallery.SecretKey, string.Empty, gallery.Id);
+                    ViewBag.SecretKey = secretKey;
+
+                    var currentPage = 1;
+                    try
+                    {
+                        currentPage = int.Parse((Request.Query.ContainsKey("page") && !string.IsNullOrWhiteSpace(Request.Query["page"])) ? Request.Query["page"].ToString().ToLower() : "1");
+                    }
+                    catch { }
+
+                    var galleryGroup = group ?? (GalleryGroup)(await _settings.GetOrDefault(Settings.Gallery.DefaultGroup, (int)GalleryGroup.None, gallery?.Id));
+                    var galleryOrder = order ?? (GalleryOrder)(await _settings.GetOrDefault(Settings.Gallery.DefaultOrder, (int)GalleryOrder.Descending, gallery?.Id));
+                    var galleryFilter = filter ?? (GalleryFilter)(await _settings.GetOrDefault(Settings.Gallery.DefaultFilter, (int)GalleryFilter.All, gallery?.Id));
+
+                    var mediaType = MediaType.All;
+                    if (mode == ViewMode.Slideshow)
+                    {
+                        mediaType = MediaType.Image;
+                    }
+                    else
+                    {
+                        switch (galleryFilter)
+                        {
+                            case GalleryFilter.Images:
+                                mediaType = MediaType.Image;
+                                break;
+                            case GalleryFilter.Videos:
+                                mediaType = MediaType.Video;
+                                break;
+                            default:
+                                mediaType = MediaType.All;
+                                break;
+                        }
+                    }
+
+                    var orientation = ImageOrientation.None;
+                    switch (galleryFilter)
+                    {
+                        case GalleryFilter.Landscape:
+                            orientation = ImageOrientation.Landscape;
+                            break;
+                        case GalleryFilter.Portrait:
+                            orientation = ImageOrientation.Portrait;
+                            break;
+                        case GalleryFilter.Square:
+                            orientation = ImageOrientation.Square;
+                            break;
+                        default:
+                            orientation = ImageOrientation.None;
+                            break;
+                    }
+
+                    var itemsPerPage = await _settings.GetOrDefault(Settings.Gallery.ItemsPerPage, 50, gallery?.Id);
+                    var allowedFileTypes = (await _settings.GetOrDefault(Settings.Gallery.AllowedFileTypes, ".jpg,.jpeg,.png,.mp4,.mov", gallery?.Id)).Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+                    var items = (await _database.GetAllGalleryItems(gallery?.Id, GalleryItemState.Approved, mediaType, orientation, galleryGroup, galleryOrder, itemsPerPage, currentPage))?.Where(x => allowedFileTypes.Any(y => string.Equals(Path.GetExtension(x.Title).Trim('.'), y.Trim('.'), StringComparison.OrdinalIgnoreCase)));
+
+                    var userPermissions = User?.Identity?.GetUserPermissions() ?? AccessPermissions.None;
+                    var isGalleryAdmin = User?.Identity != null && User.Identity.IsAuthenticated && userPermissions.HasFlag(AccessPermissions.Gallery_Upload);
+
+                    var uploadActvated = !gallery.Identifier.Equals("All", StringComparison.OrdinalIgnoreCase) && (await _settings.GetOrDefault(Settings.Gallery.Upload, true, gallery?.Id) || isGalleryAdmin);
+                    if (uploadActvated)
+                    {
+                        try
+                        {
+                            var periods = (await _settings.GetOrDefault(Settings.Gallery.UploadPeriod, "1970-01-01 00:00", gallery?.Id))?.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
                             if (periods != null)
-                            { 
+                            {
+                                uploadActvated = false;
+
                                 var now = DateTime.UtcNow;
                                 foreach (var period in periods)
                                 {
@@ -244,49 +266,48 @@ namespace WeddingShare.Controllers
                                 }
                             }
                         }
-                    }
-                    catch 
-                    {
-                        uploadActvated = true;
+                        catch
+                        {
+                            uploadActvated = true;
+                        }
                     }
 
-                    if (uploadActvated)
-                    { 
-                        fileUploader = new FileUploader(gallery?.Name ?? "default", secretKey, "/Gallery/UploadImage", await _settings.GetOrDefault(Settings.IdentityCheck.RequireIdentityForUpload, false));
-                    }
+                    var itemCounts = await _database.GetGalleryItemCount(gallery?.Id, GalleryItemState.All, mediaType, orientation);
+                    var galleryIdentifiers = !gallery.Identifier.Equals("All", StringComparison.OrdinalIgnoreCase) ? new Dictionary<int, string>() { { gallery.Id, gallery.Identifier } } : items?.GroupBy(x => x.Id)?.Select(x => new KeyValuePair<int, string>(x.Key, _database.GetGalleryIdentifier(x.Key).Result))?.ToDictionary();
+                    var model = new PhotoGallery()
+                    {
+                        Gallery = gallery,
+                        SecretKey = secretKey,
+                        Images = items?.Select(x => {
+                            var galleryIdentifier = galleryIdentifiers != null && galleryIdentifiers.ContainsKey(x.GalleryId) ? galleryIdentifiers[x.GalleryId] : gallery.Identifier;
+                            return new PhotoGalleryImage()
+                            {
+                                Id = x.Id,
+                                GalleryId = x.GalleryId,
+                                Name = Path.GetFileName(x.Title),
+                                UploadedBy = x.UploadedBy,
+                                UploaderEmailAddress = x.UploaderEmailAddress,
+                                UploadDate = x.UploadedDate,
+                                ImagePath = $"/{Path.Combine(UploadsDirectory, galleryIdentifier).Remove(_hostingEnvironment.WebRootPath).Replace('\\', '/').TrimStart('/')}/{x.Title}",
+                                ThumbnailPath = $"/{Path.Combine(ThumbnailsDirectory, galleryIdentifier).Remove(_hostingEnvironment.WebRootPath).Replace('\\', '/').TrimStart('/')}/{Path.GetFileNameWithoutExtension(x.Title)}.webp",
+                                ThumbnailPathFallback = $"/{ThumbnailsDirectory.Remove(_hostingEnvironment.WebRootPath).Replace('\\', '/').TrimStart('/')}/{Path.GetFileNameWithoutExtension(x.Title)}.webp",
+                                MediaType = x.MediaType
+                            };
+                        })?.ToList(),
+                        CurrentPage = currentPage,
+                        ApprovedCount = (int)itemCounts["Approved"],
+                        PendingCount = (int)itemCounts["Pending"],
+                        ItemsPerPage = itemsPerPage,
+                        UploadActivated = uploadActvated,
+                        ViewMode = (ViewMode)ViewBag.ViewMode,
+                        GroupBy = galleryGroup,
+                        OrderBy = galleryOrder,
+                        Pagination = galleryOrder != GalleryOrder.Random,
+                        LoadScripts = !partial
+                    };
+
+                    return partial ? PartialView("~/Views/Gallery/GalleryWrapper.cshtml", model) : View(model);
                 }
-
-                var itemCounts = await _database.GetGalleryItemCount(gallery?.Id, GalleryItemState.All, mediaType, orientation);
-                var model = new PhotoGallery()
-                {
-                    GalleryId = gallery?.Id,
-                    GalleryName = gallery?.Name,
-                    Images = items?.Select(x => new PhotoGalleryImage() 
-                    {
-                        Id = x.Id, 
-                        GalleryId = x.GalleryId,
-                        GalleryName = x.GalleryName,
-                        Name = Path.GetFileName(x.Title),
-                        UploadedBy = x.UploadedBy,
-                        UploadDate = x.UploadedDate,
-                        ImagePath = $"/{Path.Combine(UploadsDirectory, x.GalleryName).Remove(_hostingEnvironment.WebRootPath).Replace('\\', '/').TrimStart('/')}/{x.Title}",
-                        ThumbnailPath = $"/{Path.Combine(ThumbnailsDirectory, x.GalleryName).Remove(_hostingEnvironment.WebRootPath).Replace('\\', '/').TrimStart('/')}/{Path.GetFileNameWithoutExtension(x.Title)}.webp",
-                        ThumbnailPathFallback = $"/{ThumbnailsDirectory.Remove(_hostingEnvironment.WebRootPath).Replace('\\', '/').TrimStart('/')}/{Path.GetFileNameWithoutExtension(x.Title)}.webp",
-                        MediaType = x.MediaType
-                    })?.ToList(),
-                    CurrentPage = currentPage,
-                    ApprovedCount = (int)itemCounts["Approved"],
-                    PendingCount = (int)itemCounts["Pending"],
-                    ItemsPerPage = itemsPerPage,
-                    FileUploader =  fileUploader,
-                    ViewMode = (ViewMode)ViewBag.ViewMode,
-                    GroupBy = group,
-                    OrderBy = order,
-                    Pagination = order != GalleryOrder.Random,
-                    LoadScripts = !partial
-                };
-            
-                return partial ? PartialView("~/Views/Gallery/GalleryWrapper.cshtml", model) : View(model);
             }
 
             return new RedirectToActionResult("Index", "Error", new { Reason = ErrorCode.InvalidGalleryId }, false);
@@ -299,8 +320,7 @@ namespace WeddingShare.Controllers
 
             try
             {
-                string galleryId = (Request?.Form?.FirstOrDefault(x => string.Equals("Id", x.Key, StringComparison.OrdinalIgnoreCase)).Value)?.ToString()?.ToLower() ?? string.Empty;
-                if (string.IsNullOrWhiteSpace(galleryId))
+                if (!int.TryParse((Request?.Form?.FirstOrDefault(x => string.Equals("Id", x.Key, StringComparison.OrdinalIgnoreCase)).Value)?.ToString()?.ToLower() ?? string.Empty, out var galleryId))
                 {
                     return Json(new { success = false, uploaded = 0, errors = new List<string>() { _localizer["Invalid_Gallery_Id"].Value } });
                 }
@@ -308,7 +328,7 @@ namespace WeddingShare.Controllers
                 var gallery = await _database.GetGallery(galleryId);
                 if (gallery != null)
                 {
-                    var secretKey = await _settings.GetOrDefault(Settings.Gallery.SecretKey, string.Empty, galleryId);
+                    var secretKey = await _settings.GetOrDefault(Settings.Gallery.SecretKey, string.Empty, gallery.Id);
                     string key = (Request?.Form?.FirstOrDefault(x => string.Equals("SecretKey", x.Key, StringComparison.OrdinalIgnoreCase)).Value)?.ToString() ?? string.Empty;
                     if (!string.IsNullOrWhiteSpace(secretKey) && !string.Equals(secretKey, key))
                     {
@@ -316,11 +336,12 @@ namespace WeddingShare.Controllers
                     }
 
                     string uploadedBy = HttpContext.Session.GetString(SessionKey.ViewerIdentity)?.Trim() ?? "Anonymous";
+                    string uploaderEmail = HttpContext.Session.GetString(SessionKey.ViewerEmailAddress)?.Trim() ?? "Anonymous";
                 
                     var files = Request?.Form?.Files;
                     if (files != null && files.Count > 0)
                     {
-                        var requiresReview = await _settings.GetOrDefault(Settings.Gallery.RequireReview, true, galleryId);
+                        var requiresReview = await _settings.GetOrDefault(Settings.Gallery.RequireReview, true, gallery.Id);
 
                         var uploaded = 0;
                         var errors = new List<string>();
@@ -329,11 +350,11 @@ namespace WeddingShare.Controllers
                             try
                             {
                                 var extension = Path.GetExtension(file.FileName);
-                                var maxGallerySize = await _settings.GetOrDefault(Settings.Gallery.MaxSizeMB, 1024L, galleryId) * 1000000;
-                                var maxFilesSize = await _settings.GetOrDefault(Settings.Gallery.MaxFileSizeMB, 50L, galleryId) * 1000000;
-                                var galleryPath = Path.Combine(UploadsDirectory, gallery.Name);
+                                var maxGallerySize = await _settings.GetOrDefault(Settings.Gallery.MaxSizeMB, 1024L, gallery.Id) * 1000000;
+                                var maxFilesSize = await _settings.GetOrDefault(Settings.Gallery.MaxFileSizeMB, 50L, gallery.Id) * 1000000;
+                                var galleryPath = Path.Combine(UploadsDirectory, gallery.Identifier);
 
-                                var allowedFileTypes = (await _settings.GetOrDefault(Settings.Gallery.AllowedFileTypes, ".jpg,.jpeg,.png,.mp4,.mov", galleryId)).Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+                                var allowedFileTypes = (await _settings.GetOrDefault(Settings.Gallery.AllowedFileTypes, ".jpg,.jpeg,.png,.mp4,.mov", gallery.Id)).Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
                                 if (!allowedFileTypes.Any(x => string.Equals(x.Trim('.'), extension.Trim('.'), StringComparison.OrdinalIgnoreCase)))
                                 {
                                     errors.Add($"{_localizer["File_Upload_Failed"].Value}. {_localizer["Invalid_File_Type"].Value}");
@@ -367,14 +388,14 @@ namespace WeddingShare.Controllers
                                         }
 
                                         var checksum = await _fileHelper.GetChecksum(filePath);
-                                        if (await _settings.GetOrDefault(Settings.Gallery.PreventDuplicates, true, galleryId) && (string.IsNullOrWhiteSpace(checksum) || await _database.GetGalleryItemByChecksum(gallery.Id, checksum) != null))
+                                        if (await _settings.GetOrDefault(Settings.Gallery.PreventDuplicates, true, gallery.Id) && (string.IsNullOrWhiteSpace(checksum) || await _database.GetGalleryItemByChecksum(gallery.Id, checksum) != null))
                                         {
                                             errors.Add($"{_localizer["File_Upload_Failed"].Value}. {_localizer["Duplicate_Item_Detected"].Value}");
                                             _fileHelper.DeleteFileIfExists(filePath);
                                         }
                                         else
                                         {
-                                            var gallerySavePath = Path.Combine(ThumbnailsDirectory, gallery.Name);
+                                            var gallerySavePath = Path.Combine(ThumbnailsDirectory, gallery.Identifier);
 
                                             _fileHelper.CreateDirectoryIfNotExists(ThumbnailsDirectory);
                                             _fileHelper.CreateDirectoryIfNotExists(gallerySavePath);
@@ -387,6 +408,7 @@ namespace WeddingShare.Controllers
                                                 GalleryId = gallery.Id,
                                                 Title = fileName,
                                                 UploadedBy = uploadedBy,
+                                                UploaderEmailAddress = uploaderEmail,
                                                 UploadedDate = await _fileHelper.GetCreationDatetime(filePath),
                                                 Checksum = checksum,
                                                 MediaType = _imageHelper.GetMediaType(filePath),
@@ -438,8 +460,7 @@ namespace WeddingShare.Controllers
 
             try
             {
-                string galleryId = (Request?.Form?.FirstOrDefault(x => string.Equals("Id", x.Key, StringComparison.OrdinalIgnoreCase)).Value)?.ToString()?.ToLower() ?? string.Empty;
-                if (string.IsNullOrWhiteSpace(galleryId))
+                if (!int.TryParse((Request?.Form?.FirstOrDefault(x => string.Equals("Id", x.Key, StringComparison.OrdinalIgnoreCase)).Value)?.ToString()?.ToLower() ?? string.Empty, out var galleryId))
                 {
                     return Json(new { success = false, uploaded = 0, errors = new List<string>() { _localizer["Invalid_Gallery_Id"].Value } });
                 }
@@ -490,15 +511,15 @@ namespace WeddingShare.Controllers
                 {
                     secretKey = secretKey ?? string.Empty;
 
-                    var gallerySecret = await _settings.GetOrDefault(Settings.Gallery.SecretKey, string.Empty, gallery.Name);
+                    var gallerySecret = await _settings.GetOrDefault(Settings.Gallery.SecretKey, string.Empty, gallery.Id);
                     if (!secretKey.Equals(gallerySecret))
                     {
                         return Json(new { success = false, message = _localizer["Failed_Download_Gallery_Invalid_Key"].Value });
                     }
 
-                    if (await _settings.GetOrDefault(Settings.Gallery.Download, true, gallery?.Name) || (User?.Identity != null && User.Identity.IsAuthenticated))
+                    if (await _settings.GetOrDefault(Settings.Gallery.Download, true, gallery?.Id) || (User?.Identity != null && User.Identity.IsAuthenticated))
                     {
-                        var galleryDir = id > 0 ? Path.Combine(UploadsDirectory, gallery.Name) : UploadsDirectory;
+                        var galleryDir = id > 0 ? Path.Combine(UploadsDirectory, gallery.Identifier) : UploadsDirectory;
                         if (_fileHelper.DirectoryExists(galleryDir))
                         {
                             var keepFiles = new List<string>();
@@ -558,7 +579,7 @@ namespace WeddingShare.Controllers
 
                             _fileHelper.CreateDirectoryIfNotExists(TempDirectory);
 
-                            var tempZipFile = Path.Combine(TempDirectory, $"{gallery.Name}-{DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")}.zip");
+                            var tempZipFile = Path.Combine(TempDirectory, $"{gallery.Identifier}-{DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")}.zip");
                             ZipFile.CreateFromDirectory(galleryDir, tempZipFile, CompressionLevel.Optimal, false);
 
                             if (User?.Identity == null || !User.Identity.IsAuthenticated)

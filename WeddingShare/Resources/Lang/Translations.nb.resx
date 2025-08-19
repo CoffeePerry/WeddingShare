@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Ugyldig galleri</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Godta</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Handling</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk avvist alle avventende anmeldelser</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>En besøkende har godkjent bruk av cookies</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Opprettet galleri</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Vennligst kontakt en nettstedsadministrator for å gi tilgang</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Kunne ikke logge en revisjonsmelding for godkjenning av informasjonskapsler</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Cookie Policy</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Ved å bruke dette nettstedet godtar du vår bruk av grunnleggende cookies i samsvar med våre vilkår for bruk av informasjonskapsler. For å finne ut mer vennligst se vår</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Lag</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Er du sikker på at du vil slette dette galleriet?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Dette er en demoversjon. All konfigurasjon slettes regelmessig for å sikre en ren skifer for fremtidige testere.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Destruktiv handling utført</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Duplikatfil oppdaget</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>E-postadresse</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Eksporter</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Tittel</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Innholdet som skal vises på infosiden for informasjonskapslerPolicy</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Cookie-policy</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Custom Policies</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Klarte ikke å hente innstillinger</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Kolonnetelling</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Hva er standard galleri filter</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Standardfilter</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Hva er standard galleri gruppe</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Standard gruppe</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Hva er standard galleri bestilling</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Standard rekkefølge</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Hva er standard gallerivisning</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Hemmelig nøkkel</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Bør brukeren kunne filtrere og gruppere medier?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Vis filtre</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Skulle tittelen vises øverst i galleriet</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Vis tittel</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Hvis gjestene får lov til å laste opp varer</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Sidelasteprompt</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Hvis brukerne må skrive inn en e-postadresse</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Krev e-postadresse</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Hvis det kreves identitetskontroll for å laste opp medier</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Tema</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Bør brukeren se GDPR-stil popups?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Aktivert</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Lysbilde</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Besøk</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Advarsel</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Wipe</value>

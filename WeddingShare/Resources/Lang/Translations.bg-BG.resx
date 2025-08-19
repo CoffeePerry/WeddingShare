@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Невалидна галерия</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Приемане</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Действие</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk отхвърли всички висящи прегледи</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Посетител е одобрил използването на бисквитки</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Създадена галерия</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Моля, свържете се с администратор на сайта, за да предоставите достъп</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Грешка при запис на одитно съобщение за одобрение на бисквитки</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Политика за бисквитки</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>С използването на този уебсайт Вие се съгласявате с използването на основните бисквитки в съответствие с нашите условия за използване на бисквитки. За да разберете повече, моля вижте нашия</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Създаване</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Сигурен ли си, че искаш да изтриеш галерията?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Това е демо версия. Цялата конфигурация периодично се изтрива, за да се осигури ново начало за бъдещите тестери.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Извършване на разрушително действие</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Дублиране на засечен файл</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Адрес на електронна поща</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Експортиране</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Заглавие</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Съдържанието на страницата с информация за CookiePolicy</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Потребителска политика за бисквитки</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Потребителски политики</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Грешка при получаване на настройките</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Брой колони</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Какъв е филтърът за галерия по подразбиране</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Филтър по подразбиране</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Какво е групата по подразбиране галерия</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Група по подразбиране</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Каква е поръчката по подразбиране галерия</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>По подразбиране</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Какъв е изгледът на галерията по подразбиране</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Тайен ключ</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Трябва ли потребителят да може да филтрира и групира медия?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Показване на филтрите</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Ако заглавието бъде показано в горната част на галерията</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Показване на заглавието</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Ако гостите имат право да качват предмети</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Зареждане на страница</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Ако от потребителите се изисква да въвеждат имейл адрес</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Изискване на адрес за електронна поща</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Ако се изисква проверка на самоличността, за да се качи медия</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Тема</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Трябва ли потребителят да види изскачащи GDPR стилове?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Включване</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Слайдшоу</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Посещение</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Предупреждение</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Изтриване</value>

@@ -1,4 +1,5 @@
 ﻿using WeddingShare.Enums;
+using WeddingShare.Models.Database;
 
 namespace WeddingShare.Models
 {
@@ -10,24 +11,24 @@ namespace WeddingShare.Models
         }
 
         public PhotoGallery(ViewMode viewMode, GalleryGroup groupBy, GalleryOrder orderBy)
-            : this(1, "default", string.Empty, viewMode, groupBy, orderBy, new List<PhotoGalleryImage>(), false)
+            : this(null, string.Empty, viewMode, groupBy, orderBy, new List<PhotoGalleryImage>(), false)
         {
         }
 
-        public PhotoGallery(int id, string name, string secretKey, ViewMode viewMode, GalleryGroup groupBy, GalleryOrder orderBy, List<PhotoGalleryImage> images, bool requireIdentity)
+        public PhotoGallery(GalleryModel? gallery, string secretKey, ViewMode viewMode, GalleryGroup groupBy, GalleryOrder orderBy, List<PhotoGalleryImage> images, bool uploadActivated)
         {
-            this.GalleryId = id;
-            this.GalleryName = name;
+            this.Gallery = gallery;
+            this.SecretKey = secretKey;
             this.ViewMode = viewMode;
             this.GroupBy = groupBy;
             this.OrderBy = orderBy;
             this.PendingCount = 0;
             this.Images = images;
-            this.FileUploader = new FileUploader(name, secretKey, "/Gallery/UploadImage", requireIdentity);
+            this.UploadActivated = uploadActivated;
         }
 
-        public int? GalleryId { get; set; }
-        public string? GalleryName { get; set; }
+        public GalleryModel? Gallery { get; set; }
+        public string? SecretKey { get; set; }
         public ViewMode ViewMode { get; set; }
         public GalleryGroup GroupBy { get; set; }
         public GalleryOrder OrderBy { get; set; }
@@ -45,7 +46,7 @@ namespace WeddingShare.Models
             }
         }
         public List<PhotoGalleryImage>? Images { get; set; }
-        public FileUploader? FileUploader { get; set; }
+        public bool UploadActivated { get; set; } = false;
     }
 
     public class PhotoGalleryImage
@@ -59,6 +60,7 @@ namespace WeddingShare.Models
         public string? GalleryName { get; set; }
         public string? Name { get; set; }
         public string? UploadedBy { get; set; }
+        public string? UploaderEmailAddress { get; set; }
         public DateTime? UploadDate { get; set; }
         public string? ImagePath { get; set; }
         public string? ThumbnailPath { get; set; }

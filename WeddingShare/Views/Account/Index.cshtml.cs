@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using WeddingShare.Enums;
+using WeddingShare.Models;
 using WeddingShare.Models.Database;
 
 namespace WeddingShare.Views.Account
@@ -9,7 +11,8 @@ namespace WeddingShare.Views.Account
         {
         }
 
-        public List<GalleryItemModel>? PendingRequests { get; set; }
+        public AccountTabs ActiveTab { get; set; } = AccountTabs.Reviews;
+        public List<PhotoGallery>? PendingRequests { get; set; }
         public List<UserModel>? Users { get; set; }
         public List<GalleryModel>? Galleries { get; set; }
         public List<CustomResourceModel>? CustomResources { get; set; }

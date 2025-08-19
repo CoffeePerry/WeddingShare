@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>গ্যালারি বৈধ নয়</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>গ্রহণ করুন</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>কাজ</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Ked সকল অপেক্ষমান পর্যালোচনা প্রত্যাখ্যান করেছে</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>একজন অতিথি কুকির ব্যবহার অনুমোদন করেছেন</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>সংকলন নির্মাণ ব্যবস্থা</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>অনুগ্রহ করে সহায়তার জন্য একটি সাইট নির্বাচন করুন</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>কুকি অনুমোদনের জন্য অডিট করতে ব্যর্থ</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>কুকি সংক্রান্ত নিয়ম</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>এই ওয়েবসাইট ব্যবহার করে আপনি কুকি ব্যবহারের শর্ত অনুযায়ী আমাদের মূল কুকি ব্যবহার করতে রাজি আছেন। আরো জানার জন্য দয়া করে আমাদের দৃশ্য দেখুন</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>তৈরি করুন (_r)</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>আপনি কি নিশ্চিতরূপে এই গ্যালারিটি মুছে ফেলতে ইচ্ছুক?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>এটি একটি ডেমো সংস্করণ। সকল কনফিগারেশন ভবিষ্যৎ পরীক্ষার জন্য পরিষ্কারকরণ নিশ্চিত করার জন্য সংরক্ষণ করা হয়েছে।.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>তালিকাবদ্ধ কাজ</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>অনুরূপ ফাইল সনাক্ত করা হয়েছে</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>ই-মেইল ঠিকানা</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>এক্সপোর্ট করুন</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>শিরোনাম</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>কুকি সংক্রান্ত তথ্য প্রদর্শন করার জন্য চিহ্নিত বিষয়বস্তু</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>স্বনির্বাচিত কুকি পলিসি</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>স্বনির্ধারিত নীতি</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>বৈশিষ্ট্য প্রাপ্ত করতে ব্যর্থ</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>কলাম গণনা</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>ডিফল্ট গ্যালারির ফিল্টার</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>ডিফল্ট ফিল্টার</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>ডিফল্ট সংকলন রূপে নির্ধারণ করা হয়েছে</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>ডিফল্ট দল</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>ডিফল্ট গ্যালারির সংকলন</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>ডিফল্ট</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>ডিফল্ট গ্যালারিটি কি</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>গোপনীয় কি</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>ব্যবহারকারী কি ফিল্টার ও দলগুলোকে মিডিয়া করতে ইচ্ছুক?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>ফিল্টার দেখাও</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>সংকলনের মধ্যে উইন্ডো প্রদর্শন করা হবে কি না</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>শিরোনাম প্রদর্শন</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>আপলোড করার জন্য অতিথিকে অনুমতি প্রদান করা হবে</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>পৃষ্ঠা প্রদর্শন</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>একটি ই-মেইল ঠিকানা লিখুন</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>ই-মেইল ঠিকানা (_A):</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>মিডিয়া আপলোড করার জন্য পরিচয় যাচাই করা আবশ্যক</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>বিষয়</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>ব্যবহারকারীদের কি দেশাত্ম্যতার পপ-আপ প্রদর্শন করা হবে?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>সক্রিয়</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>স্লাইড-শো</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>পরিদর্শন করুন</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>সতর্কবার্তা</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>ওয়াইপে</value>

@@ -4,6 +4,7 @@
     {
         Default,
         Presentation,
-        Slideshow
+        Slideshow,
+        Single
     }
 }

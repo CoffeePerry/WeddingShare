@@ -1,0 +1,96 @@
+@using WeddingShare.Constants
+
+@{
+    var title = await _settings.GetOrDefault(Settings.Basic.Title, "WeddingShare");
+    var isDemoMode = await _settings.GetOrDefault(Settings.IsDemoMode, false);
+
+    string logo;
+    try
+    {
+        logo = await _settings.GetOrDefault(Settings.Basic.Logo, "/images/logo.png");
+    }
+    catch
+    {
+        logo = "/images/logo.png";
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        
+        <title>@title</title>
+        
+        <link rel="icon" type="image/png" href="@logo" />
+        <link rel="stylesheet" href="~/css/bootstrap-icons.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/template.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/media-viewer.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/jquery.loading.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/fontawesome.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/fontawesome.regular.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/fontawesome.solid.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/fontawesome.brands.min.css" asp-append-version="true" />
+        
+        <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-loading/jquery.loading.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-qrcode/jquery.qrcode.min.js" asp-append-version="true"></script>
+        <script src="~/lib/fontawesome/fontawesome.regular.min.js" asp-append-version="true"></script>
+        <script src="~/lib/fontawesome/fontawesome.solid.min.js" asp-append-version="true"></script>
+        <script src="~/lib/fontawesome/fontawesome.brands.min.js" asp-append-version="true"></script>
+        <script src="~/js/lang/localization.js" asp-append-version="true"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/popup.js" asp-append-version="true"></script>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container px-3 px-lg-5">
+                <a class="navbar-brand" href="@(await _settings.GetOrDefault(Settings.Basic.HomeLink, true) ? "/" : "#")">
+                    <img class="navbar-logo" src="@logo" onerror="this.onerror=null;this.src='/images/logo.png';" />
+                    <span class="navbar-title">@title</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Body -->
+        <section id="main-wrapper">
+            @if (isDemoMode)
+            {
+                <div class="alert alert-warning text-center" role="alert">
+                <i class="fa fa-warning mx-3"></i><b>@(_localizer["Warning"].Value.ToUpper()):</b> @_localizer["Demo_Message"].Value
+            </div>
+            }
+
+            <section class="py-1 py-lg-5">
+                <div class="container px-3 px-lg-1 pb-5 my-3 mt-lg-1">
+                    @RenderBody()
+                </div>
+            </section>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-1">
+            <div class="container">
+                <p class="m-0 text-white">
+                    <span class="float-none">
+                        <a class="text-link text-light" href="https://github.com/Cirx08/WeddingShare" title="Copyright Cirx08" target="_blank"><i class="fa-brands fa-github"></i> WeddingShare v@(await _settings.GetReleaseVersion(3)) &copy; Cirx08 @DateTime.UtcNow.Year</a>
+                    </span>
+                    <span class="float-end">
+                        <a class="text-link text-light" href="https://github.com/sponsors/Cirx08" title="GitHub Sponsors" target="_blank"><img class="fa-brands fa-sponsor-badge" src="/images/github.png" /></a>
+                        <a class="text-link text-light" href="https://buymeacoffee.com/cirx08" title="BuyMeACoffee" target="_blank"><img class="fa-brands fa-sponsor-badge" src="/images/buymeacoffee.gif" /></a>
+                    </span>
+                </p>
+            </div>
+        </footer>
+
+        <!-- JS -->
+        @await RenderSectionAsync("Scripts", required: false)
+
+    </body>
+</html>

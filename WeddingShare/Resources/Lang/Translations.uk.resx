@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Галерея</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Прийняти</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Дія</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Бульк відхилений всі попередні відгуки</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Відвідувач затвердив використання файлів cookie</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Галерея</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Будь ласка, зв'яжіться з адміністратором сайту, щоб забезпечити доступ</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Ввімкнено записувати повідомлення про аудит для узгодження файлів cookie</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Політика конфіденційності</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>За допомогою цього веб-сайту ви погоджуєтесь на використання базових файлів cookie відповідно до умов використання файлів cookie. Дізнатися більше</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Зареєструватися</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Ви впевнені, що хочете видалити цю галерею?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Це демо версія. Вся конфігурація періодично протирається, щоб забезпечити чистий шифер для майбутніх тестерів.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Деструктивна дія</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Дублікатний файл виявлений</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Адреса електронної пошти</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Експорт</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Головна</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Вміст для відображення на веб-сторінці CookiePolicy</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Політика конфіденційності</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Користувальницькі політики</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Не вдалося отримати налаштування</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Кількість стовпців</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Що таке фільтр галереї за замовчуванням</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Фільтр за замовчуванням</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Що таке група галереї за замовчуванням</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Категорія</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Що таке замовлення галереї за замовчуванням</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Замовлення</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Що таке перегляд галереї за замовчуванням</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Таємний ключ</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Чи зможе користувач фільтрувати та групувати медіа?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Показати фільтри</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Чи буде відображено назву у верхній частині галереї</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Головна</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Чи можна завантажити товари</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Сторінка завантаження</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Якщо потрібно ввести адресу електронної пошти</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Запит електронної пошти</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Чи потрібно перевірити особу для завантаження медіа</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Головна</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Чи повинен користувач бачити спливаючі вікна в стилі GDPR?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Увімкнути</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Розсилка</value>
@@ -1088,6 +1160,9 @@
     <value>Переглянути</value>
   </data>
   <data name="Visit" xml:space="preserve">
+    <value>Зареєструватися</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
     <value>Зареєструватися</value>
   </data>
   <data name="Wipe" xml:space="preserve">

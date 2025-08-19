@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Http.Features
+
+@{
+    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+    var consentGranted = consentFeature?.CanTrack ?? false;
+
+    if (await _settings.GetOrDefault(Settings.Policies.Enabled, true))
+    {
+        if (!consentGranted)
+        {
+            <div id="cookieConsentWrapper"></div>
+            <div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert">
+                <span class="mx-2">@_localizer["CookiePolicy_Message_Short"].Value <a href="/CookiePolicy" target="_blank">@_localizer["CookiePolicy_Button_Text"].Value</a>.</span>
+                <button type="button" class="btn btn-success accept-policy close mt-3 mt-md-0" data-bs-dismiss="alert" aria-label="Close" data-cookie-string="@(consentFeature?.CreateConsentCookie())">
+                    <span aria-hidden="true">@_localizer["Accept"].Value</span>
+                </button>
+            </div>
+        }
+    }
+    else
+    {
+        <div id="cookieConsentDisabled"></div>
+        if (!consentGranted)
+        {
+            <script>
+                (function () {
+                    document.addEventListener('DOMContentLoaded', function () {
+                        document.cookie = '@(consentFeature?.CreateConsentCookie())';
+                    });
+                })();
+            </script>
+        }
+    }
+}

@@ -1,4 +1,5 @@
 ﻿let displayMessageTimeout = null;
+let displayMessageCallbackTimeout = null;
 
 const preventDefaults = event => {
     event.preventDefault();
@@ -25,9 +26,14 @@ function uuidv4() {
 }
 
 function setCookie(cname, cvalue, hours) {
-    const d = new Date();
-    d.setTime(d.getTime() + (hours * 60 * 60 * 1000));
-    document.cookie = `${cname}=${cvalue};expires=${d.toUTCString()};path=/`;
+    let consent = getCookie('.AspNet.Consent');
+    if (consent !== undefined && consent === 'yes') {
+        const d = new Date();
+        d.setTime(d.getTime() + (hours * 60 * 60 * 1000));
+        document.cookie = `${cname}=${cvalue};expires=${d.toUTCString()};path=/`;
+    } else {
+        console.warn(`Cannot set cookie '${cname}' as the user has not accepted the cookie policy`);
+    }
 }
 
 function getCookie(cname) {
@@ -69,13 +75,21 @@ function displayMessage(title, message, errors, callbackFn) {
         $('#alert-message-modal .modal-error').text('');
     }
 
+    $('#alert-message-modal .btn').off('click').on('click', function (e) {
+        clearTimeout(displayMessageCallbackTimeout);
+        if (callbackFn !== undefined && callbackFn !== null) {
+            displayMessageCallbackTimeout = setTimeout(function () { callbackFn(); }, 200);
+        }
+    });
     $('#alert-message-modal').modal('show');
 
     clearTimeout(displayMessageTimeout);
     displayMessageTimeout = setTimeout(function () {
-        hideMessage();
-        if (callbackFn !== undefined && callbackFn !== null) {
-            callbackFn();
+        if ($('#alert-message-modal').is(':visible')) {
+            hideMessage();
+            if (callbackFn !== undefined && callbackFn !== null) {
+                callbackFn();
+            }
         }
     }, 5000);
 }
@@ -91,15 +105,17 @@ function displayIdentityCheck(required, callbackFn) {
         Class: 'btn-success',
         Callback: function () {
             let name = $('#popup-modal-field-identity-name').val().trim();
+            let emailAddress = $('#popup-modal-field-identity-email').length > 0 ? $('#popup-modal-field-identity-email').val().trim() : '';
             if (name !== undefined && name.length > 0) {
-                const regex = /^[a-zA-Z-\s\-\']+$/;
-                if (regex.test(name)) {
-                    $.ajax({
-                        url: '/Home/SetIdentity',
-                        method: 'POST',
-                        data: { name }
-                    })
-                        .done(data => {
+                $.ajax({
+                    url: '/Home/SetIdentity',
+                    method: 'POST',
+                    data: { name, emailAddress }
+                })
+                    .done(data => {
+                        if (data == undefined || data.success == undefined) {
+                            displayMessage(localization.translate('Identity_Check'), localization.translate('Identity_Check_Set_Failed'), [error]);
+                        } else if (data.success) {
                             $('.file-uploader-form').attr('data-identity-required', 'false');
 
                             if (callbackFn !== undefined && callbackFn !== null) {
@@ -107,15 +123,25 @@ function displayIdentityCheck(required, callbackFn) {
                             } else {
                                 window.location.reload();
                             }
-                        })
-                        .fail((xhr, error) => {
+                        } else if (data.reason == 1) {
+                            displayMessage(localization.translate('Identity_Check_Invalid_Name'), localization.translate('Identity_Check_Invalid_Name_Msg'), null, () => {
+                                displayIdentityCheck(required, callbackFn);
+                            });
+                        } else if (data.reason == 2) {
+                            displayMessage(localization.translate('Identity_Check_Invalid_Email'), localization.translate('Identity_Check_Invalid_Email_Msg'), null, () => {
+                                displayIdentityCheck(required, callbackFn);
+                            });
+                        } else {
                             displayMessage(localization.translate('Identity_Check'), localization.translate('Identity_Check_Set_Failed'), [error]);
-                        });
-                } else {
-                    displayMessage(localization.translate('Identity_Check_Invalid_Name'), localization.translate('Identity_Check_Invalid_Name_Msg'));
-                }
+                        }
+                    })
+                    .fail((xhr, error) => {
+                        displayMessage(localization.translate('Identity_Check'), localization.translate('Identity_Check_Set_Failed'), [error]);
+                    });
             } else {
-                displayMessage(localization.translate('Identity_Check_Invalid_Name'), localization.translate('Identity_Check_Invalid_Name_Msg'));
+                displayMessage(localization.translate('Identity_Check_Invalid_Name'), localization.translate('Identity_Check_Invalid_Name_Msg'), null, () => {
+                    displayIdentityCheck(required, callbackFn);
+                });
             }
         }
     }];
@@ -127,10 +153,24 @@ function displayIdentityCheck(required, callbackFn) {
                 $.ajax({
                     url: '/Home/SetIdentity',
                     method: 'POST',
-                    data: { name: 'Anonymous' }
+                    data: { name: 'Anonymous', emailAddress: '' }
                 })
                     .done(data => {
-                        window.location.reload();
+                        if (data == undefined || data.success == undefined) {
+                            displayMessage(localization.translate('Identity_Check'), localization.translate('Identity_Check_Set_Failed'), [error]);
+                        } else if (data.success) {
+                            window.location.reload();
+                        } else if (data.reason == 1) {
+                            displayMessage(localization.translate('Identity_Check_Invalid_Name'), localization.translate('Identity_Check_Invalid_Name_Msg'), null, () => {
+                                displayIdentityCheck(required, callbackFn);
+                            });
+                        } else if (data.reason == 2) {
+                            displayMessage(localization.translate('Identity_Check_Invalid_Email'), localization.translate('Identity_Check_Invalid_Email_Msg'), null, () => {
+                                displayIdentityCheck(required, callbackFn);
+                            });
+                        } else {
+                            displayMessage(localization.translate('Identity_Check'), localization.translate('Identity_Check_Set_Failed'), [error]);
+                        }
                     })
                     .fail((xhr, error) => {
                         displayMessage(localization.translate('Identity_Check'), localization.translate('Identity_Check_Set_Failed'), [error]);
@@ -139,15 +179,28 @@ function displayIdentityCheck(required, callbackFn) {
         });
     }
 
+    let emailRequired = $('.change-identity').attr('data-identity-email') !== undefined;
+    let identityCheckFields = [{
+        Id: 'identity-name',
+        Name: localization.translate('Identity_Check_Name'),
+        Value: '',
+        Hint: localization.translate('Identity_Check_Name_Hint'),
+        Placeholder: localization.translate('Identity_Check_Name_Placeholder')
+    }];
+
+    if (emailRequired) {
+        identityCheckFields.push({
+            Id: 'identity-email',
+            Name: localization.translate('Identity_Check_Email'),
+            Value: '',
+            Hint: localization.translate('Identity_Check_Email_Hint'),
+            Placeholder: localization.translate('Identity_Check_Email_Placeholder')
+        });
+    }
+
     displayPopup({
         Title: localization.translate('Identity_Check'),
-        Fields: [{
-            Id: 'identity-name',
-            Name: localization.translate('Identity_Check_Name'),
-            Value: '',
-            Hint: localization.translate('Identity_Check_Hint'),
-            Placeholder: localization.translate('Identity_Check_Placeholder')
-        }],
+        Fields: identityCheckFields,
         Buttons: buttons
     });
 }
@@ -162,8 +215,7 @@ function displayIdentityCheck(required, callbackFn) {
         });
 
         $(document).off('click', '.change-theme').on('click', '.change-theme', function (e) {
-            var currentTheme = getCookie('Theme');
-            if (currentTheme === 'dark') {
+            if ($('i.change-theme').hasClass('fa-sun')) {
                 setCookie('Theme', 'default', 24);
             } else {
                 setCookie('Theme', 'dark', 24);
@@ -203,7 +255,7 @@ function displayIdentityCheck(required, callbackFn) {
                                                 try {
                                                     window.location = window.location.toString().replace(/([&]*culture\=.+?)(\&|$)/g, '');
                                                 } catch {
-                                                    window.reload();
+                                                    window.location.reload();
                                                 }
                                             }
                                         }
@@ -219,46 +271,75 @@ function displayIdentityCheck(required, callbackFn) {
         });
 
         $(document).off('click', '.change-identity').on('click', '.change-identity', function (e) {
-            preventDefaults(e);
-            displayPopup({
-                Title: localization.translate('Identity_Check_Change_Identity'),
-                Fields: [{
+            function displayIdentityCheckChangeIdentity(elem) {
+                let emailRequired = elem.attr('data-identity-email') !== undefined;
+
+                let fields = [{
                     Id: 'identity-name',
                     Name: localization.translate('Identity_Check_Name'),
-                    Value: $(this).data('identity'),
-                    Hint: localization.translate('Identity_Check_Hint'),
-                    Placeholder: localization.translate('Identity_Check_Placeholder')
-                }],
-                Buttons: [{
-                    Text: localization.translate('Identity_Check_Change'),
-                    Class: 'btn-success',
-                    Callback: function () {
-                        let name = $('#popup-modal-field-identity-name').val().trim();
-                        if (name !== undefined && name.length > 0) {
-                            const regex = /^[a-zA-Z-\s\-\']+$/;
-                            if (regex.test(name)) {
+                    Value: elem.data('identity-name'),
+                    Hint: localization.translate('Identity_Check_Name_Hint'),
+                    Placeholder: localization.translate('Identity_Check_Name_Placeholder')
+                }];
+
+                if (emailRequired) {
+                    fields.push({
+                        Id: 'identity-email',
+                        Name: localization.translate('Identity_Check_Email'),
+                        Value: elem.data('identity-email'),
+                        Hint: localization.translate('Identity_Check_Email_Hint'),
+                        Placeholder: localization.translate('Identity_Check_Email_Placeholder')
+                    });
+                }
+
+                preventDefaults(e);
+                displayPopup({
+                    Title: localization.translate('Identity_Check_Change_Identity'),
+                    Fields: fields,
+                    Buttons: [{
+                        Text: localization.translate('Identity_Check_Change'),
+                        Class: 'btn-success',
+                        Callback: function () {
+                            let name = $('#popup-modal-field-identity-name').val().trim();
+                            let emailAddress = $('#popup-modal-field-identity-email').length > 0 ? $('#popup-modal-field-identity-email').val().trim() : '';
+                            if (name !== undefined && name.length > 0) {
                                 $.ajax({
                                     url: '/Home/SetIdentity',
                                     method: 'POST',
-                                    data: { name }
+                                    data: { name, emailAddress }
                                 })
                                     .done(data => {
-                                        window.location.reload();
+                                        if (data == undefined || data.success == undefined) {
+                                            displayMessage(localization.translate('Identity_Check'), localization.translate('Identity_Check_Set_Failed'), [error]);
+                                        } else if (data.success) {
+                                            window.location.reload();
+                                        } else if (data.reason == 1) {
+                                            displayMessage(localization.translate('Identity_Check_Invalid_Name'), localization.translate('Identity_Check_Invalid_Name_Msg'), null, () => {
+                                                displayIdentityCheckChangeIdentity(elem);
+                                            });
+                                        } else if (data.reason == 2) {
+                                            displayMessage(localization.translate('Identity_Check_Invalid_Email'), localization.translate('Identity_Check_Invalid_Email_Msg'), null, () => {
+                                                displayIdentityCheckChangeIdentity(elem);
+                                            });
+                                        } else {
+                                            displayMessage(localization.translate('Identity_Check'), localization.translate('Identity_Check_Set_Failed'), [error]);
+                                        }
                                     })
                                     .fail((xhr, error) => {
-                                        displayMessage(localization.translate('Identity_Check_Change'), localization.translate('Identity_Check_Set_Failed'), [error]);
+                                        displayMessage(localization.translate('Identity_Check'), localization.translate('Identity_Check_Set_Failed'), [error]);
                                     });
                             } else {
-                                displayMessage(localization.translate('Identity_Check_Invalid_Name'), localization.translate('Identity_Check_Invalid_Name_Msg'));
+                                displayMessage(localization.translate('Identity_Check_Invalid_Name'), localization.translate('Identity_Check_Invalid_Name_Msg'), null, () => {
+                                    displayIdentityCheckChangeIdentity(elem);
+                                });
                             }
-                        } else {
-                            displayMessage(localization.translate('Identity_Check_Invalid_Name'), localization.translate('Identity_Check_Invalid_Name_Msg'));
                         }
-                    }
-                }, {
-                    Text: localization.translate('Cancel')
-                }]
-            });
+                    }, {
+                        Text: localization.translate('Cancel')
+                    }]
+                });
+            }
+            displayIdentityCheckChangeIdentity($(this));
         });
 
         $(document).off('click', '.btn-reload').on('click', '.btn-reload', function () {
@@ -423,6 +504,18 @@ function displayIdentityCheck(required, callbackFn) {
                 error: function () {
                     hideLoader();
                 }
+            });
+        });
+
+        $(document).off('click', '#cookieConsent button.accept-policy').on('click', '#cookieConsent button.accept-policy', function (e) {
+            preventDefaults(e);
+
+            document.cookie = $(this).data('cookie-string');
+            $('#cookieConsentWrapper').remove();
+
+            $.ajax({
+                url: '/Home/LogCookieApproval',
+                method: 'POST'
             });
         });
 

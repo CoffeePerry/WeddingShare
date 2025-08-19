@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Neplatná galerie</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Přijmout</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Akce</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bulk odmítl všechny probíhající recenze</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Návštěvník schválil používání cookies</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Vytvořeno galerie</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Kontaktujte prosím správce stránek, aby poskytl přístup</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Selhalo zaznamenávání auditní zprávy pro schválení cookie</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Cookie politika</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Použitím této webové stránky souhlasíte s použitím základních cookies v souladu s našimi podmínkami používání cookies. Chcete-li zjistit více, podívejte se na naše</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Vytvořit</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Jste si jistý, že chcete tuto galerii smazat?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Tohle je demo verze. Veškerá konfigurace je pravidelně vymazána, aby byla zajištěna čistá břidlice pro budoucí testovače.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Provedená destruktivní akce</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Zjištěn duplicitní soubor</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>E-mailová adresa</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Vývoz</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Název</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Obsah zobrazený na stránce Informace o CookiePolicy</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Vlastní Cookie politika</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Celní politika</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Nepodařilo se získat nastavení</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Počet sloupců</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Co je výchozí filtr galerie</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Výchozí filtr</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Co je výchozí skupina galerie</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Výchozí skupina</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Co je výchozí pořadí galerie</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Výchozí pořadí</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Co je výchozí zobrazení galerie</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Tajný klíč</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Měl by být uživatel schopen filtrovat a seskupovat média?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Zobrazit filtry</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Je-li název zobrazen v horní části galerie</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Zobrazit název</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Mělo by být hostům dovoleno nahrávat položky</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Měli by být uživatelé povinni zadat e-mailovou adresu</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Požadovat e-mailovou adresu</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Je-li vyžadována kontrola totožnosti pro nahrávání médií</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Téma</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Měl by uživatel vidět popupy ve stylu GDPR?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Povoleno</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Slideshow</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Návštěva</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Varování</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Utřít</value>

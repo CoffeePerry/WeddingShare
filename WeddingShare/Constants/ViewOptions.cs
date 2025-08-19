@@ -39,11 +39,29 @@
             { "Slideshow", "slideshow" }
         };
 
-        public static IDictionary<string, string> GalleryDefaultSort = new Dictionary<string, string>()
+        public static IDictionary<string, string> GalleryDefaultGroup = new Dictionary<string, string>()
+        {
+            { "None", "0" },
+            { "Date", "1" },
+            { "MediaType", "2" },
+            { "Uploader", "3" }
+        };
+
+        public static IDictionary<string, string> GalleryDefaultOrder = new Dictionary<string, string>()
         {
             { "Ascending", "0" },
             { "Descending", "1" },
             { "Random", "2" }
+        };
+
+        public static IDictionary<string, string> GalleryDefaultFilter = new Dictionary<string, string>()
+        {
+            { "All", "0" },
+            { "Images", "1" },
+            { "Videos", "2" },
+            { "Landscape", "3" },
+            { "Portrait", "4" },
+            { "Square", "5" }
         };
     }
 }

@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Galeri Tidak Valid</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Terima</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Aksi</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Fulk menolak semua ulasan tertunda</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Seorang pengunjung telah menyetujui penggunaan kue</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Galeri Diciptakan</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>Sila hubungi administrator situs untuk memberikan akses</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Gagal log pesan audit untuk persetujuan kuki</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Kebijakan Cecikut</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Dengan menggunakan website ini Anda setuju dengan penggunaan kami dari kue dasar sesuai dengan ketentuan kami penggunaan kue. Untuk mencari tahu lebih banyak silakan melihat kami</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Cipta</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Anda yakin ingin menghapus galeri ini?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Ini adalah versi demo. Semua konfigurasi wourdon secara berkala dihapuskan untuk memastikan slate bersih untuk penguji di masa depan.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Tindakan Destructive Dilaksanakan</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Berkas duplikat terdeteksi</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Alamat Email</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Ekspor</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Gelaran</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>Konten untuk ditampilkan di halaman info CookiePolicy</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Kebijakan Custory Cookie</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Kebijakan Kebiasaan</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Gagal mendapatkan tetapan</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Kolum Kolum Kolum</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Apa itu saringan galeri baku</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Filter Default</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Apa itu kelompok galeri baku</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Grup Default</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Apa adalah tatanan galeri baku</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Ordo Default</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Apa pandangan galeri baku</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Kunci Rahasia</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Haruskah pengguna dapat menyaring dan mengelompokkan media?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Tapisan Pertunjukan</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>Haruskah judul ditampilkan di bagian atas galeri</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Gelaran Pertunjukan</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Harus ada tamu yang diizinkan untuk memuat naik barang</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>Prompt Muatan Halaman</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Haruskah pengguna diperlukan untuk memasukkan alamat email</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>Memerlukan Alamat Email</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Haruskah pemeriksaan identitas diperlukan untuk mengunggah media</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Perancis</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Haruskah pengguna melihat popup gaya GDPR?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Diaktifkan</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value>Slideshow</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Lawati</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Amaran</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Lap</value>

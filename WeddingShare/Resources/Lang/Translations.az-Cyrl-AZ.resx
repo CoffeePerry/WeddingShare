@@ -94,6 +94,9 @@
   <data name="406_Error_Title" xml:space="preserve">
     <value>Invalid Gallery</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Qeydiyyat</value>
+  </data>
   <data name="Action" xml:space="preserve">
     <value>Proqram</value>
   </data>
@@ -117,6 +120,9 @@
   </data>
   <data name="Audit_BulkRejectReviews" xml:space="preserve">
     <value>Bütün gözəl baxışlar</value>
+  </data>
+  <data name="Audit_CookieConsentApproved" xml:space="preserve">
+    <value>Bir ziyaretçi cookies istifadə etdi</value>
   </data>
   <data name="Audit_CreatedGallery" xml:space="preserve">
     <value>Yaradılıb</value>
@@ -235,6 +241,15 @@
   <data name="Contact_Admin_For_Access" xml:space="preserve">
     <value>E-poçt ünvanı</value>
   </data>
+  <data name="Cookie_Audit_Error" xml:space="preserve">
+    <value>Cookie təsdiq üçün bir audit mesajının qeydiyyatı</value>
+  </data>
+  <data name="CookiePolicy_Button_Text" xml:space="preserve">
+    <value>Qeydiyyat</value>
+  </data>
+  <data name="CookiePolicy_Message_Short" xml:space="preserve">
+    <value>Bu saytdan istifadə etmək üçün əsas cookies istifadə etməyinizə razılaşırsınız. Daha çox tapmaq</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Yapon</value>
   </data>
@@ -271,6 +286,9 @@
   <data name="Delete_Confirmation" xml:space="preserve">
     <value>Bu gallery silmək istəyirsiniz?</value>
   </data>
+  <data name="Demo_Message" xml:space="preserve">
+    <value>Bu demo versiyasıdır. Bütün konfiqurasiya müxtəlif mühasibatçıları üçün təmiz bir slate təmin edir.</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Daxil olmaq</value>
   </data>
@@ -282,6 +300,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>Qeyd olunan fayl</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>E-poçt</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>İdman</value>
@@ -685,6 +706,15 @@
   <data name="Settings_Basic_Title_Label" xml:space="preserve">
     <value>Ümumi</value>
   </data>
+  <data name="Settings_CustomCookiePolicy_Help" xml:space="preserve">
+    <value>CookiePolicy info səhifənin göstərilməsi üçün məlumat</value>
+  </data>
+  <data name="Settings_CustomCookiePolicy_Label" xml:space="preserve">
+    <value>Xüsusi Cookie Policy</value>
+  </data>
+  <data name="Settings_CustomPolicies" xml:space="preserve">
+    <value>Xüsusi Siyasətlər</value>
+  </data>
   <data name="Settings_Failed" xml:space="preserve">
     <value>Sığorta almaq</value>
   </data>
@@ -714,6 +744,24 @@
   </data>
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>Ümumi</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>Default gallery filter filtrinin nədir</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>Qeydiyyat</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>Default gallery qrupu</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>Proqramlar</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>Default gallery sifarişi</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>Ümumi sifariş</value>
   </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>Default gallery görünüşüdür</value>
@@ -817,6 +865,18 @@
   <data name="Settings_Gallery_SecretKey_Label" xml:space="preserve">
     <value>Gizli Keyf</value>
   </data>
+  <data name="Settings_Gallery_ShowFilters_Help" xml:space="preserve">
+    <value>Istifadəçi filtr və qrup media edə bilər?</value>
+  </data>
+  <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
+    <value>Filologiya</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value> gallery  be</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>Qeydiyyat</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>Qeydiyyatdan keçmək lazımdır</value>
   </data>
@@ -871,6 +931,12 @@
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value> Page Load Prompt</value>
   </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>Istifadəçilər e-poçt ünvanı almaq üçün tələb olunur</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>E-mail ünvanı</value>
+  </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>Medianın yükləmək üçün kimlik çeki lazımdır</value>
   </data>
@@ -924,6 +990,12 @@
   </data>
   <data name="Settings_Ntfy_Topic_Label" xml:space="preserve">
     <value>Tarix</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Help" xml:space="preserve">
+    <value>Istifadəçi GDPR stil popups görmək lazımdır?</value>
+  </data>
+  <data name="Settings_PoliciesEnabled_Label" xml:space="preserve">
+    <value>Qeydiyyat</value>
   </data>
   <data name="Settings_Slideshow" xml:space="preserve">
     <value> Slide</value>
@@ -1089,6 +1161,9 @@
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Bakı</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Qeydiyyat</value>
   </data>
   <data name="Wipe" xml:space="preserve">
     <value>Bakı</value>
