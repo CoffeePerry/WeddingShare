@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Déan teagmháil linn</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Gach duine</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Amharc ar gach eolas</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Ceadaithe</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Ag seoladh</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Iniúchóireacht</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Seirbhís do Chustaiméirí</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Dáta Tuairimí Ré</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Réamhshocrú</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>Is é seo an leagan taispeána. Déantar gach cumraíocht a ghlanadh go tréimhsiúil chun slinn ghlan a chinntiú do thástálaithe sa todhchaí.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Amharc ar gach eolas</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>GnÃ omhaÃ ochta suaite</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Failed chun íomhánna a uaslódáil</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Amharc ar gach eolas</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Allmhairiú Allamuigh</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Uisce agus Séarachas</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Tírdhreach</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Naisc ábhartha eile</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>Tá méid comhaid Max</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Meáin Shóisialta Cineál Cineál Cineál Cineál</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Ba mhaith liom..</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>Níl aon uaslódáil ar feitheamh athbhreithniú</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Gan a bheith ráite</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Go dtí go</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Failed a fháil ar feitheamh uaslódáil</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Irl - Library Service</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Cur i láthair</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Randamach</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Déan teagmháil</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Comhroinn an leathanach</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>Aonair</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Seirbhís do Chustaiméirí</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Sórtáil</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>Failed a luchtú an liosta urraitheoirí</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Cearnóg</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Ag tacú le</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Failed a fháil liosta úsáideoirí</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Físeáin</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Féach ar an roghchlár</value>

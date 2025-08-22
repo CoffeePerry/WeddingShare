@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -9,6 +8,7 @@ namespace WeddingShare.Helpers
     {
         bool DirectoryExists(string path);
         bool CreateDirectoryIfNotExists(string path);
+        bool MoveDirectoryIfExists(string path, string newPath);
         bool DeleteDirectoryIfExists(string path, bool recursive = true);
         bool PurgeDirectory(string path);
         string[] GetDirectories(string path, string pattern = "*", SearchOption searchOption = SearchOption.AllDirectories);
@@ -49,6 +49,18 @@ namespace WeddingShare.Helpers
                 return true;
             }
                 
+            return false;
+        }
+
+        public bool MoveDirectoryIfExists(string path, string newPath)
+        {
+            if (DirectoryExists(path))
+            {
+                Directory.Move(path, newPath);
+
+                return true;
+            }
+
             return false;
         }
 

@@ -76,32 +76,38 @@ namespace WeddingShare.BackgroundWorkers
                         {
                             try
                             {
-                                var identifier = Path.GetFileName(galleryDir).ToLower();
-
+                                var galleryName = Path.GetFileName(galleryDir).ToLower();
+                                var identifier = galleryName;
+                            
                                 var galleryId = await databaseHelper.GetGalleryId(identifier);
+                                if (galleryId == null && await databaseHelper.GetGalleryCount() < await settingsHelper.GetOrDefault(Settings.Basic.MaxGalleryCount, 1000000))
+                                {    
+                                    identifier = GalleryHelper.IsValidGalleryIdentifier(galleryName) ? galleryName : GalleryHelper.GenerateGalleryIdentifier();
+                                    galleryId = (await databaseHelper.AddGallery(new GalleryModel()
+                                    {
+                                        Identifier = identifier,
+                                        Name = galleryName,
+                                        Owner = 0
+                                    }))?.Id;
+                                }
+
                                 if (galleryId != null)
                                 {
                                     var galleryItem = await databaseHelper.GetGallery(galleryId.Value);
-                                    if (galleryItem == null)
-                                    {
-                                        if (await databaseHelper.GetGalleryCount() < await settingsHelper.GetOrDefault(Settings.Basic.MaxGalleryCount, 1000000))
-                                        {
-                                            galleryItem = await databaseHelper.AddGallery(new GalleryModel()
-                                            {
-                                                Name = identifier,
-                                                Owner = 0
-                                            });
-                                        }
-                                    }
-
                                     if (galleryItem != null)
                                     {
+                                        var galleryPath = Path.Combine(uploadsDirectory, galleryItem.Identifier);
+                                        if (!galleryDir.Equals(galleryPath))
+                                        {
+                                            fileHelper.MoveDirectoryIfExists(galleryDir, galleryPath);
+                                        }
+
                                         var allowedFileTypes = settingsHelper.GetOrDefault(Settings.Gallery.AllowedFileTypes, ".jpg,.jpeg,.png,.mp4,.mov", galleryItem?.Id).Result.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
                                         var galleryItems = await databaseHelper.GetAllGalleryItems(galleryItem.Id);
 
-                                        if (Path.Exists(galleryDir))
+                                        if (Path.Exists(galleryPath))
                                         {
-                                            var approvedFiles = fileHelper.GetFiles(galleryDir, "*.*", SearchOption.TopDirectoryOnly).Where(x => allowedFileTypes.Any(y => string.Equals(Path.GetExtension(x).Trim('.'), y.Trim('.'), StringComparison.OrdinalIgnoreCase)));
+                                            var approvedFiles = fileHelper.GetFiles(galleryPath, "*.*", SearchOption.TopDirectoryOnly).Where(x => allowedFileTypes.Any(y => string.Equals(Path.GetExtension(x).Trim('.'), y.Trim('.'), StringComparison.OrdinalIgnoreCase)));
                                             if (approvedFiles != null)
                                             {
                                                 foreach (var file in approvedFiles)
@@ -124,7 +130,7 @@ namespace WeddingShare.BackgroundWorkers
                                                             });
                                                         }
 
-                                                        var thumbnailDir = Path.Combine(thumbnailsDirectory, galleryItem.Name);
+                                                        var thumbnailDir = Path.Combine(thumbnailsDirectory, galleryItem.Identifier);
                                                         var thumbnailPath = Path.Combine(thumbnailDir, $"{Path.GetFileNameWithoutExtension(file)}.webp");
                                                         if (!fileHelper.FileExists(thumbnailPath))
                                                         {
@@ -188,9 +194,9 @@ namespace WeddingShare.BackgroundWorkers
                                                 }
                                             }
 
-                                            if (Path.Exists(Path.Combine(galleryDir, "Pending")))
+                                            if (Path.Exists(Path.Combine(galleryPath, "Pending")))
                                             {
-                                                var pendingFiles = fileHelper.GetFiles(Path.Combine(galleryDir, "Pending"), "*.*", SearchOption.TopDirectoryOnly).Where(x => allowedFileTypes.Any(y => string.Equals(Path.GetExtension(x).Trim('.'), y.Trim('.'), StringComparison.OrdinalIgnoreCase)));
+                                                var pendingFiles = fileHelper.GetFiles(Path.Combine(galleryPath, "Pending"), "*.*", SearchOption.TopDirectoryOnly).Where(x => allowedFileTypes.Any(y => string.Equals(Path.GetExtension(x).Trim('.'), y.Trim('.'), StringComparison.OrdinalIgnoreCase)));
                                                 if (pendingFiles != null)
                                                 {
                                                     foreach (var file in pendingFiles)

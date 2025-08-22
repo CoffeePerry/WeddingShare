@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Magdagdag</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Lahat</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Sinasang - ayunan</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Sinang - ayunan</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Pag - akyat</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Audit</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Panganib</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Petsa</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Pagkawasak</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>Ito ay isang bersyon ng demo. Ang lahat ng kaayusan ay paminsan - minsang sinisira upang matiyak ang isang malinis na rekord para sa mga manunubok sa hinaharap.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Paglubog</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Nagkaroon ng Nakapipinsalang Pagkilos</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Sawi ang pag-download ng mga larawan</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Mga Larawan</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Pag - aangkat</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Susi</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Tanawin sa Lupa</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Kaugnayan</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>Max na laki ng talaksan ay</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Media Uri</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Mga miyembro</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>Walang mga pakete na naghihintay ng review</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Wala</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Paglalagay</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Sawi ang pag-set up ngloads</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Larawan</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Paghaharap</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Random</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Itakwil</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Bahaging Kodigo</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>Walang Asawa</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Paglalaho</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Uri</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>Sawi sa pag-load ng listahan ng mga isponsor</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Liwasan</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Mga Tagataguyod</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Sawi sa pagkuha ng listahan ng mga gumagamit</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Mga Video</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Pangmalas</value>

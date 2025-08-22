@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Dodaj</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Vse</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Odobreno</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Odobreno</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Naraščajoče</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Revizija</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Nevarno območje</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Privzeto</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>To je demo verzija. Vse konfiguracije se redno brišejo, da se zagotovi čist skrilavec za bodoče testerje.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Padajoče</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Izvedeno destruktivno dejanje</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Nalaganje slik ni uspelo</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Slike</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Uvozi</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Ključ</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Pokrajina</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Povezava</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>Največja velikost datoteke je</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Mediji Vrsta</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Člani</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>Ni prenosov v obravnavi</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Brez</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Čakanje</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Ni moč dobiti nerešenih prenosov</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Portret</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Predstavitev</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Naključno</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Zavrni</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Koda deleža</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>Enojna</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Pregled</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Razvrsti</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>Nalaganje seznama sponzorjev ni uspelo</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Kvadrat</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Podporniki</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Ni moč dobiti seznama uporabnikov</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Video posnetki</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Pogled</value>

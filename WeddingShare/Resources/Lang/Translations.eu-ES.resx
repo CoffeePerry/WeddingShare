@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Gehitu</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Denak</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Onartu</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Onartua</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Gorantz</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Audit</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Arrisku-eremua</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Lehenetsia</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>Hau demo bertsioa da. Konfigurazio guztia aldian-aldian ezabatzen da etorkizuneko probatzaileentzako arbel garbi bat ziurtatzeko.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Beherantz</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Ekintza suntsitzailea</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Huts egin du irudiak igotzean</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Irudiak</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Inportatu</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Gakoa</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Paisaia</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Esteka</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>Fitxategi-tamaina maximoa</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Euskarria Mota</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Kideak</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>Ez dago igoerarik berrikuspenaren zain</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Bat ere ez</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Gorantz</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Huts egin du zain dauden igoerak lortzean</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Erretratua</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Aurkezpena</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Ausazkoa</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Baztertu</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Partekatu kodea</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>Bakarra</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Diapositiba-aurkezpena</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Ordenatu</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>Huts egin du babesleen zerrenda kargatzean</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Karratua</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Laguntzaileak</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Huts egin du erabiltzaileen zerrenda eskuratzean</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Bideoak</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Ikusi</value>

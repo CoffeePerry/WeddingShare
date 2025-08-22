@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>添加</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>全体</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>核准</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>核定数</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>上升</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>审计</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>危险区</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>日期</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>默认</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>这是一个演示版。 所有配置都定期被擦去,以确保未来的测试者有一个干净的板块.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>降级</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>已执行的破坏行动</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>上传图像失败</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>图像</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>导入</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>键</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>风景</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>链接</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>最大文件大小为</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>媒体 类型</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>成员</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>在审查前没有上传</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>无</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>待决</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>获取等待上传失败</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>外观</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>列报</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>随机</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>拒绝</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>共享代码</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>单身</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>幻灯片放映</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>排序</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>装入赞助商列表失败</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>平方边</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>支持者</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>获取用户列表失败</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>视频</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>视图</value>

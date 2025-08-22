@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>مضافا إليها</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>كل شيء</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>الموافقة</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>الوظائف المعتمدة</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>الإصدار</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>مراجعة الحسابات</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>منطقة الخطر</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>التقصير</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>هذه نسخة تجريبية وتُمسح جميع التشكيلات بصورة دورية لضمان وضع قائمة نظيفة للمختبرين في المستقبل.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>الإنقاذ</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>الإجراءات المدمرة</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>فشل في تحميل الصور</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>الصور</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>الواردات</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>المفتاح</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>الغطاء الأرضي</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Link</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>حجم ملف (ماكس)</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>وسائط الإعلام النوع</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>الأعضاء</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>No uploads pending review</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>لا</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>معلقة</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>فشل في الحصول على تحميل</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Portrait</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>عرض</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>الرشوة</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Reject</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Share Code</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>واحدة</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Slideshow</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Sort</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>عدم تحميل قائمة مقدمي مشروع القرار</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Square</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>المؤيدون</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>فشل في الحصول على قائمة المستخدمين</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Videos</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>View</value>

@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>जोड़ें</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>सब</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>स्वीकृति</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>स्वीकृत</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>परिशोधन</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>लेखा</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Danger जोन</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>तारीख</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>डिफ़ॉल्ट</value>
   </data>
@@ -289,6 +298,9 @@
   <data name="Demo_Message" xml:space="preserve">
     <value>यह एक डेमो संस्करण है। भविष्य के परीक्षकों के लिए स्वच्छ स्लेट सुनिश्चित करने के लिए सभी विन्यास समय-समय पर पोंछे जाते हैं।.</value>
   </data>
+  <data name="Descending" xml:space="preserve">
+    <value>अवरोही</value>
+  </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>विनाशकारी कार्रवाई का प्रदर्शन</value>
   </data>
@@ -300,6 +312,9 @@
   </data>
   <data name="Duplicate_Item_Detected" xml:space="preserve">
     <value>डुप्लिकेट फ़ाइल का पता लगाया</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>ईमेल पता</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>निर्यात</value>
@@ -427,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>छवियों को अपलोड करने में विफल</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>चित्र</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>आयात</value>
   </data>
@@ -447,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>कुंजी</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>लैंडस्केप</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>लिंक</value>
@@ -478,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>मैक्स फाइल का आकार है</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>मीडिया प्रकार</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>सदस्य</value>
   </data>
@@ -508,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>कोई अपलोड लंबित समीक्षा</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>कोई नहीं</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>लंबित</value>
   </data>
@@ -516,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>लंबित अपलोड प्राप्त करने में विफल</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>पोर्ट्रेट</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>प्रस्तुति</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>यादृच्छिक</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>अस्वीकृति</value>
@@ -742,6 +778,24 @@
   <data name="Settings_Gallery_Columns_Label" xml:space="preserve">
     <value>कॉलम गणना</value>
   </data>
+  <data name="Settings_Gallery_DefaultFilter_Help" xml:space="preserve">
+    <value>डिफ़ॉल्ट गैलरी फ़िल्टर क्या है</value>
+  </data>
+  <data name="Settings_Gallery_DefaultFilter_Label" xml:space="preserve">
+    <value>डिफ़ॉल्ट फ़िल्टर</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Help" xml:space="preserve">
+    <value>डिफ़ॉल्ट गैलरी समूह क्या है</value>
+  </data>
+  <data name="Settings_Gallery_DefaultGroup_Label" xml:space="preserve">
+    <value>डिफ़ॉल्ट समूह</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Help" xml:space="preserve">
+    <value>डिफ़ॉल्ट गैलरी ऑर्डर क्या है</value>
+  </data>
+  <data name="Settings_Gallery_DefaultOrder_Label" xml:space="preserve">
+    <value>डिफ़ॉल्ट आदेश</value>
+  </data>
   <data name="Settings_Gallery_DefaultView_Help" xml:space="preserve">
     <value>डिफ़ॉल्ट गैलरी दृश्य क्या है</value>
   </data>
@@ -850,6 +904,12 @@
   <data name="Settings_Gallery_ShowFilters_Label" xml:space="preserve">
     <value>फ़िल्टर दिखाएं</value>
   </data>
+  <data name="Settings_Gallery_ShowTitle_Help" xml:space="preserve">
+    <value>क्या शीर्षक गैलरी के शीर्ष पर प्रदर्शित किया जाना चाहिए</value>
+  </data>
+  <data name="Settings_Gallery_ShowTitle_Label" xml:space="preserve">
+    <value>शीर्षक दिखाएं</value>
+  </data>
   <data name="Settings_Gallery_Upload_Help" xml:space="preserve">
     <value>क्या मेहमानों को आइटम अपलोड करने की अनुमति है</value>
   </data>
@@ -903,6 +963,12 @@
   </data>
   <data name="Settings_IdentityCheck_PageLoad_Label" xml:space="preserve">
     <value>पेज लोड प्रॉम्प्ट</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Help" xml:space="preserve">
+    <value>उपयोगकर्ताओं को एक ईमेल पता दर्ज करने की आवश्यकता है</value>
+  </data>
+  <data name="Settings_IdentityCheck_RequireEmail_Label" xml:space="preserve">
+    <value>ईमेल पता</value>
   </data>
   <data name="Settings_IdentityCheck_Upload_Help" xml:space="preserve">
     <value>क्या मीडिया को अपलोड करने के लिए पहचान जांच की आवश्यकता है</value>
@@ -1066,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>शेयर कोड</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>एकल</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>स्लाइड शो</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>वर्गीकरण</value>
   </data>
@@ -1080,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>प्रायोजक सूची लोड करने में विफल</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>स्क्वायर</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>समर्थक</value>
@@ -1122,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>उपयोगकर्ताओं की सूची प्राप्त करने में विफल</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>वीडियो</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>देखें</value>

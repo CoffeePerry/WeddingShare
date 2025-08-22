@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Tilføj</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Alle</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Godkendt</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Godkendt</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Akkending</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Revision</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Fare-zone</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Dato</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Standard</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>Det er en demo-version. Alle konfigurationer aftørres regelmæssigt for at sikre en ren skifer til fremtidige testere.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Nedsættelse</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Destruktiv handling udført</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Kunne ikke uploade billeder</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Billeder</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Importér</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Nøgle</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Landskab</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Link</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>Maks. filstørrelse er</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Medier Type</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Medlemmerne</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>Ingen uploads afventer revision</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Ingen</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Afventer</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Kunne ikke få ventende uploads</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Portræt</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Præsentation</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Tilfældig</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Afvis</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Del kode</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>Enkelt</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Slideshow</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Sortér</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>Kunne ikke indlæse sponsorlisten</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Square</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Støttere</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Kunne ikke få brugerlisten</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Videoer</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Vis</value>

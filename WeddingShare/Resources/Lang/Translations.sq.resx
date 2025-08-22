@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>_Shto</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Gjithçka</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Miratimi</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>I miratuar</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Në ngjitje</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Kontrollo</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Zona e rrezikut</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Paracaktuar</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>Ky është një version demo. I gjithë konfigurimi është fshirë periodikisht për të siguruar një listë të pastër për testuesit e ardhshëm.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Në zbritje</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Kryehet veprim destruktiv</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Ngarkimi i figurave dështoi</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Figura</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Importo</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Kenia</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Horizontale</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Lidhje</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>Madhësia e file maksimum është</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Media Lloji</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Anëtarë</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>Jo</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Asnjë</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Në pritje</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Gabim gjatë marrjes së ngarkimit në pritje</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Vertikale</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Prezantim</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>I zakonshëm</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>_Refuzo</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Kodi</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>I vetëm</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Diapozitivët</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Renditja</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>I pamundur ngarkimi i listës së sponsorëve</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Në katror</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Përkrahësit</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Gabim gjatë marrjes së listës së përdoruesve</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Videot</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Shfaq</value>

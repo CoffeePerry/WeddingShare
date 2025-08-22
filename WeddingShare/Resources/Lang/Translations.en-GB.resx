@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Approve</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Approved</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Ascending</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Audit</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Danger Zone</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Default</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>This is a demo version. All configuration is periodically wiped to ensure a clean slate for future testers.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Descending</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Destructive Action Performed</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Failed to upload images</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Images</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Import</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Key</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Landscape</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Link</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>Max file size is</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>MediaType</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Members</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>No uploads pending review</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Pending</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Failed to get pending uploads</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Portrait</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Presentation</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Random</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Reject</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Share Code</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>Single</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Slideshow</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Sort</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>Failed to load the sponsors list</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Square</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Supporters</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Failed to get users list</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Videos</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>View</value>

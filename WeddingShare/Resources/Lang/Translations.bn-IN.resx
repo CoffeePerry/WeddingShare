@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>যোগ করুন</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>সকল</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>লিবরো</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>অনুমোদিত</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>ছোট থেকে বড়</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>তালিকা</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>বিপদ সংকেত</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>তারিখ</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>ডিফল্ট</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>এটি একটি ডেমো সংস্করণ। সকল কনফিগারেশন ভবিষ্যৎ পরীক্ষার জন্য পরিষ্কারকরণ নিশ্চিত করার জন্য সংরক্ষণ করা হয়েছে।.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>বড় থেকে ছোট</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>তালিকাবদ্ধ কাজ</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>ছবি আপলোড করতে ব্যর্থ</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>ছবি</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>ইম্পোর্ট</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>কি</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>ল্যান্ডস্কেপ</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>লিংক</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>ফাইলের সর্বাধিক মাপ</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>মিডিয়া ধরন</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>সদস্য</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>কোনো আপলোডের অনুরোধ সম্পূর্ণ হয়নি</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>শূণ্য</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>অসমাপ্ত</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>আপলোডের অনুরোধ প্রাপ্ত করতে ব্যর্থ</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>পোর্ট্রেট</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>প্রেসেন্টেশন</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>যথেচ্ছ</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>বাতিল</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>শেয়ার কোড</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>একক</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>স্লাইড-শো</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>ক্রমবিন্যাস</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>স্পনের তালিকা লোড করতে ব্যর্থ</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>বর্গ</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Hula সহায়তা</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>ব্যবহারকারীর তালিকা প্রাপ্ত করতে ব্যর্থ</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>ভিডিও</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>প্রদর্শন</value>

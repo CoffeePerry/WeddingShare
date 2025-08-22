@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>기타 제품</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>모든 것</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>앱로드</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>인증 및 인증</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>회사 소개</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>회사연혁</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>위험 구역</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>(주)</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>기본 정보</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>이 데모 버전입니다. 모든 구성은 주기적으로 미래 검사자를 위한 청결한 슬레이트를 지키기 위하여 닦습니다.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>연락처</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>연습 수행</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>이미지 업로드</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>이미지</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>제품정보</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>이름 *</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>팟캐스트</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>팟캐스트</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>최대 파일 크기</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>주요 특징 제품정보</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>이름 *</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>리뷰 없음</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>이름 *</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>관련 기사</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>종료된 파일을 얻을 실패</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>포트레이트(Portrait)</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>주요연혁</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>한국어</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>관련 제품</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>공유 코드</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>제품정보</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>슬라이드 쇼</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>제품정보</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>스폰서 목록을로드 실패</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>팟캐스트</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>지원자</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>사용자 목록을 얻기 위해 실패</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>(주)</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>- 연혁</value>

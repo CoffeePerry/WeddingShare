@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Afegeix</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Tot</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Aprova</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Aprovada</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Ascendent</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Auditoria</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Zona perillosa</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Omissió</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>Aquesta és una versió demo. Tota la configuració està periòdicament esborrada per assegurar una pissarra neta per als futurs exàmens.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Descendent</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Acció obsoleta realitzada</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Ha fallat en pujar les imatges</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Imatges</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Importa</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Clau</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Apaïsat</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Enllaç</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>La mida màx. de fitxer és</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Suport Tipus</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Membres</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>No hi ha pujades pendents</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Cap</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Pendent</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Ha fallat en obtenir les pujades pendents</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Vertical</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Presentació</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Aleatori</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Rebutja</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Codi de compartició</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>Simple</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Passi de diapositives</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Ordena</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>Ha fallat en carregar la llista de patrocinadors</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Quadrat</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Suports</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Ha fallat en obtenir la llista d' usuaris</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Vídeos</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Visualitza</value>

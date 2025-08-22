@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Lisää</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Kaikki</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Hyväksyvät</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Hyväksytty</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Nouseva</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Tarkastus</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Vaaravyöhyke</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Päivämäärä</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Oletus</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>Tämä on demoversio. Kaikki konfiguraatiot pyyhitään ajoittain, jotta varmistetaan puhdas taulu tuleville testaajille.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Laskeutuminen</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Tuhoava toiminta suoritettu</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Kuvien lataus epäonnistui</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Kuvat</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Tuo</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Avain</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Maisema</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Yhteystiedot</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>Tiedoston enimmäiskoko on</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Media Tyyppi</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Jäsenet</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>Ei latauksia ennen uudelleentarkastelua</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Ei ole</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Odotetaan</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Kohdetta ei voitu ladata</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Muotokuva</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Esittely</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Satunnainen</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Hylkää</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Osakekoodi</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>Yksinkertainen</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Diaesitys</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Järjestä</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>Sponsorien luetteloa ei voitu ladata</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Neliö</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Tukijat</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Käyttäjäluetteloa ei voitu saada</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Videot</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Näytä</value>

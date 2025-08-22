@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Добавяне</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Всички</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Одобрение</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Одобрен</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Възходящо</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Одит</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Зона на опасност</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Дата</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>По подразбиране</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>Това е демо версия. Цялата конфигурация периодично се изтрива, за да се осигури ново начало за бъдещите тестери.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Спускане</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Извършване на разрушително действие</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Грешка при качване на изображения</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Снимки</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Внос</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Ключ</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Пейзаж</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Връзка</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>Максимален размер на файла</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Медии Тип</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Членове</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>Няма качвания в очакване на преглед</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Няма</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>В очакване</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Неуспешно качване</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Портрет</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Представяне</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Случайно</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Отхвърляне</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Код на акцията</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>Единичен</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Слайдшоу</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Сортиране</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>Грешка при зареждане на списъка със спонсори</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Квадрат</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Поддръжници</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Грешка при получаване на списъка с потребители</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Видео клипове</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Изглед</value>

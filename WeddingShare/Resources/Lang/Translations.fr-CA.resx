@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Ajouter</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Tous</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Approuver</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Approuvé</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Augmentation</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Vérification des comptes</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Zone de danger</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Par défaut</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>C'est une version démo. Toute la configuration est périodiquement effacée pour assurer une ardoise propre pour les futurs testeurs.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Décroissant</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Action destructive effectuée</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Impossible de télécharger des images</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Images</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Importation</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Clé</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Paysage</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Lien</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>La taille maximale du fichier est</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Médias Type</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Membres</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>Aucun téléchargement en attente de révision</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Aucune</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>En attente</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Impossible d'obtenir les téléchargements en attente</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Portrait</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Présentation</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Aléatoire</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Rejet</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Code de partage</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>Personne seule</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Diaporama</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Tri</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>Impossible de charger la liste des sponsors</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Carré</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Supporteurs</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Impossible d'obtenir la liste des utilisateurs</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Vidéos</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Affichage</value>

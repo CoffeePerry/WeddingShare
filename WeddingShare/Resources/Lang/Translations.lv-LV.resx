@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Pievienot</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Visi</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Apstiprināt</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Apstiprināts</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Pieaugoši</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Revīzija</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Bīstamā zona</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datums</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Noklusētais</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>Šī ir demo versija. Visu konfigurāciju periodiski noslauka, lai nodrošinātu tīru šīferi nākamajiem testētājiem.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Dilstoši</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Iznīcinoša darbība</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Neizdevās augšupielādēt attēlus</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Attēli</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Importēt</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Atslēga</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Ainava</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Saikne</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>Maksimālais faila izmērs ir</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Mediji Veids</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Locekļi</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>Nav augšupielādes gaida pārskatīšanu</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Nav</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Gaida</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Neizdevās saņemt gaidāmās augšupielādes</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Portrets</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Prezentācija</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Nejaušs</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Noraidīt</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Akciju kods</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>Viena</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Slīdrāde</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Kārtot</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>Neizdevās ielādēt sponsoru sarakstu</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Kvadrāts</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Atbalstītāji</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Neizdevās iegūt lietotāju sarakstu</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Video</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Skats</value>

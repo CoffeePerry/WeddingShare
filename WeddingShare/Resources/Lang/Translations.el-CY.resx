@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Προσθήκη</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Όλα</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Εφαρμογή</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Έγκριση</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Αυξάνεται</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Έλεγχος</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Ζώνη κινδύνου</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Ημερομηνία</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Προκαθορισμένο</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>Αυτή είναι μια έκδοση επίδειξης. Όλες οι ρυθμίσεις σβήνονται περιοδικά για να εξασφαλιστεί μια καθαρή πλάκα για τους μελλοντικούς δοκιμαστές.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Φθίνουσα</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Εκτελείται Καταστροφική Δράση</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Αποτυχία αποστολής εικόνων</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Εικόνες</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Εισαγωγή</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Κλειδί</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Τοπίο</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Δεσμός</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>Μέγιστο μέγεθος αρχείου</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Μέσα ενημέρωσης Τύπος</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Μέλη</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>Χωρίς αποστολή εν αναμονή αναθεώρησης</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Καμία</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Σε αναμονή</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Αποτυχία λήψης αναρτήσεων σε εκκρεμότητα</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Πορτραίτο</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Παρουσίαση</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Τυχαίο</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Απόρριψη</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Κωδικός μετοχής</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>Μονό</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Προβολή σλάιντ</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Ταξινόμηση</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>Αποτυχία φόρτωσης της λίστας χορηγών</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Πλατεία</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Υποστηρικτές</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Αποτυχία λήψης λίστας χρηστών</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Βίντεο</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Προβολή</value>

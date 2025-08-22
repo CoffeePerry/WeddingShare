@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Pridať</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Všetky</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Schválenie</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Schválené</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Vzostupne</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>Audit</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>Nebezpečná zóna</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Dátum</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Štandardné</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>Toto je demo verzia. Všetky konfigurácie sú pravidelne vymazané, aby sa zabezpečila čistá bridlica pre budúcich testerov.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Zostupne</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>Deštruktívne konanie</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>Nepodarilo sa nahrať obrázky</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>Obrázky</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>Dovoz</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>Kľúč</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>Krajina</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Spojenie</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>Maximálna veľkosť súboru je</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Médiá Typ</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>Členovia</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>Žiadne nahrávanie pred preskúmaním</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Žiadne</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Čakanie</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>Zlyhalo, kým sa neuploaduje</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>Portrét</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>Prezentácia</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Náhodne</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Odmietnuť</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Kód zdieľania</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>Jednoduchá</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Prezentácia</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Triediť</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>Nepodarilo sa načítať zoznam sponzorov</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Štvorec</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>Priaznivci</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>Nepodarilo sa získať zoznam používateľov</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Videá</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Zobraziť</value>

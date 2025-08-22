@@ -106,11 +106,17 @@
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>همه چیز</value>
+  </data>
   <data name="Approve" xml:space="preserve">
     <value>Approve</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>تایید</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Ascending</value>
   </data>
   <data name="Audit" xml:space="preserve">
     <value>حسابرسی</value>
@@ -277,6 +283,9 @@
   <data name="Danger_Zone" xml:space="preserve">
     <value>منطقه خطر</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>شکست</value>
   </data>
@@ -288,6 +297,9 @@
   </data>
   <data name="Demo_Message" xml:space="preserve">
     <value>این یک نسخه آزمایشی است. تمام تنظیمات به صورت دوره ای از بین می رود تا اطمینان حاصل شود که یک تخته تمیز برای تست های آینده.</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>امتناع</value>
   </data>
   <data name="Destructive_Action_Performed" xml:space="preserve">
     <value>اقدام مخرب</value>
@@ -430,6 +442,9 @@
   <data name="Image_Upload_Failed" xml:space="preserve">
     <value>شکست در آپلود تصاویر</value>
   </data>
+  <data name="Images" xml:space="preserve">
+    <value>تصاویر</value>
+  </data>
   <data name="Import" xml:space="preserve">
     <value>واردات</value>
   </data>
@@ -450,6 +465,9 @@
   </data>
   <data name="Key" xml:space="preserve">
     <value>کلید کلیدی</value>
+  </data>
+  <data name="Landscape" xml:space="preserve">
+    <value>چشم انداز</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>لینک Link</value>
@@ -481,6 +499,9 @@
   <data name="Max_File_Size" xml:space="preserve">
     <value>اندازه فایل Max</value>
   </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>رسانه های رسانه ای نوع</value>
+  </data>
   <data name="Members" xml:space="preserve">
     <value>اعضا</value>
   </data>
@@ -511,6 +532,9 @@
   <data name="No_Pending_Uploads" xml:space="preserve">
     <value>هیچ آپلود در انتظار بررسی</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>هیچ</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>بازگشت</value>
   </data>
@@ -519,6 +543,15 @@
   </data>
   <data name="Pending_Uploads_Failed" xml:space="preserve">
     <value>شکست در انتظار آپلود</value>
+  </data>
+  <data name="Portrait" xml:space="preserve">
+    <value>پرتره</value>
+  </data>
+  <data name="Presentation" xml:space="preserve">
+    <value>مقدماتی</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>تصادفی</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>انکار</value>
@@ -1099,6 +1132,12 @@
   <data name="Share_Code" xml:space="preserve">
     <value>Share Code</value>
   </data>
+  <data name="Single" xml:space="preserve">
+    <value>مجرد</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Slideshow</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>دسته بندی</value>
   </data>
@@ -1113,6 +1152,9 @@
   </data>
   <data name="Sponsors_Load_Error" xml:space="preserve">
     <value>شکست در بارگذاری لیست حامیان</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Square</value>
   </data>
   <data name="Supporters" xml:space="preserve">
     <value>حامیان</value>
@@ -1155,6 +1197,9 @@
   </data>
   <data name="Users_List_Failed" xml:space="preserve">
     <value>شکست در لیست کاربران</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>فیلم های ویدئویی</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>View</value>

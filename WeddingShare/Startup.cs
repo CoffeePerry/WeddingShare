@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Localization;
@@ -84,6 +85,9 @@ namespace WeddingShare
                 options.Cookie.Name = ".WeddingShare.Session";
                 options.Cookie.IsEssential = true;
             });
+            services.AddDataProtection()
+                .SetApplicationName("WeddingShare")
+                .PersistKeysToFileSystem(new DirectoryInfo(Directories.Config));
 
             var localizer = services.BuildServiceProvider().GetRequiredService<IStringLocalizer<Lang.Translations>>();
             var ffmpegPath = config.GetOrDefault(FFMPEG.InstallPath, "/ffmpeg");
@@ -99,6 +103,9 @@ namespace WeddingShare
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var config = app.ApplicationServices.GetRequiredService<IConfigHelper>();
+            var settings = app.ApplicationServices.GetRequiredService<ISettingsHelper>();
+
             app.UseExceptionHandler();
 
             if (!env.IsDevelopment())
@@ -107,8 +114,7 @@ namespace WeddingShare
                 app.UseHsts();
             }
 
-            var config = new ConfigHelper(new EnvironmentWrapper(), Configuration, _loggerFactory.CreateLogger<ConfigHelper>());
-            if (config.GetOrDefault(Settings.Basic.ForceHttps, false))
+            if (settings.GetOrDefault(Settings.Basic.ForceHttps, false).Result)
             { 
                 app.UseHttpsRedirection();
             }
@@ -119,6 +125,19 @@ namespace WeddingShare
             {
                 try
                 {
+                    var baseUrl = settings.GetOrDefault(Settings.Basic.BaseUrl, string.Empty).Result;
+
+                    var baseUrlCSP = "http://localhost:* ws://localhost:*";
+                    if (!string.IsNullOrWhiteSpace(baseUrl))
+                    { 
+                        try
+                        {
+                            var uri = new Uri(baseUrl);
+                            baseUrlCSP = !string.IsNullOrWhiteSpace(uri.Host) ? $"{uri.Scheme}://{uri.Host}:* {(uri.Scheme.Equals("https", StringComparison.OrdinalIgnoreCase) ? "wss" : "ws")}://{uri.Host}:*" : string.Empty;
+                        }
+                        catch { }
+                    }
+
                     app.Use(async (context, next) =>
                     {
                         context.Response.Headers.Remove("X-Frame-Options");
@@ -128,7 +147,7 @@ namespace WeddingShare
                         context.Response.Headers.Append("X-Content-Type-Options", config.GetOrDefault(Security.Headers.XContentTypeOptions, "nosniff"));
 
                         context.Response.Headers.Remove("Content-Security-Policy");
-                        context.Response.Headers.Append("Content-Security-Policy", config.GetOrDefault(Security.Headers.CSP, $"default-src 'self' http://localhost:* ws://localhost:*; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://github.com/ https://avatars.githubusercontent.com/ data:; frame-src 'self'; frame-ancestors 'self';"));
+                        context.Response.Headers.Append("Content-Security-Policy", config.GetOrDefault(Security.Headers.CSP, $"default-src 'self' {(!string.IsNullOrWhiteSpace(baseUrlCSP) ? baseUrlCSP : "http://localhost:* ws://localhost:*")}; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://github.com/ https://avatars.githubusercontent.com/ data:; frame-src 'self'; frame-ancestors 'self';"));
 
                         await next();
                     });
