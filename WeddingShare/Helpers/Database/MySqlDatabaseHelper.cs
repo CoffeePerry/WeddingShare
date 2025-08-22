@@ -17,7 +17,7 @@ namespace WeddingShare.Helpers.Database
             _connString = config.GetOrDefault(Settings.Database.ConnectionString, "Server=mysql;Port=3306;Database=WeddingShare;Uid=WeddingShare;Pwd=Password;");
             _logger = logger;
 
-            _logger.LogInformation($"Using MySQL connection string: '{_connString}'");
+            _logger.LogInformation($"Using MySQL connection string");
 
             this.TestConnection();
         }
@@ -41,11 +41,11 @@ namespace WeddingShare.Helpers.Database
             {
                 using (var conn = GetConnection().Result)
                 {
-                    var cmd = CreateCommand($"SELECT 1", conn);
+                    var cmd = CreateCommand($"SHOW TABLES;", conn);
                     cmd.CommandType = CommandType.Text;
 
                     conn.Open();
-                    cmd.ExecuteScalarAsync();
+                    cmd.ExecuteReader();
                     conn.Close();
                 }
             }
@@ -193,6 +193,11 @@ namespace WeddingShare.Helpers.Database
 
             if (!string.IsNullOrWhiteSpace(identifier))
             {
+                if (identifier.Equals("All", StringComparison.OrdinalIgnoreCase))
+                {
+                    return 0;
+                }
+
                 using (var conn = await GetConnection())
                 {
                     var cmd = CreateCommand($"SELECT g.`id` FROM `galleries` AS g WHERE UPPER(g.`identifier`)=UPPER(@Identifier);", conn);
@@ -218,45 +223,66 @@ namespace WeddingShare.Helpers.Database
             return (await this.GetGallery(id))?.Name;
         }
 
-        public async Task<GalleryModel?> GetGallery(int id)
+        public async Task<GalleryModel?> GetAllGallery()
         {
             GalleryModel? result;
 
             using (var conn = await GetConnection())
             {
-                var cmd = CreateCommand($"SELECT g.*, COUNT(gi.`id`) AS `total`, SUM(CASE WHEN gi.`state`=@ApprovedState THEN 1 ELSE 0 END) AS `approved`, SUM(CASE WHEN gi.`state`=@PendingState THEN 1 ELSE 0 END) AS `pending`, SUM(gi.file_size) AS `total_gallery_size` FROM `galleries` AS g LEFT JOIN `gallery_items` AS gi ON g.`id` = gi.`gallery_id` {(id > 0 ? "WHERE g.`id`=@Id;" : string.Empty)}", conn);
+                var cmd = CreateCommand($"SELECT g.*, COUNT(gi.`id`) AS `total`, SUM(CASE WHEN gi.`state`=@ApprovedState THEN 1 ELSE 0 END) AS `approved`, SUM(CASE WHEN gi.`state`=@PendingState THEN 1 ELSE 0 END) AS `pending`, SUM(gi.file_size) AS `total_gallery_size` FROM `galleries` AS g LEFT JOIN `gallery_items` AS gi ON g.`id` = gi.`gallery_id`", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("PendingState", (int)GalleryItemState.Pending);
+                cmd.Parameters.AddWithValue("ApprovedState", (int)GalleryItemState.Approved);
+
+                await conn.OpenAsync();
+
+                using (var reader = await cmd.ExecuteReaderAsync())
+                {
+                    var galleries = await ReadGalleries(reader);
+                    result = new GalleryModel()
+                    {
+                        Id = 0,
+                        Identifier = "all",
+                        Name = "all",
+                        SecretKey = null,
+                        TotalItems = galleries?.Sum(x => x.TotalItems) ?? 0,
+                        ApprovedItems = galleries?.Sum(x => x.ApprovedItems) ?? 0,
+                        PendingItems = galleries?.Sum(x => x.PendingItems) ?? 0,
+                        TotalGallerySize = galleries?.Sum(x => x.TotalGallerySize) ?? 0,
+                        Owner = 1
+                    };
+                }
+
+                await conn.CloseAsync();
+            }
+
+            return result;
+        }
+
+        public async Task<GalleryModel?> GetGallery(int id)
+        {
+            GalleryModel? result;
+
+            if (id == 0)
+            {
+                return await GetAllGallery();
+            }
+
+            using (var conn = await GetConnection())
+            {
+                var cmd = CreateCommand($"SELECT g.*, COUNT(gi.`id`) AS `total`, SUM(CASE WHEN gi.`state`=@ApprovedState THEN 1 ELSE 0 END) AS `approved`, SUM(CASE WHEN gi.`state`=@PendingState THEN 1 ELSE 0 END) AS `pending`, SUM(gi.file_size) AS `total_gallery_size` FROM `galleries` AS g LEFT JOIN `gallery_items` AS gi ON g.`id` = gi.`gallery_id` WHERE g.`id`=@Id;", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("Id", id);
                 cmd.Parameters.AddWithValue("PendingState", (int)GalleryItemState.Pending);
                 cmd.Parameters.AddWithValue("ApprovedState", (int)GalleryItemState.Approved);
 
                 await conn.OpenAsync();
-                if (id > 0)
+
+                using (var reader = await cmd.ExecuteReaderAsync())
                 {
-                    using (var reader = await cmd.ExecuteReaderAsync())
-                    {
-                        result = (await ReadGalleries(reader))?.FirstOrDefault();
-                    }
+                    result = (await ReadGalleries(reader))?.FirstOrDefault();
                 }
-                else
-                {
-                    using (var reader = await cmd.ExecuteReaderAsync())
-                    {
-                        var galleries = await ReadGalleries(reader);
-                        result = new GalleryModel()
-                        {
-                            Id = 0,
-                            Identifier = "all",
-                            Name = "all",
-                            SecretKey = null,
-                            TotalItems = galleries?.Sum(x => x.TotalItems) ?? 0,
-                            ApprovedItems = galleries?.Sum(x => x.ApprovedItems) ?? 0,
-                            PendingItems = galleries?.Sum(x => x.PendingItems) ?? 0,
-                            TotalGallerySize = galleries?.Sum(x => x.TotalGallerySize) ?? 0,
-                            Owner = 1
-                        };
-                    }
-                }
+
                 await conn.CloseAsync();
             }
 

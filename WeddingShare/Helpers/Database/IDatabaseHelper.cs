@@ -12,6 +12,7 @@ namespace WeddingShare.Helpers.Database
         Task<int?> GetGalleryIdByName(string name);
         Task<string?> GetGalleryIdentifier(int id);
         Task<string?> GetGalleryName(int id);
+        Task<GalleryModel?> GetAllGallery();
         Task<GalleryModel?> GetGallery(int id);
         Task<GalleryModel?> AddGallery(GalleryModel model);
         Task<GalleryModel?> EditGallery(GalleryModel model);

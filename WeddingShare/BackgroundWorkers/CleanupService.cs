@@ -12,7 +12,7 @@ namespace WeddingShare.BackgroundWorkers
             if (enabled)
             {
                 var cron = await settingsHelper.GetOrDefault(BackgroundServices.Cleanup.Schedule, "0 4 * * *");
-                var nextExecutionTime = DateTime.Now.AddSeconds(10);
+                var nextExecutionTime = DateTime.Now.AddMinutes(1);
 
                 while (!stoppingToken.IsCancellationRequested)
                 {

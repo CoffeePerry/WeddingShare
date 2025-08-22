@@ -57,7 +57,7 @@ namespace WeddingShare.Helpers
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogWarning(ex, $"Failed to find key '{key}' in either database or config");
+                    _logger.LogDebug(ex, $"Failed to find key '{key}' in either database or config. If you are seeing this on first setup please ignore as the database might not have initialized the table yet.");
                 }
             }
 

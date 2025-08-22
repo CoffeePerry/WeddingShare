@@ -218,7 +218,7 @@ namespace WeddingShare.Controllers
                         model.Galleries = (await _database.GetAllGalleries())?.Where(x => !x.Identifier.Equals("All", StringComparison.OrdinalIgnoreCase))?.ToList();
                         if (model.Galleries != null)
                         {
-                            var all = await _database.GetGallery(0);
+                            var all = await _database.GetAllGallery();
                             if (all != null)
                             {
                                 model.Galleries.Add(all);
@@ -271,7 +271,7 @@ namespace WeddingShare.Controllers
                     result = (await _database.GetAllGalleries())?.Where(x => !x.Identifier.Equals("All", StringComparison.OrdinalIgnoreCase))?.ToList();
                     if (result != null)
                     {
-                        var all = await _database.GetGallery(0);
+                        var all = await _database.GetAllGallery();
                         if (all != null)
                         {
                             result.Add(all);

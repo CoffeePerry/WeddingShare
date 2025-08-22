@@ -1,14 +1,23 @@
 --
+-- Wipe previously existing tables
+--
+DROP TABLE IF EXISTS `gallery_settings`;
+DROP TABLE IF EXISTS `gallery_items`;
+DROP TABLE IF EXISTS `galleries`;
+DROP TABLE IF EXISTS `custom_resources`;
+DROP TABLE IF EXISTS `audit_logs`;
+DROP TABLE IF EXISTS `settings`;
+DROP TABLE IF EXISTS `users`;
+
+--
 -- Table structure for table `galleries`
 --
-DROP TABLE IF EXISTS `galleries`;
 CREATE TABLE `galleries` (
   `id` BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL UNIQUE,
   `secret_key` VARCHAR(100) NULL
 );
 
-DROP TABLE IF EXISTS `gallery_items`;
 CREATE TABLE `gallery_items` (
   `id` BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `gallery_id` BIGINT NOT NULL,
@@ -20,14 +29,12 @@ CREATE TABLE `gallery_items` (
 
 INSERT INTO `galleries` 
 	(`id`, `name`, `secret_key`)
-VALUES 
-	(0, 'all', NULL),
+VALUES
 	(1, 'default', NULL);
 
 --
 -- Table structure for table `users`
 --
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `username` VARCHAR(50) NOT NULL UNIQUE,

@@ -42,7 +42,9 @@ namespace WeddingShare.Helpers.Dbup
 
                 if (dbupResult != null && !dbupResult.Successful)
                 {
-                    logger.LogWarning($"DBUP failed with error: '{dbupResult?.Error?.Message}' - '{dbupResult?.Error?.ToString()}'");
+                    var message = $"DBUP failed with error: '{dbupResult?.Error?.Message}' - '{dbupResult?.Error?.ToString()}'";
+                    logger.LogCritical(message);
+                    Environment.FailFast(message);
                 }
 
                 if (config.GetOrDefault(Settings.Database.SyncFromConfig, false))
